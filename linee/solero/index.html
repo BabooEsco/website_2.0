@@ -64,7 +64,7 @@
 <section class="sec alt reveal" aria-labelledby="h-giornata">
   <div class="wrap">
     <div class="head part"><span class="eyebrow">Una giornata dell'impianto</span><h2 id="h-giornata">Il sole si usa due volte.</h2></div>
-    <figure class="schema part" aria-labelledby="schema-cap" data-live>
+    <figure class="schema part ph-day" aria-labelledby="schema-cap" data-live data-cycle>
   <svg viewBox="0 0 900 300" role="img" aria-hidden="true" focusable="false">
     <!-- sole -->
     <g class="sun"><circle cx="90" cy="82" r="24"/><g class="rays"><line x1="90" y1="38" x2="90" y2="48"/><line x1="90" y1="116" x2="90" y2="126"/><line x1="46" y1="82" x2="56" y2="82"/><line x1="124" y1="82" x2="134" y2="82"/><line x1="59" y1="51" x2="66" y2="58"/><line x1="114" y1="106" x2="121" y2="113"/><line x1="59" y1="113" x2="66" y2="106"/><line x1="114" y1="58" x2="121" y2="51"/></g></g>
@@ -78,13 +78,38 @@
     <g class="batt"><rect x="668" y="136" width="64" height="30" rx="2"/><rect x="732" y="145" width="6" height="12"/><rect class="charge" x="674" y="142" width="40" height="18"/></g>
     <!-- rete -->
     <g class="grid-ico"><line x1="700" y1="210" x2="700" y2="270"/><line x1="676" y1="270" x2="724" y2="270"/><line x1="682" y1="228" x2="718" y2="228"/><line x1="686" y1="244" x2="714" y2="244"/><line x1="682" y1="228" x2="700" y2="270"/><line x1="718" y1="228" x2="700" y2="270"/></g>
-    <!-- flussi -->
-    <path class="flow" d="M128 100 C170 120 200 130 240 138"/>
-    <path class="flow" d="M375 150 H450"/>
-    <path class="flow" d="M514 150 C580 150 600 70 668 70"/>
-    <path class="flow" d="M514 150 H668"/>
-    <path class="flow" d="M514 150 C580 150 600 240 676 240"/>
-    <path class="flow back" d="M740 151 H754 V70 H736"/>
+    <!-- flussi: f-day / f-eve / f-night dicono in quale fase la linea e' attiva -->
+    <g class="flows">
+      <path id="p-sun" class="flow f-day" d="M128 100 C170 120 200 130 240 138"/>
+      <path id="p-roof" class="flow f-day" d="M375 150 H450"/>
+      <path id="p-casa" class="flow f-day f-night" d="M514 150 C580 150 600 70 668 70"/>
+      <path id="p-batt" class="flow f-day" d="M514 150 H668"/>
+      <path id="p-rete" class="flow f-day f-night" d="M514 150 C580 150 600 240 676 240"/>
+      <path id="p-rete-rev" class="guide" d="M676 240 C600 240 580 150 514 150"/>
+      <path id="p-back" class="flow back f-eve" d="M740 151 H754 V70 H736"/>
+    </g>
+    <!-- energia che scorre: punti su percorso (SMIL), visibili solo nella fase attiva -->
+    <g class="dots d-day">
+      <circle class="dot" r="3"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="3s" begin="-1.5s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="2s" begin="-1s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="3.2s" begin="-1.6s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="2.6s" begin="-1.3s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#p-rete"/></animateMotion></circle>
+    </g>
+    <g class="dots d-eve">
+      <circle class="dot" r="3"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="2.8s" begin="-1.4s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
+    </g>
+    <g class="dots d-night">
+      <circle class="dot" r="3"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="3.2s" begin="-1.6s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="3.2s" begin="-0.8s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="3.2s" begin="-2.4s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+    </g>
     <!-- etichette -->
     <text x="90" y="160">SOLE</text><text x="300" y="240">TETTO</text><text x="482" y="200">INVERTER</text>
     <text x="700" y="124">CASA</text><text x="700" y="192">BATTERIA</text><text x="700" y="294">RETE</text>
@@ -94,9 +119,9 @@
 </figure>
 
     <ol class="numbered grid g3">
-      <li class="part"><span class="n">01 · Di giorno</span><h3>Il tetto produce.</h3><p>La casa consuma direttamente quello che serve; quello che avanza carica la batteria.</p></li>
-      <li class="part"><span class="n">02 · La sera</span><h3>La batteria restituisce.</h3><p>La casa si accende: cucina, luci, lavatrice. Attinge alla batteria, non alla rete.</p></li>
-      <li class="part"><span class="n">03 · Di notte e nei giorni grigi</span><h3>La rete integra.</h3><p>Quando tetto e batteria non bastano, entra la rete. MONITOR registra ogni passaggio, così sappiamo quanto l'impianto sta rendendo davvero.</p></li>
+      <li class="part" data-phase="day"><span class="n">01 · Di giorno</span><h3>Il tetto produce.</h3><p>La casa consuma direttamente quello che serve; quello che avanza carica la batteria.</p></li>
+      <li class="part" data-phase="eve"><span class="n">02 · La sera</span><h3>La batteria restituisce.</h3><p>La casa si accende: cucina, luci, lavatrice. Attinge alla batteria, non alla rete.</p></li>
+      <li class="part" data-phase="night"><span class="n">03 · Di notte e nei giorni grigi</span><h3>La rete integra.</h3><p>Quando tetto e batteria non bastano, entra la rete. MONITOR registra ogni passaggio, così sappiamo quanto l'impianto sta rendendo davvero.</p></li>
     </ol>
   </div>
 </section>

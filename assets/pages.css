@@ -78,11 +78,29 @@ address{font-style:normal;line-height:1.8}
 .schema .modules path,.schema .modules line{stroke:var(--blue)}
 .schema .modules path{fill:rgba(78,127,163,.10)}
 .schema .charge{fill:rgba(78,127,163,.28);stroke:none}
-.schema .flow{stroke:var(--swan);stroke-width:1.5;stroke-dasharray:4 7}
-.schema .flow.back{stroke:var(--blue)}
-.schema.live .flow{animation:flowDash 2.4s linear infinite}
-.schema.live .flow.back{animation-direction:reverse;animation-duration:3.2s}
-@keyframes flowDash{to{stroke-dashoffset:-22}}
+.schema .flow{stroke:var(--swan);stroke-width:1.5;stroke-dasharray:4 7;opacity:.45;transition:opacity .6s var(--ease-out),stroke .6s var(--ease-out)}
+.schema .guide{stroke:none}
+.schema.ph-day .flow.f-day,.schema.ph-eve .flow.f-eve,.schema.ph-night .flow.f-night{stroke:var(--blue);opacity:1}
+/* energia che scorre: punti luminosi, accesi solo nella fase attiva */
+.schema .dot{fill:var(--blue);stroke:none;filter:drop-shadow(0 0 3px rgba(78,127,163,.9))}
+.schema .dots{opacity:0;transition:opacity .5s var(--ease-out)}
+.schema.ph-day .dots.d-day,.schema.ph-eve .dots.d-eve,.schema.ph-night .dots.d-night{opacity:1}
+/* sole e batteria seguono la fase */
+.schema .sun{transform-box:fill-box;transform-origin:center;transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.schema .rays{transition:opacity .9s var(--ease-out)}
+.schema.ph-eve .sun{opacity:.55;transform:translateY(10px) scale(.92)}
+.schema.ph-eve .rays{opacity:.35}
+.schema.ph-night .sun{opacity:.18;transform:translateY(16px) scale(.85)}
+.schema.ph-night .rays{opacity:0}
+.schema .charge{transition:width 4.2s linear}
+.schema.ph-day .charge{width:40px}
+.schema.ph-eve .charge{width:10px}
+.schema.ph-night .charge{width:6px}
+/* la tile della fase in corso si accende */
+.reveal .numbered li{transition:opacity .8s var(--ease-out),transform .8s var(--ease-out),border-color .6s var(--ease-out),box-shadow .6s var(--ease-out)}
+.numbered li.on{border-color:var(--blue);box-shadow:0 10px 30px rgba(78,127,163,.14)}
+.numbered li.on .n{color:var(--blue-deep)}
+@media (prefers-reduced-motion:reduce){.schema .dots{display:none}.schema .charge{width:40px}}
 .schema text{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;fill:var(--ink-soft);text-anchor:middle}
 .schema text.note{font-size:10px;letter-spacing:.06em;text-anchor:start;fill:var(--blue)}
 .schema figcaption{margin:18px auto 0;max-width:62ch;text-align:center;font-size:.9rem;color:var(--ink-soft)}

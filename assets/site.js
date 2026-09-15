@@ -63,6 +63,32 @@
     document.body.classList.toggle('paused', document.hidden);
   });
 
+  /* ---- schema a fasi (pagine-linea): ciclo giorno / sera / notte ---- */
+  document.querySelectorAll('.schema[data-cycle]').forEach(fig => {
+    const phases = ['day', 'eve', 'night'];
+    const svg = fig.querySelector('svg');
+    const sec = fig.closest('section');
+    const tiles = sec ? sec.querySelectorAll('[data-phase]') : [];
+    let i = 0, timer = null;
+    const set = ph => {
+      phases.forEach(p => fig.classList.toggle('ph-' + p, p === ph));
+      tiles.forEach(t => t.classList.toggle('on', t.getAttribute('data-phase') === ph));
+    };
+    const step = () => { i = (i + 1) % phases.length; set(phases[i]); };
+    const run = () => {
+      const on = fig.classList.contains('live') && !document.hidden && !reduced.matches;
+      if (on && !timer) { timer = setInterval(step, 4600); if (svg && svg.unpauseAnimations) svg.unpauseAnimations(); }
+      if (!on && timer) { clearInterval(timer); timer = null; }
+      if (!on && svg && svg.pauseAnimations) svg.pauseAnimations();
+    };
+    set('day');
+    if (reduced.matches) tiles.forEach(t => t.classList.remove('on'));
+    new MutationObserver(muts => { if (muts.some(m => m.oldValue === null || /(^| )live( |$)/.test(m.oldValue) !== fig.classList.contains('live'))) run(); })
+      .observe(fig, { attributes: true, attributeFilter: ['class'], attributeOldValue: true });
+    document.addEventListener('visibilitychange', run);
+    run();
+  });
+
   /* ---- canoni: i prezzi vengono solo dal file dati ---- */
   const priceEls = document.querySelectorAll('[data-canone]');
   if (priceEls.length) {

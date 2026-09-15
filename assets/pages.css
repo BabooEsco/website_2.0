@@ -130,7 +130,7 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema .flow.on{stroke:var(--blue);opacity:1}
 .schema .dots.on{opacity:1}
 .schema .season{opacity:0;transition:opacity .6s var(--ease-out);font-size:10px;letter-spacing:.06em;fill:var(--blue)}
-.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs{opacity:1}
+.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air{opacity:1}
 /* schema CLIMA: ventola, aria, termosifone, acqua calda */
 .schema .fan{transform-box:fill-box;transform-origin:center}
 .schema.live .fan{animation:fanSpin 5s linear infinite}
@@ -143,3 +143,15 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema .level{fill:rgba(78,127,163,.28);stroke:none;transition:height 4.2s linear,y 4.2s linear}
 .schema.ph-acs .level{y:136px;height:52px}
 @media (prefers-reduced-motion:reduce){.schema.ph-acs .level{y:136px;height:52px}}
+
+/* schema MOUNTAINVIEW: sezione di finestra tra dentro e fuori */
+.schema .win rect:nth-child(2),.schema .win rect:nth-child(3){fill:rgba(78,127,163,.10);transition:fill .8s var(--ease-out)}
+.schema.ph-sum .win rect:nth-child(2),.schema.ph-sum .win rect:nth-child(3){fill:rgba(78,127,163,.22)}
+.schema .inside rect{transition:stroke .8s var(--ease-out)}
+.schema.ph-win .inside .rad line{stroke:var(--blue)}
+.schema .sun circle,.schema .sun .rays line{transition:stroke .8s var(--ease-out),opacity .8s var(--ease-out)}
+.schema.ph-sum .sun circle,.schema.ph-sum .sun .rays line{stroke:var(--blue)}
+.schema:not(.ph-sum) .sun .rays{opacity:.35}
+.schema .noise path{stroke:var(--swan);opacity:.45;transition:stroke .8s var(--ease-out),opacity .8s var(--ease-out)}
+.schema.ph-air .noise path{stroke:var(--blue);opacity:1}
+.schema.ph-air .win rect:first-child{stroke:var(--blue)}

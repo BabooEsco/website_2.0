@@ -104,8 +104,11 @@ ul.checks li::before{content:"";position:absolute;left:0;top:.55em;width:.9em;he
 .rule{height:1px;background:var(--line);border:0;margin:0}
 
 /* ---------- header / nav ---------- */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background-color .4s var(--ease-out)}
-.site-header.on-hero{background:rgba(55,67,80,.35);border-bottom-color:rgba(160,190,210,.25);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);transition:border-color .4s var(--ease-out)}
+/* lo sfondo sfumato vive in uno pseudo-elemento: un filtro sull'header stesso farebbe da contenitore al menu mobile fixed e lo taglierebbe */
+.site-header::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background-color .4s var(--ease-out)}
+.site-header.on-hero{border-bottom-color:rgba(160,190,210,.25)}
+.site-header.on-hero::before{background:rgba(55,67,80,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
 .logo{display:inline-flex;align-items:center;line-height:0}
 .logo img{height:40px;width:auto;display:block}
@@ -142,6 +145,8 @@ ul.checks li::before{content:"";position:absolute;left:0;top:.55em;width:.9em;he
   .burger{display:block}
   .menu{position:fixed;inset:72px 0 0 0;background:var(--white);flex-direction:column;align-items:stretch;padding:16px var(--pad) 40px;gap:0;overflow:auto;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .35s var(--ease-out),transform .35s var(--ease-out)}
   .menu.open{opacity:1;transform:none;pointer-events:auto}
+  body.menu-open{overflow:hidden}
+  body.menu-open .site-header{position:fixed;top:0;left:0;right:0}
   .menu a,.menu button{width:100%;justify-content:space-between;padding:16px 4px;font-size:1.1rem;border-bottom:1px solid var(--line);border-radius:0;color:var(--ink)!important;background:none!important}
   .sub{position:static;box-shadow:none;border:0;margin:0;padding:0 0 8px 12px;display:none;opacity:1;transform:none;pointer-events:auto}
   .sub.open{display:block}
@@ -201,3 +206,8 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .lead .check{min-height:44px;align-items:center}
   .lead input[type=checkbox]{width:22px;height:22px}
 }
+/* menu mobile aperto sopra il hero: header bianco, logo e panino scuri */
+body.menu-open .site-header::before,body.menu-open .site-header.on-hero::before{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}
+body.menu-open .site-header.on-hero .logo img.lite{display:none}
+body.menu-open .site-header.on-hero .logo img.dark{display:block}
+body.menu-open .site-header.on-hero .burger span{background:var(--ink)}

@@ -9,13 +9,13 @@
     burger.addEventListener('click', () => {
       const open = burger.getAttribute('aria-expanded') === 'true';
       burger.setAttribute('aria-expanded', String(!open));
-      menu.classList.toggle('open', !open);
+      menu.classList.toggle('open', !open); document.body.classList.toggle('menu-open', !open);
       document.documentElement.style.overflow = open ? '' : 'hidden';
     });
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       if (menu.classList.contains('open')) {
         burger.setAttribute('aria-expanded', 'false');
-        menu.classList.remove('open');
+        menu.classList.remove('open'); document.body.classList.remove('menu-open');
         document.documentElement.style.overflow = '';
       }
     }));

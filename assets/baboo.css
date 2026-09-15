@@ -103,7 +103,7 @@ ul.checks li::before{content:"";position:absolute;left:0;top:.55em;width:.9em;he
 .rule{height:1px;background:var(--line);border:0;margin:0}
 
 /* ---------- header / nav ---------- */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background-color .4s var(--ease-out)}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background-color .4s var(--ease-out)}
 .site-header.on-hero{background:rgba(55,67,80,.35);border-bottom-color:rgba(160,190,210,.25);backdrop-filter:blur(8px)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
 .logo{display:inline-flex;align-items:center;line-height:0}
@@ -188,4 +188,15 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   *,*::before,*::after{animation:none!important;transition:none!important;transition-delay:0s!important}
   body{opacity:1}
   .reveal .part{opacity:1;transform:none}
+}
+
+/* passata responsive 15/09: margini stretti, target tattili, testi minimi */
+.eyebrow{font-size:max(.74rem,12px)}
+@media (max-width:1359px){.wire{display:none}}
+@media (max-width:1000px){.grid.g3.plans{grid-template-columns:1fr;max-width:560px}}
+@media (pointer:coarse){
+  .site-footer li{margin:0}
+  .site-footer li a,address a,.mon-links a:not(.btn),.faq-grid a,.legal-row a{display:inline-block;padding:8px 0;min-height:44px;line-height:28px}
+  .lead .check{min-height:44px;align-items:center}
+  .lead input[type=checkbox]{width:22px;height:22px}
 }

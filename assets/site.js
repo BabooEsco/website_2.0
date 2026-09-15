@@ -25,8 +25,10 @@
     const set = open => { btn.setAttribute('aria-expanded', String(open)); sub.classList.toggle('open', open); };
     btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
     const li = btn.parentElement;
-    li.addEventListener('mouseenter', () => { if (matchMedia('(min-width: 1101px)').matches) set(true); });
-    li.addEventListener('mouseleave', () => { if (matchMedia('(min-width: 1101px)').matches) set(false); });
+    let closeTimer = null;
+    const desktop = () => matchMedia('(min-width: 1101px)').matches;
+    li.addEventListener('mouseenter', () => { if (!desktop()) return; clearTimeout(closeTimer); set(true); });
+    li.addEventListener('mouseleave', () => { if (!desktop()) return; clearTimeout(closeTimer); closeTimer = setTimeout(() => set(false), 260); });
     li.addEventListener('focusout', e => { if (!li.contains(e.relatedTarget)) set(false); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
   });
@@ -61,32 +63,6 @@
   } else { live.forEach(el => el.classList.add('live')); }
   document.addEventListener('visibilitychange', () => {
     document.body.classList.toggle('paused', document.hidden);
-  });
-
-  /* ---- schema a fasi (pagine-linea): ciclo giorno / sera / notte ---- */
-  document.querySelectorAll('.schema[data-cycle]').forEach(fig => {
-    const phases = ['day', 'eve', 'night'];
-    const svg = fig.querySelector('svg');
-    const sec = fig.closest('section');
-    const tiles = sec ? sec.querySelectorAll('[data-phase]') : [];
-    let i = 0, timer = null;
-    const set = ph => {
-      phases.forEach(p => fig.classList.toggle('ph-' + p, p === ph));
-      tiles.forEach(t => t.classList.toggle('on', t.getAttribute('data-phase') === ph));
-    };
-    const step = () => { i = (i + 1) % phases.length; set(phases[i]); };
-    const run = () => {
-      const on = fig.classList.contains('live') && !document.hidden && !reduced.matches;
-      if (on && !timer) { timer = setInterval(step, 4600); if (svg && svg.unpauseAnimations) svg.unpauseAnimations(); }
-      if (!on && timer) { clearInterval(timer); timer = null; }
-      if (!on && svg && svg.pauseAnimations) svg.pauseAnimations();
-    };
-    set('day');
-    if (reduced.matches) tiles.forEach(t => t.classList.remove('on'));
-    new MutationObserver(muts => { if (muts.some(m => m.oldValue === null || /(^| )live( |$)/.test(m.oldValue) !== fig.classList.contains('live'))) run(); })
-      .observe(fig, { attributes: true, attributeFilter: ['class'], attributeOldValue: true });
-    document.addEventListener('visibilitychange', run);
-    run();
   });
 
   /* ---- canoni: i prezzi vengono solo dal file dati ---- */

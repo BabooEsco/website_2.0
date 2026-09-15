@@ -128,8 +128,10 @@ ul.checks li::before{content:"";position:absolute;left:0;top:.55em;width:.9em;he
 .menu .cta a:hover,.site-header.on-hero .menu .cta a:hover{background:var(--blue-deep);color:#fff}
 .caret{width:.6em;height:.6em;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease-out)}
 .has-sub[aria-expanded="true"] .caret{transform:rotate(-135deg) translateY(-1px)}
-.sub{position:absolute;top:100%;left:0;min-width:260px;background:var(--white);border:1px solid var(--line);border-radius:4px;padding:8px;margin:6px 0 0;list-style:none;box-shadow:0 18px 40px rgba(55,67,80,.14);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .3s var(--ease-out),transform .3s var(--ease-out)}
+.sub{position:absolute;top:calc(100% + 6px);left:0;min-width:260px;background:var(--white);border:1px solid var(--line);border-radius:4px;padding:8px;margin:0;list-style:none;box-shadow:0 18px 40px rgba(55,67,80,.14);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .3s var(--ease-out),transform .3s var(--ease-out)}
 .sub.open{opacity:1;transform:none;pointer-events:auto}
+/* ponte invisibile sopra la tendina: il mouse può attraversare lo spazio tra voce e pannello senza chiuderlo */
+.sub::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}
 .sub a{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 12px;color:var(--ink)}
 .sub a b{font-family:var(--font-mono);font-weight:400;letter-spacing:.06em;font-size:.8rem;color:var(--slate)}
 .sub a span{font-size:.85rem;color:var(--ink-soft)}

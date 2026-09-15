@@ -107,7 +107,7 @@ address{font-style:normal;line-height:1.8}
 .lead .btn{justify-self:start}
 .form-msg{margin:0;font-size:.95rem;color:var(--blue-deep);min-height:1.4em}
 .lead.sent .btn{display:none}
-.lead input:invalid:not(:placeholder-shown),.lead .touched:invalid{border-color:#B5533C}
+.lead .touched:invalid{border-color:#B5533C}
 
 @media (prefers-reduced-motion:reduce){
   .mon-lines li{opacity:1;transform:none}

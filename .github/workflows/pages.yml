@@ -1,0 +1,46 @@
+# Ambiente di TEST del nuovo sito Baboo su GitHub Pages.
+# Ogni push su main pubblica il sito su https://babooesco.github.io/website_2.0/
+# Il sito pubblicato qui e' marcato "noindex": non deve finire nei motori di ricerca.
+# La produzione (VPS Hostinger, baboo.eu) non passa da qui e richiede l'approvazione esplicita di Renato.
+name: Test su GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepara la copia di test (noindex, niente file di lavoro)
+        run: |
+          mkdir -p _site
+          rsync -a --exclude '.git' --exclude '.github' --exclude 'review' --exclude '*.md' --exclude '*.tgz' --exclude '*.py' ./ _site/
+          # marca ogni pagina come ambiente di test, senza toccare i sorgenti
+          find _site -name '*.html' -exec sed -i 's#<meta name="theme-color"#<meta name="robots" content="noindex, nofollow">\n<meta name="theme-color"#' {} +
+          touch _site/.nojekyll
+          echo "Pagine pubblicate:"; find _site -name '*.html' | sort
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

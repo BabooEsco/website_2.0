@@ -14,6 +14,9 @@
   const ENDING_URL = hero.getAttribute('data-ending') || POSTER_URL;
   let posterState = 'start';
   const VIDEO_BYTES = Number(hero.getAttribute('data-bytes')) || 12000000;
+  const FILM_URL = hero.getAttribute('data-film');
+  const FILM_POSTER = hero.getAttribute('data-film-poster') || POSTER_URL;
+  const skipBtn = hero.querySelector('.film-skip');
 
   /* ---- bande: range e cache ---- */
   const bands = bandEls.map(el => ({
@@ -95,7 +98,7 @@
     seekBusy = true; video.currentTime = t;
   }
   video.addEventListener('seeked', () => { seekBusy = false; if (pendingTime !== null) { const t = pendingTime; pendingTime = null; requestSeek(t); } });
-  video.addEventListener('error', () => { seekBusy = false; pendingTime = null; failVideo(); });
+  video.addEventListener('error', () => { seekBusy = false; pendingTime = null; if (filmOn) filmFail(); else failVideo(); });
 
   /* ---- lerp con rAF che riposa ---- */
   let target = 0, shown = 0, rafId = null, lastTick = 0, heroOnScreen = true;
@@ -110,10 +113,14 @@
     updateCaptions(shown);
   }
   function onScroll() { if (!scrubOn) return; target = heroProgress(); if (rafId === null && heroOnScreen) rafId = requestAnimationFrame(tick); }
-  new IntersectionObserver(([en]) => { heroOnScreen = en.isIntersecting; if (heroOnScreen) onScroll(); }).observe(hero);
+  new IntersectionObserver(([en]) => {
+    heroOnScreen = en.isIntersecting;
+    if (heroOnScreen) onScroll();
+    if (filmOn && !filmEnded && video.readyState >= 3) { if (heroOnScreen) video.play().catch(() => {}); else video.pause(); }
+  }).observe(hero);
 
   /* ---- Blob in streaming dietro l'anello ---- */
-  let started = false, inited = false;
+  let started = false, inited = false, blobUrl = null;
   function startBlobFetch() { if (started) return; started = true; loadHeroBlob().catch(failVideo); }
   function initHeroOnce() {
     if (inited) return; inited = true;
@@ -139,7 +146,9 @@
     }
     clearTimeout(watchdog);
     ring.style.setProperty('--ld', 0);
-    video.src = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }));
+    blobUrl = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }));
+    if (filmOn) return; // nel frattempo siamo passati al film: lo scrub riprenderà il blob quando tornerà attivo
+    video.src = blobUrl;
     video.load();
     video.addEventListener('canplay', () => {
       requestSeek(heroProgress() * video.duration);
@@ -161,6 +170,7 @@
   function enableScrub() {
     if (scrubOn) return; scrubOn = true;
     initHeroOnce();
+    if (blobUrl && video.src !== blobUrl) { video.src = blobUrl; video.load(); video.addEventListener('canplay', () => { stage.classList.add('video-ready'); requestSeek(heroProgress() * video.duration); }, { once: true }); }
     addEventListener('scroll', onScroll, { passive: true });
     bands.forEach(b => { b.op = -1; b.k = -1; });
     if (window.baboo && window.baboo.unpinFinalStates) window.baboo.unpinFinalStates();
@@ -172,7 +182,61 @@
     if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
     bands.forEach(b => { b.el.style.removeProperty('--k'); b.el.style.removeProperty('opacity'); b.el.classList.remove('on'); b.op = -1; b.k = -1; });
   }
-  function applyHeroMode() { if (GATES.some(q => matchMedia(q).matches)) disableScrub(); else enableScrub(); }
+  /* ---- modalità film: su telefono e tablet il video verticale si guarda da solo ---- */
+  let filmOn = false, filmRaf = null, filmEnded = false;
+  function filmEligible() {
+    if (!FILM_URL || location.protocol === 'file:') return false;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+    const c = navigator.connection; if (c && c.saveData) return false;
+    return true;
+  }
+  function filmTick() {
+    filmRaf = null;
+    if (!filmOn) return;
+    const p = video.duration ? clamp(video.currentTime / video.duration, 0, 1) : 0;
+    updateCaptions(p);
+    if (skipBtn) { const hide = filmEnded || p > 0.74; if (skipBtn.hidden !== hide) skipBtn.hidden = hide; }
+    if (!video.paused && !video.ended) filmRaf = requestAnimationFrame(filmTick);
+  }
+  function onFilmPlay() { if (filmRaf === null) filmRaf = requestAnimationFrame(filmTick); }
+  function onFilmEnded() { filmEnded = true; updateCaptions(1); if (skipBtn) skipBtn.hidden = true; }
+  function filmFail() { disableFilm(); disableScrub(); }
+  function enableFilm() {
+    if (filmOn) return; filmOn = true; filmEnded = false;
+    disableScrub();
+    hero.classList.add('film');
+    posterLayer.style.backgroundImage = "url('" + FILM_POSTER + "')";
+    stage.classList.remove('video-failed', 'video-ready');
+    bands.forEach(b => { b.op = -1; b.k = -1; });
+    updateCaptions(0);
+    video.loop = false; video.muted = true; video.playsInline = true; video.preload = 'auto';
+    video.addEventListener('play', onFilmPlay);
+    video.addEventListener('ended', onFilmEnded);
+    video.addEventListener('canplay', onFilmCanPlay);
+    video.src = FILM_URL; video.load();
+    if (skipBtn) skipBtn.hidden = false;
+  }
+  function onFilmCanPlay() {
+    if (!filmOn) return;
+    stage.classList.add('video-ready');
+    if (heroOnScreen && !filmEnded) video.play().catch(filmFail);
+  }
+  function disableFilm() {
+    if (!filmOn) return; filmOn = false;
+    video.removeEventListener('play', onFilmPlay); video.removeEventListener('ended', onFilmEnded); video.removeEventListener('canplay', onFilmCanPlay);
+    if (filmRaf !== null) { cancelAnimationFrame(filmRaf); filmRaf = null; }
+    video.pause();
+    hero.classList.remove('film'); stage.classList.remove('video-ready');
+    posterLayer.style.removeProperty('background-image');
+    if (skipBtn) skipBtn.hidden = true;
+    bands.forEach(b => { b.el.style.removeProperty('--k'); b.el.style.removeProperty('opacity'); b.el.classList.remove('on'); b.op = -1; b.k = -1; });
+    if (blobUrl) { video.src = blobUrl; video.load(); } else { video.removeAttribute('src'); video.load(); }
+  }
+  if (skipBtn) skipBtn.addEventListener('click', () => { if (video.duration) { video.currentTime = Math.max(0, video.duration - 0.05); if (video.paused) video.play().catch(() => onFilmEnded()); } else onFilmEnded(); });
+  function applyHeroMode() {
+    if (GATES.some(q => matchMedia(q).matches)) { if (filmEligible()) enableFilm(); else { disableFilm(); disableScrub(); } }
+    else { disableFilm(); enableScrub(); }
+  }
   const MQLS = GATES.map(q => matchMedia(q));
   MQLS.forEach(m => m.addEventListener('change', applyHeroMode));
   window.baboo = window.baboo || {};

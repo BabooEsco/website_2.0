@@ -51,15 +51,28 @@
 /* filo della temperatura: parte dal hero */
 .thread{position:absolute;left:calc(max(0px,(100vw - var(--wrap))/2) + var(--pad));bottom:0;width:2px;height:120px;background:linear-gradient(transparent,var(--blue));opacity:.8}
 
-/* hero statico: i cinque gate, identici a hero.js */
+/* hero statico e hero "film": i cinque gate, identici a hero.js */
 @media (max-width: 720px),(orientation: portrait) and (max-width: 1024px),(orientation: portrait) and (pointer: coarse),(orientation: landscape) and (pointer: coarse) and (max-height: 560px),(prefers-reduced-motion: reduce){
   .hero{height:auto;min-height:100svh}
   .stage{position:relative;height:auto;min-height:100svh;display:flex;align-items:flex-end}
-  .stage video,.ring,.cue,.band:not(.b5){display:none}
-  .stage .poster{background-image:url("hero-ending.jpg")}
-  .band.b5{position:relative;opacity:1!important;--k:1;padding:140px var(--pad) 72px;pointer-events:auto}
+  .ring,.cue,.thread{display:none}
+  /* statico: solo l'ultima banda, sull'immagine d'arrivo */
+  .hero:not(.film) .stage video,.hero:not(.film) .band:not(.b5){display:none}
+  .hero:not(.film) .stage .poster{background-image:url("hero-ending.jpg")}
+  @media (orientation:portrait){.hero:not(.film) .stage .poster{background-image:url("hero-ending-v.jpg")}}
+  .hero:not(.film) .band.b5{position:relative;opacity:1!important;--k:1;padding:140px var(--pad) 72px;pointer-events:auto}
   .band.b5 .inner{width:100%;max-width:640px;margin-left:0}
-  .band.b5::before{left:-10%;width:120%;top:0;bottom:0;background:linear-gradient(180deg,rgba(5,8,12,0) 0%,rgba(5,8,12,.55) 35%,rgba(5,8,12,.78) 100%)}
-  .thread{display:none}
+  .band::before{left:-10%;width:120%;top:0;bottom:0;background:linear-gradient(180deg,rgba(5,8,12,0) 0%,rgba(5,8,12,.55) 35%,rgba(5,8,12,.78) 100%)}
+  /* film: il video verticale si guarda da solo, le bande entrano a tempo */
+  .hero.film .stage{height:100svh;min-height:560px;display:block}
+  .hero.film .stage video{display:block}
+  .hero.film .band{position:absolute;inset:0;display:flex;align-items:flex-end;padding:0 var(--pad) 96px}
+  .hero.film .band .inner{width:100%;max-width:640px;margin-left:0}
+  .hero.film .band .line{font-size:clamp(1.9rem,7.5vw,3rem)}
+  .hero.film .band h1{font-size:clamp(2.2rem,8.5vw,3.4rem)}
+  .hero.film .film-skip{display:inline-flex}
 }
+.film-skip{display:none;position:absolute;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:3;align-items:center;gap:8px;padding:10px 14px;min-height:40px;border:1px solid rgba(160,190,210,.45);border-radius:2px;background:rgba(8,12,18,.45);color:var(--swan);font:400 .72rem/1 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);cursor:pointer;transition:opacity .4s var(--ease-out)}
+.film-skip::after{content:"\203A"}
+.film-skip[hidden]{display:none!important}
 @media (max-height:560px){.cue{display:none}}

@@ -19,8 +19,8 @@
   --ease-soft:cubic-bezier(.4,0,.2,1);
   --wrap:1280px;
   --pad:40px;
-  --font-display:"Wix Madefor Display",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --font-text:"Wix Madefor Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-display:"Nunito Sans","Avenir Next","Avenir",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-text:"Nunito Sans","Avenir Next","Avenir",system-ui,-apple-system,"Segoe UI",sans-serif;
   --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 

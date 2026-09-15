@@ -132,7 +132,7 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema .flow.on{stroke:var(--blue);opacity:1}
 .schema .dots.on{opacity:1}
 .schema .season{opacity:0;transition:opacity .6s var(--ease-out);font-size:10px;letter-spacing:.06em;fill:var(--blue)}
-.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air{opacity:1}
+.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry{opacity:1}
 /* schema CLIMA: ventola, aria, termosifone, acqua calda */
 .schema .fan{transform-box:fill-box;transform-origin:center}
 .schema.live .fan{animation:fanSpin 5s linear infinite}
@@ -157,3 +157,12 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema .noise path{stroke:var(--swan);opacity:.45;transition:stroke .8s var(--ease-out),opacity .8s var(--ease-out)}
 .schema.ph-air .noise path{stroke:var(--blue);opacity:1}
 .schema.ph-air .win rect:first-child{stroke:var(--blue)}
+
+/* schema MINICLIMA: una stanza alla volta */
+.schema .unit-in rect{transition:stroke .8s var(--ease-out)}
+.schema .unit-in .breeze path,.schema .unit-in .drops line{stroke:var(--blue);opacity:0;transition:opacity .8s var(--ease-out)}
+.schema.ph-sum .unit-in.a rect,.schema.ph-dry .unit-in.a rect,.schema.ph-mid .unit-in.b rect{stroke:var(--blue)}
+.schema.ph-sum .unit-in.a .breeze path,.schema.ph-mid .unit-in.b .breeze path,.schema.ph-dry .unit-in.a .drops line{opacity:1}
+.schema.ph-mid .unit-in.b .breeze path{stroke-dasharray:3 4}
+.schema .house path{stroke:var(--ink-soft);opacity:.6}
+@media (prefers-reduced-motion:reduce){.schema.miniclima .unit-in.a .breeze path{opacity:1}}

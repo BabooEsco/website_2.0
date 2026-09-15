@@ -1,0 +1,9 @@
+{
+  "_nota": "Segnaposto con i valori 'da' della guida PM v1.1. Da sostituire con il JSON del simulatore (owner Matilda). Nessun prezzo va scritto nell'HTML: le pagine leggono solo questo file.",
+  "durata_mesi": 120,
+  "livelli": [
+    { "id": "casa", "nome": "Casa", "da": 209, "netto_detrazione": 141 },
+    { "id": "casa-solare", "nome": "Casa Solare", "da": 419, "netto_detrazione": 280, "badge": "Il più scelto" },
+    { "id": "casa-indipendente", "nome": "Casa Indipendente", "da": 679, "netto_detrazione": 448 }
+  ]
+}

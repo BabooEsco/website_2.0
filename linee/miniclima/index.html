@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500&family=JetBrains+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="../../assets/baboo.css">
 <link rel="stylesheet" href="../../assets/pages.css">
+<link rel="stylesheet" href="../../assets/hero.css">
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
@@ -49,15 +50,39 @@
   </div>
 </header>
 <main id="main" tabindex="-1">
-<section class="page-hero reveal">
-  <div class="wrap ph-grid">
-    <div class="part">
-      <span class="eyebrow">MINICLIMA · Climatizzazione split</span>
-      <h1>Fresco d'estate, caldo nelle mezze stagioni. Stanza per stanza.</h1>
-      <p class="lede">Climatizzatori split mono e multi, scelti per le stanze che usi davvero e installati a regola d'arte. Con MONITOR anche il piccolo impianto ha qualcuno che lo guarda.</p>
-      <div class="row"><a class="btn btn-blue" href="../../#sopralluogo">Prenota il sopralluogo gratuito</a><a class="btn btn-outline" href="../../baboo-casa/">Dentro Baboo Casa</a></div>
+<section class="hero miniclima" aria-label="Introduzione" data-video="../../assets/miniclima-scrub.mp4" data-poster="../../assets/miniclima-poster.jpg" data-ending="../../assets/miniclima-ending.jpg" data-bytes="5404724" data-film="../../assets/miniclima-film-v.mp4" data-film-poster="../../assets/miniclima-poster-v.jpg" data-film-ending="../../assets/miniclima-ending-v.jpg">
+  <div class="stage">
+    <div class="poster" aria-hidden="true"></div>
+    <video preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+    <div class="scrim" aria-hidden="true"></div>
+
+    <div class="band b1" data-from="0" data-to="0.12">
+      <div class="inner">
+        <span class="kicker">MINICLIMA · Climatizzazione split</span>
+        <h2 class="line" data-split="words">Una stanza alla volta.</h2>
+      </div>
     </div>
-    <figure class="ph-img"><img src="../../assets/miniclima-hero.jpg" alt="Camera da letto luminosa in una casa di pietra, con climatizzatore a parete e persiane semiaperte sul lago" width="1280" height="800" loading="eager"></figure>
+    <div class="band b2" data-from="0.18" data-to="0.33">
+      <div class="inner"><p class="line" data-split="words">D'estate il fresco arriva dove sei.</p></div>
+    </div>
+    <div class="band b3" data-from="0.40" data-to="0.54" data-spread="0.6">
+      <div class="inner"><p class="line" data-split="grid">Nelle mezze stagioni il caldo arriva prima della caldaia.</p></div>
+    </div>
+    <div class="band b4" data-from="0.58" data-to="0.72" data-ramp="0.036">
+      <div class="inner"><p class="line" data-split="words">MONITOR legge quanto lavora. Ogni giorno.</p></div>
+    </div>
+    <div class="band b5" data-from="0.78" data-to="1" data-ramp="0.05">
+      <div class="inner">
+        <span class="kicker">MINICLIMA · Climatizzazione split</span>
+        <h1 data-split="words">Fresco d'estate, caldo nelle mezze stagioni. Stanza per stanza.</h1>
+        <p class="subline">Climatizzatori split mono e multi, scelti per le stanze che usi davvero e installati a regola d'arte. Con MONITOR anche il piccolo impianto ha qualcuno che lo guarda.</p>
+        <div class="row"><a class="btn btn-blue" href="../../#sopralluogo">Prenota il sopralluogo gratuito</a><a class="btn btn-ghost" href="../../baboo-casa/">Dentro Baboo Casa</a></div>
+      </div>
+    </div>
+
+    <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/></svg>
+    <div class="cue" aria-hidden="true">Scorri</div>
+    <button class="film-skip" type="button" hidden>Salta</button>
   </div>
 </section>
 
@@ -224,5 +249,6 @@
  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Baboo","item":"https://www.baboo.eu/"},{"@type":"ListItem","position":2,"name":"Le linee","item":"https://www.baboo.eu/linee/miniclima/"},{"@type":"ListItem","position":3,"name":"MINICLIMA","item":"https://www.baboo.eu/linee/miniclima/"}]}
 ]}
 </script>
+<script src="../../assets/hero.js" defer></script>
 </body>
 </html>

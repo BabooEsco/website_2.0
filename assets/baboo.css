@@ -104,10 +104,13 @@ ul.checks li::before{content:"";position:absolute;left:0;top:.55em;width:.9em;he
 .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background-color .4s var(--ease-out)}
 .site-header.on-hero{background:rgba(55,67,80,.35);border-bottom-color:rgba(160,190,210,.25);backdrop-filter:blur(8px)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
-.logo{font-size:1.35rem;letter-spacing:.02em;color:var(--ink);display:inline-flex;align-items:baseline;gap:.4em}
-.logo small{font:500 .6rem/1 var(--font-mono);letter-spacing:.14em;color:var(--blue);text-transform:uppercase}
-.site-header.on-hero .logo{color:#fff}
-.site-header.on-hero .logo small{color:var(--swan)}
+.logo{display:inline-flex;align-items:center;line-height:0}
+.logo img{height:40px;width:auto;display:block}
+.logo img.lite{display:none}
+.site-header.on-hero .logo img.dark{display:none}
+.site-header.on-hero .logo img.lite{display:block}
+.foot-logo img{height:64px;width:auto}
+@media (max-width:520px){.logo img{height:34px}}
 .menu{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0}
 .menu>li{position:relative}
 .menu a,.menu button{display:inline-flex;align-items:center;gap:.35em;padding:10px 12px;color:var(--ink);font:500 .9rem/1 var(--font-text);background:none;border:0;cursor:pointer;border-radius:2px;transition:color .3s var(--ease-out),background-color .3s var(--ease-out)}

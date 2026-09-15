@@ -6,7 +6,7 @@
 .stage video{opacity:0;transition:opacity 1.2s var(--ease-out);will-change:transform;transform:translateZ(0)}
 .stage.video-ready video{opacity:1}
 .stage.video-failed video{display:none}
-.scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 50% 45%,rgba(5,8,12,0) 35%,rgba(5,8,12,.62) 100%)}
+.scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 50% 45%,rgba(5,8,12,0) 45%,rgba(5,8,12,.42) 100%)}
 .ring{position:absolute;right:36px;bottom:36px;width:36px;height:36px;color:var(--swan);transform:rotate(-90deg);transition:opacity .8s var(--ease-out)}
 .ring circle{transition:stroke-dashoffset .12s linear}
 .ring.done,.ring.failed{opacity:0}
@@ -19,8 +19,8 @@
 .band{position:absolute;inset:0;display:flex;align-items:center;padding:0 var(--pad);opacity:0;pointer-events:none;text-shadow:var(--tshadow)}
 .band.on{pointer-events:auto}
 .band .inner{position:relative;width:min(44vw,640px);margin-left:max(0px,calc((100vw - var(--wrap))/2))}
-.band::before{content:"";position:absolute;pointer-events:none;top:-4%;bottom:-4%;left:-4%;width:64%;opacity:calc(.25 + .75*var(--k,1));background:radial-gradient(ellipse 74% 62% at 34% 50%,rgba(5,8,12,var(--sa,.62)) 0%,rgba(5,8,12,calc(var(--sa,.62)*.66)) 46%,rgba(5,8,12,0) 76%)}
-.band.b1,.band.b5{--sa:.70}
+.band::before{content:"";position:absolute;pointer-events:none;top:-4%;bottom:-4%;left:-4%;width:64%;opacity:calc(.25 + .75*var(--k,1));background:radial-gradient(ellipse 74% 62% at 34% 50%,rgba(5,8,12,var(--sa,.46)) 0%,rgba(5,8,12,calc(var(--sa,.46)*.66)) 46%,rgba(5,8,12,0) 76%)}
+.band.b1,.band.b5{--sa:.54}
 .band .kicker{display:block;font:400 .74rem/1 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--swan);margin-bottom:16px}
 .band h1,.band h2,.band .line{color:var(--hero-text);font-family:var(--font-display);font-weight:var(--w-display);line-height:1.12;letter-spacing:0;margin:0}
 .band .line{font-size:clamp(1.9rem,3.6vw,3.2rem)}
@@ -62,7 +62,7 @@
   @media (orientation:portrait){.hero:not(.film) .stage .poster{background-image:url("hero-ending-v.jpg")}}
   .hero:not(.film) .band.b5{position:relative;opacity:1!important;--k:1;padding:140px var(--pad) 72px;pointer-events:auto}
   .band.b5 .inner{width:100%;max-width:640px;margin-left:0}
-  .band::before{left:-10%;width:120%;top:0;bottom:0;background:linear-gradient(180deg,rgba(5,8,12,0) 0%,rgba(5,8,12,.55) 35%,rgba(5,8,12,.78) 100%)}
+  .band::before{left:-10%;width:120%;top:0;bottom:0;background:linear-gradient(180deg,rgba(5,8,12,0) 0%,rgba(5,8,12,.40) 35%,rgba(5,8,12,.64) 100%)}
   /* film: il video verticale si guarda da solo, le bande entrano a tempo */
   .hero.film .stage{height:100svh;min-height:560px;display:block}
   .hero.film .stage video{display:block}

@@ -122,6 +122,8 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 @media (max-width: 720px),(orientation: portrait) and (max-width: 1024px),(orientation: portrait) and (pointer: coarse),(orientation: landscape) and (pointer: coarse) and (max-height: 560px),(prefers-reduced-motion: reduce){
   .hero.solero:not(.film) .stage .poster{background-image:url("solero-ending.jpg")}
   @media (orientation:portrait){.hero.solero:not(.film) .stage .poster{background-image:url("solero-ending-v.jpg")}}
+  .hero.clima:not(.film) .stage .poster{background-image:url("clima-ending.jpg")}
+  @media (orientation:portrait){.hero.clima:not(.film) .stage .poster{background-image:url("clima-ending-v.jpg")}}
 }
 
 /* ---------- schema: fasi generiche (JS accende .on su linee e punti della fase attiva) ---------- */

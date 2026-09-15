@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500&family=JetBrains+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="../../assets/baboo.css">
 <link rel="stylesheet" href="../../assets/pages.css">
+<link rel="stylesheet" href="../../assets/hero.css">
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
@@ -49,15 +50,39 @@
   </div>
 </header>
 <main id="main" tabindex="-1">
-<section class="page-hero reveal">
-  <div class="wrap ph-grid">
-    <div class="part">
-      <span class="eyebrow">CLIMA · Pompe di calore</span>
-      <h1>La casa alla temperatura giusta. Senza gas.</h1>
-      <p class="lede">Pompe di calore full electric per riscaldare, raffrescare e produrre acqua calda, dimensionate sulle dispersioni della tua casa e non su una taglia di catalogo. MONITOR controlla ogni giorno che facciano il loro lavoro.</p>
-      <div class="row"><a class="btn btn-blue" href="../../#sopralluogo">Prenota il sopralluogo gratuito</a><a class="btn btn-outline" href="../../baboo-casa/">Dentro Baboo Casa</a></div>
+<section class="hero clima" aria-label="Introduzione" data-video="../../assets/clima-scrub.mp4" data-poster="../../assets/clima-poster.jpg" data-ending="../../assets/clima-ending.jpg" data-bytes="8694888" data-film="../../assets/clima-film-v.mp4" data-film-poster="../../assets/clima-poster-v.jpg" data-film-ending="../../assets/clima-ending-v.jpg">
+  <div class="stage">
+    <div class="poster" aria-hidden="true"></div>
+    <video preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+    <div class="scrim" aria-hidden="true"></div>
+
+    <div class="band b1" data-from="0" data-to="0.12">
+      <div class="inner">
+        <span class="kicker">CLIMA · Pompe di calore</span>
+        <h2 class="line" data-split="words">Il calore c'è già.</h2>
+      </div>
     </div>
-    <figure class="ph-img"><img src="../../assets/clima-hero.jpg" alt="Unità esterna di una pompa di calore sulla terrazza in pietra di una casa sul lago, in una mattina d&#x27;inverno" width="1280" height="800" loading="eager"></figure>
+    <div class="band b2" data-from="0.18" data-to="0.33">
+      <div class="inner"><p class="line" data-split="words">D'estate lo portiamo fuori.</p></div>
+    </div>
+    <div class="band b3" data-from="0.40" data-to="0.54" data-spread="0.6">
+      <div class="inner"><p class="line" data-split="grid">D'inverno lo portiamo dentro.</p></div>
+    </div>
+    <div class="band b4" data-from="0.58" data-to="0.72" data-ramp="0.036">
+      <div class="inner"><p class="line" data-split="words">MONITOR legge la temperatura. Ogni giorno.</p></div>
+    </div>
+    <div class="band b5" data-from="0.78" data-to="1" data-ramp="0.05">
+      <div class="inner">
+        <span class="kicker">CLIMA · Pompe di calore</span>
+        <h1 data-split="words">La casa alla temperatura giusta. Senza gas.</h1>
+        <p class="subline">Pompe di calore full electric per riscaldare, raffrescare e produrre acqua calda, dimensionate sulle dispersioni della tua casa e non su una taglia di catalogo. MONITOR controlla ogni giorno che facciano il loro lavoro.</p>
+        <div class="row"><a class="btn btn-blue" href="../../#sopralluogo">Prenota il sopralluogo gratuito</a><a class="btn btn-ghost" href="../../baboo-casa/">Dentro Baboo Casa</a></div>
+      </div>
+    </div>
+
+    <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/></svg>
+    <div class="cue" aria-hidden="true">Scorri</div>
+    <button class="film-skip" type="button" hidden>Salta</button>
   </div>
 </section>
 
@@ -231,5 +256,6 @@
  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Baboo","item":"https://www.baboo.eu/"},{"@type":"ListItem","position":2,"name":"Le linee","item":"https://www.baboo.eu/linee/clima/"},{"@type":"ListItem","position":3,"name":"CLIMA","item":"https://www.baboo.eu/linee/clima/"}]}
 ]}
 </script>
+<script src="../../assets/hero.js" defer></script>
 </body>
 </html>

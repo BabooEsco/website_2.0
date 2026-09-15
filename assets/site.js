@@ -25,8 +25,8 @@
     const set = open => { btn.setAttribute('aria-expanded', String(open)); sub.classList.toggle('open', open); };
     btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
     const li = btn.parentElement;
-    li.addEventListener('mouseenter', () => { if (matchMedia('(min-width: 901px)').matches) set(true); });
-    li.addEventListener('mouseleave', () => { if (matchMedia('(min-width: 901px)').matches) set(false); });
+    li.addEventListener('mouseenter', () => { if (matchMedia('(min-width: 1101px)').matches) set(true); });
+    li.addEventListener('mouseleave', () => { if (matchMedia('(min-width: 1101px)').matches) set(false); });
     li.addEventListener('focusout', e => { if (!li.contains(e.relatedTarget)) set(false); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
   });

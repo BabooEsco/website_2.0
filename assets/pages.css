@@ -69,3 +69,33 @@ address{font-style:normal;line-height:1.8}
 .form-msg{margin:0;font-size:.95rem;color:var(--blue-deep);min-height:1.4em}
 .lead.sent .btn{display:none}
 .lead .touched:invalid{border-color:#B5533C}
+
+/* ---------- pagina-linea estesa (SOLERO, modello per le altre linee) ---------- */
+.schema{margin:0 0 36px;padding:28px 24px;background:var(--white);border:1px solid var(--line);border-radius:4px}
+.schema svg{width:100%;max-width:900px;height:auto;margin:0 auto;overflow:visible}
+.schema path,.schema line,.schema circle,.schema rect{fill:none;stroke:var(--slate);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.schema .sun circle,.schema .rays line{stroke:var(--blue)}
+.schema .modules path,.schema .modules line{stroke:var(--blue)}
+.schema .modules path{fill:rgba(78,127,163,.10)}
+.schema .charge{fill:rgba(78,127,163,.28);stroke:none}
+.schema .flow{stroke:var(--swan);stroke-width:1.5;stroke-dasharray:4 7}
+.schema .flow.back{stroke:var(--blue)}
+.schema.live .flow{animation:flowDash 2.4s linear infinite}
+.schema.live .flow.back{animation-direction:reverse;animation-duration:3.2s}
+@keyframes flowDash{to{stroke-dashoffset:-22}}
+.schema text{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;fill:var(--ink-soft);text-anchor:middle}
+.schema text.note{font-size:10px;letter-spacing:.06em;text-anchor:start;fill:var(--blue)}
+.schema figcaption{margin:18px auto 0;max-width:62ch;text-align:center;font-size:.9rem;color:var(--ink-soft)}
+@media (max-width:600px){.schema{padding:16px 0 16px;overflow-x:auto;-webkit-overflow-scrolling:touch}.schema svg{min-width:640px;padding:0 12px}.schema figcaption{padding:0 16px}}
+.numbered h3{margin:0 0 .35em;font-size:1.15rem}
+ul.checks.cols2{columns:2;column-gap:32px;margin:0}
+ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
+@media (max-width:700px){ul.checks.cols2{columns:1}}
+.sec .close{margin:24px 0 0;max-width:62ch;color:var(--ink-soft)}
+.sec .row{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.two .part h2+p{margin-top:.9em}
+.plan-solo{max-width:420px}
+.plan-solo .price{margin-top:1em}
+.ms-chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:18px 0 0}
+.ms-chips li{font-family:var(--font-mono);font-size:max(.72rem,12px);letter-spacing:.14em;text-transform:uppercase;color:var(--swan);border:1px solid rgba(160,190,210,.45);padding:8px 12px;border-radius:2px}
+.monitor-strip .ms-links{margin-top:18px}

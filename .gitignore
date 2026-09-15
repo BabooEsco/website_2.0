@@ -2,3 +2,4 @@ review/
 *.tgz
 .DS_Store
 _site/
+Claude outputs/

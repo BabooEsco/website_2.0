@@ -27,7 +27,8 @@
 
 /* ---------- reset e base ---------- */
 *,*::before,*::after{box-sizing:border-box}
-html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@supports (overflow-x:clip){body{overflow-x:clip}}
 body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--white);color:var(--ink);font:400 17px/1.6 var(--font-text);opacity:0;animation:pageIn .9s var(--ease-out) forwards}
 @keyframes pageIn{to{opacity:1}}
 img,svg,video{display:block;max-width:100%}
@@ -103,8 +104,8 @@ ul.checks li::before{content:"";position:absolute;left:0;top:.55em;width:.9em;he
 .rule{height:1px;background:var(--line);border:0;margin:0}
 
 /* ---------- header / nav ---------- */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background-color .4s var(--ease-out)}
-.site-header.on-hero{background:rgba(55,67,80,.35);border-bottom-color:rgba(160,190,210,.25);backdrop-filter:blur(8px)}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background-color .4s var(--ease-out)}
+.site-header.on-hero{background:rgba(55,67,80,.35);border-bottom-color:rgba(160,190,210,.25);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
 .logo{display:inline-flex;align-items:center;line-height:0}
 .logo img{height:40px;width:auto;display:block}

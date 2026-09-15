@@ -124,6 +124,8 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
   @media (orientation:portrait){.hero.solero:not(.film) .stage .poster{background-image:url("solero-ending-v.jpg")}}
   .hero.clima:not(.film) .stage .poster{background-image:url("clima-ending.jpg")}
   @media (orientation:portrait){.hero.clima:not(.film) .stage .poster{background-image:url("clima-ending-v.jpg")}}
+  .hero.mountainview:not(.film) .stage .poster{background-image:url("mountainview-ending.jpg")}
+  @media (orientation:portrait){.hero.mountainview:not(.film) .stage .poster{background-image:url("mountainview-ending-v.jpg")}}
 }
 
 /* ---------- schema: fasi generiche (JS accende .on su linee e punti della fase attiva) ---------- */

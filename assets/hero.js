@@ -25,6 +25,7 @@
     ramp: el.dataset.ramp ? parseFloat(el.dataset.ramp) : null,
     op: -1, k: -1
   }));
+  const END_AT = bands.length ? Math.max(0, bands[bands.length - 1].a - 0.02) : 0.76;
   const smoothstep = (p, e0, e1) => { const t = Math.min(1, Math.max(0, (p - e0) / (e1 - e0))); return t * t * (3 - 2 * t); };
   const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
@@ -83,6 +84,7 @@
       if (Math.abs(k - b.k) > 0.008 || k === 0 || k === 1) { if (k !== b.k) { b.k = k; b.el.style.setProperty('--k', k.toFixed(3)); } }
     });
     if (cue) { const show = p < 0.04; if (cue.hidden === show) cue.hidden = !show; }
+    stage.classList.toggle('at-end', p > END_AT);
     // senza video, il poster racconta comunque il viaggio: partenza, poi arrivo
     if (stage.classList.contains('video-failed')) {
       const want = p > 0.55 ? 'end' : 'start';

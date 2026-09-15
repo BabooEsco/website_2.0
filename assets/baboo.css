@@ -36,6 +36,9 @@ a{color:var(--blue);text-decoration:none}
 a:hover{color:var(--blue-deep)}
 h1,h2,h3,.logo{font-family:var(--font-display);font-weight:var(--w-display);line-height:1.12;letter-spacing:0;color:var(--ink);margin:0}
 h3{font-weight:500}
+/* su video, slate e card scura il display sale a 300 con tracking appena negativo: legge meglio in movimento e su Android */
+.sec.dark,.band-cta,.feat,.hero .band{--w-display:300}
+.sec.dark h2,.band-cta h2,.hero .band h1,.hero .band h2,.hero .band .line{letter-spacing:-.01em}
 h1{font-size:clamp(2.2rem,4.6vw,4rem)}
 h2{font-size:clamp(1.7rem,3vw,2.6rem)}
 h3{font-size:1.25rem;line-height:1.3}
@@ -68,7 +71,7 @@ p.lede{font-size:1.15rem;color:var(--ink-soft);max-width:62ch}
 /* ---------- componenti dal design system ---------- */
 .eyebrow{display:block;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:0 0 .5em}
 .sec.dark .eyebrow,.band-cta .eyebrow{color:var(--swan)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:14px 24px;border-radius:2px;font:500 .84rem/1 var(--font-text);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background-color .35s var(--ease-out),color .35s var(--ease-out),border-color .35s var(--ease-out),transform .35s var(--ease-out)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:13px 22px;min-height:44px;border-radius:2px;font:500 .95rem/1.15 var(--font-text);letter-spacing:.005em;text-transform:none;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background-color .35s var(--ease-out),color .35s var(--ease-out),border-color .35s var(--ease-out),transform .35s var(--ease-out)}
 .btn:hover{transform:translateY(-1px)}
 .btn-blue{background:var(--blue);color:#fff}
 .btn-blue:hover{background:var(--blue-deep);color:#fff}
@@ -106,17 +109,17 @@ ul.checks li::before{content:"";position:absolute;left:0;top:.55em;width:.9em;he
 /* ---------- header / nav ---------- */
 .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);transition:border-color .4s var(--ease-out)}
 /* lo sfondo sfumato vive in uno pseudo-elemento: un filtro sull'header stesso farebbe da contenitore al menu mobile fixed e lo taglierebbe */
-.site-header::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background-color .4s var(--ease-out)}
+.site-header::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(255,255,255,.84);-webkit-backdrop-filter:saturate(1.6) blur(16px);backdrop-filter:saturate(1.6) blur(16px);transition:background-color .4s var(--ease-out)}
 .site-header.on-hero{border-bottom-color:rgba(160,190,210,.25)}
-.site-header.on-hero::before{background:rgba(55,67,80,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.site-header.on-hero::before{background:rgba(55,67,80,.35);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:60px}
 .logo{display:inline-flex;align-items:center;line-height:0}
-.logo img{height:40px;width:auto;display:block}
+.logo img{height:36px;width:auto;display:block}
 .logo img.lite{display:none}
 .site-header.on-hero .logo img.dark{display:none}
 .site-header.on-hero .logo img.lite{display:block}
 .foot-logo img{height:64px;width:auto}
-@media (max-width:520px){.logo img{height:34px}}
+@media (max-width:520px){.logo img{height:30px}}
 .menu{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;white-space:nowrap}
 .menu>li{position:relative}
 .menu a,.menu button{display:inline-flex;align-items:center;gap:.35em;padding:10px 12px;color:var(--ink);font:500 .9rem/1 var(--font-text);background:none;border:0;cursor:pointer;border-radius:2px;transition:color .3s var(--ease-out),background-color .3s var(--ease-out)}
@@ -143,9 +146,17 @@ ul.checks li::before{content:"";position:absolute;left:0;top:.55em;width:.9em;he
 .burger[aria-expanded="true"] span:nth-child(1){top:21px;transform:rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){top:21px;transform:rotate(-45deg)}
-@media (max-width:1100px){
+/* tra 960 e 1100 px (iPad orizzontale, finestre ridotte) il menu resta completo ma più stretto */
+@media (min-width:960px) and (max-width:1100px){
+  .nav{gap:16px}
+  .menu{gap:2px}
+  .menu a,.menu button{padding:10px 9px;font-size:.85rem}
+  .menu .cta{margin-left:6px}
+  .menu .cta a,.site-header.on-hero .menu .cta a{padding:11px 14px}
+}
+@media (max-width:959px){
   .burger{display:block}
-  .menu{position:fixed;inset:72px 0 0 0;background:var(--white);flex-direction:column;align-items:stretch;padding:16px var(--pad) 40px;gap:0;overflow:auto;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .35s var(--ease-out),transform .35s var(--ease-out)}
+  .menu{position:fixed;inset:60px 0 0 0;background:var(--white);flex-direction:column;align-items:stretch;padding:16px var(--pad) 40px;gap:0;overflow:auto;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .35s var(--ease-out),transform .35s var(--ease-out)}
   .menu.open{opacity:1;transform:none;pointer-events:auto}
   body.menu-open{overflow:hidden}
   body.menu-open .site-header{position:fixed;top:0;left:0;right:0}

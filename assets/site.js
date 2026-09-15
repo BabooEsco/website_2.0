@@ -26,7 +26,7 @@
     btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
     const li = btn.parentElement;
     let closeTimer = null;
-    const desktop = () => matchMedia('(min-width: 1101px)').matches;
+    const desktop = () => matchMedia('(min-width: 960px)').matches;
     li.addEventListener('mouseenter', () => { if (!desktop()) return; clearTimeout(closeTimer); set(true); });
     li.addEventListener('mouseleave', () => { if (!desktop()) return; clearTimeout(closeTimer); closeTimer = setTimeout(() => set(false), 260); });
     li.addEventListener('focusout', e => { if (!li.contains(e.relatedTarget)) set(false); });
@@ -119,7 +119,7 @@
   if (header && hero && 'IntersectionObserver' in window) {
     const ho = new IntersectionObserver(([en]) => {
       header.classList.toggle('on-hero', en.isIntersecting && en.intersectionRatio > 0);
-    }, { threshold: [0, 0.01], rootMargin: '-72px 0px 0px 0px' });
+    }, { threshold: [0, 0.01], rootMargin: '-60px 0px 0px 0px' });
     ho.observe(hero);
   }
 })();

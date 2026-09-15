@@ -1,5 +1,8 @@
 /* Baboo · hero a scorrimento (solo Home) */
-.hero{position:relative;height:1000vh;margin-top:-72px;background:var(--slate)}
+.hero{position:relative;height:1000vh;margin-top:-60px;background:var(--slate)}
+/* CTA sempre presente durante la sequenza: sparisce quando arriva l'ultima banda, che ha i suoi bottoni */
+.hero-cta{position:absolute;left:calc(max(0px,(100vw - var(--wrap))/2) + var(--pad) + 22px);bottom:40px;z-index:3;text-shadow:none;transition:opacity .5s var(--ease-out),transform .5s var(--ease-out),background-color .35s var(--ease-out)}
+.stage.at-end .hero-cta{opacity:0;pointer-events:none;transform:translateY(8px)}
 .stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#2A3540;color:var(--hero-text)}
 .stage .poster{transition:background-image .6s var(--ease-out)}
 .stage .poster,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background-size:cover;background-position:center}
@@ -56,6 +59,9 @@
   .hero{height:auto;min-height:100svh}
   .stage{position:relative;height:auto;min-height:100svh;display:flex;align-items:flex-end}
   .ring,.cue,.thread{display:none}
+  .hero:not(.film) .hero-cta{display:none}
+  .hero.film .hero-cta{left:var(--pad);bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+  .hero.film .film-skip{top:76px;bottom:auto}
   /* statico: solo l'ultima banda, sull'immagine d'arrivo */
   .hero:not(.film) .stage video,.hero:not(.film) .band:not(.b5){display:none}
   .hero:not(.film) .stage .poster{background-image:url("hero-ending.jpg")}

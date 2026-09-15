@@ -94,6 +94,19 @@
     run();
   });
 
+  /* ---- Baboo Care: canoni annuali dal file dati ---- */
+  const careEls = document.querySelectorAll('[data-care]');
+  if (careEls.length) {
+    const base = document.documentElement.getAttribute('data-root') || '';
+    fetch(base + 'assets/data/care.json', { cache: 'no-cache' }).then(r => r.json()).then(data => {
+      const fmt = n => new Intl.NumberFormat('it-IT').format(n);
+      careEls.forEach(el => {
+        const lv = data.livelli.find(l => l.id === el.getAttribute('data-care'));
+        if (lv) el.innerHTML = fmt(lv.anno) + ' <small>€/anno</small>';
+      });
+    }).catch(() => {});
+  }
+
   /* ---- canoni: i prezzi vengono solo dal file dati ---- */
   const priceEls = document.querySelectorAll('[data-canone]');
   if (priceEls.length) {

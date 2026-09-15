@@ -13,13 +13,14 @@
 <meta property="og:title" content="Baboo Care · Assistenza a tre livelli, sui dati reali del tuo impianto">
 <meta property="og:description" content="Baboo Care: assistenza in tre livelli. Da remoto sui dati MONITOR, in video con te, a casa tua. Il problema si ferma al primo livello utile.">
 <meta property="og:url" content="https://www.baboo.eu/care/">
-<meta property="og:image" content="https://www.baboo.eu/assets/hero-ending.jpg">
+<meta property="og:image" content="https://www.baboo.eu/assets/care-poster.jpg">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/baboo.css">
 <link rel="stylesheet" href="../assets/pages.css">
+<link rel="stylesheet" href="../assets/hero.css">
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
@@ -48,46 +49,169 @@
   </div>
 </header>
 <main id="main" tabindex="-1">
-<section class="page-hero reveal">
-  <div class="wrap ph-grid">
-    <div class="part">
-      <span class="eyebrow">Baboo Care</span>
-      <h1>Tre livelli. Il problema si ferma al primo utile.</h1>
-      <p class="lede">Quando qualcosa cambia, spesso ce ne accorgiamo noi prima di te. E quando ci chiami, non parti da zero: abbiamo già i dati del tuo impianto davanti.</p>
-      <div class="row"><a class="btn btn-blue" href="#assistenza">Richiedi assistenza</a><a class="btn btn-outline" href="https://energy.baboo.eu" rel="noopener">Baboo Monitor</a></div>
+<section class="hero care" aria-label="Introduzione" data-video="../assets/care-scrub.mp4" data-poster="../assets/care-poster.jpg" data-ending="../assets/care-ending.jpg" data-bytes="6219755" data-film="../assets/care-film-v.mp4" data-film-poster="../assets/care-poster-v.jpg" data-film-ending="../assets/care-ending-v.jpg">
+  <div class="stage">
+    <div class="poster" aria-hidden="true"></div>
+    <video preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+    <div class="scrim" aria-hidden="true"></div>
+
+    <div class="band b1" data-from="0" data-to="0.12">
+      <div class="inner">
+        <span class="kicker">Baboo Care · Assistenza</span>
+        <h2 class="line" data-split="words">Il problema si ferma al primo livello utile.</h2>
+      </div>
     </div>
-    
+    <div class="band b2" data-from="0.18" data-to="0.33">
+      <div class="inner"><p class="line" data-split="words">Da remoto, sul nostro schermo.</p></div>
+    </div>
+    <div class="band b3" data-from="0.40" data-to="0.54" data-spread="0.6">
+      <div class="inner"><p class="line" data-split="grid">In video, con te. A casa tua, se serve.</p></div>
+    </div>
+    <div class="band b4" data-from="0.58" data-to="0.72" data-ramp="0.036">
+      <div class="inner"><p class="line" data-split="words">MONITOR veglia. Ogni giorno.</p></div>
+    </div>
+    <div class="band b5" data-from="0.78" data-to="1" data-ramp="0.05">
+      <div class="inner">
+        <span class="kicker">Baboo Care · Assistenza</span>
+        <h1 data-split="words">Tre livelli. Il problema si ferma al primo utile.</h1>
+        <p class="subline">Quando qualcosa cambia, spesso ce ne accorgiamo noi prima di te. E quando ci parli non parti da zero: abbiamo già i dati del tuo impianto davanti.</p>
+        <div class="row"><a class="btn btn-blue" href="#assistenza">Richiedi assistenza</a><a class="btn btn-ghost" href="https://energy.baboo.eu" rel="noopener">Baboo Monitor</a></div>
+      </div>
+    </div>
+
+    <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/></svg>
+    <div class="cue" aria-hidden="true">Scorri</div>
+    <button class="film-skip" type="button" hidden>Salta</button>
   </div>
 </section>
 
 <section class="sec alt reveal" aria-labelledby="h-livelli">
   <div class="wrap">
-    <div class="head part"><span class="eyebrow">Come funziona</span><h2 id="h-livelli">Dal nostro schermo a casa tua, solo se serve.</h2></div>
-    <ol class="grid g3 numbered">
-      <li class="part"><span class="n">L1</span><h3>Da remoto</h3><p>Leggiamo i dati di MONITOR, capiamo cosa succede e spesso risolviamo senza che tu debba fare nulla.</p></li>
-      <li class="part"><span class="n">L2</span><h3>In video, con te</h3><p>Se serve una mano sul posto, ti guidiamo in videochiamata guardando insieme i dati reali. Niente viaggi a vuoto.</p></li>
-      <li class="part"><span class="n">L3</span><h3>A casa tua</h3><p>Quando è necessario, arriva un tecnico Baboo Pro con il problema già inquadrato e il ricambio giusto.</p></li>
+    <div class="head part"><span class="eyebrow">Come funziona</span><h2 id="h-livelli">Dove si ferma il problema.</h2></div>
+    <figure class="schema care part ph-l1" aria-labelledby="schema-cap" data-live data-cycle="l1,l2,l3">
+  <svg viewBox="0 0 900 245" role="img" aria-hidden="true" focusable="false">
+    <!-- casa del cliente con MONITOR -->
+    <g class="home"><path d="M60 118 L120 70 L180 118"/><path d="M72 118 V190 H168 V118"/><rect class="disp" x="105" y="136" width="30" height="20" rx="2"/><line x1="112" y1="146" x2="128" y2="146"/></g>
+    <!-- L1: schermo Baboo -->
+    <g class="screen"><rect x="300" y="96" width="120" height="78" rx="4"/><path class="chart" d="M312 152 L335 140 L355 148 L378 124 L408 132"/><line x1="360" y1="174" x2="360" y2="190"/><line x1="335" y1="190" x2="385" y2="190"/></g>
+    <!-- L2: videochiamata -->
+    <g class="video"><rect x="530" y="92" width="100" height="84" rx="6"/><rect x="540" y="102" width="80" height="52" rx="3"/><circle cx="580" cy="166" r="3"/><path class="cam" d="M556 121 h22 v16 h-22 z"/><path class="cam" d="M578 126 l10 -6 v20 l-10 -6"/></g>
+    <!-- L3: furgone Baboo -->
+    <g class="van"><path d="M745 160 V120 H815 L845 145 V160 Z"/><rect x="820" y="128" width="14" height="10" rx="1"/><circle cx="765" cy="166" r="8"/><circle cx="828" cy="166" r="8"/><line x1="735" y1="176" x2="862" y2="176"/></g>
+    <!-- il punto dove il caso si ferma -->
+    <g class="stop st-l1"><circle cx="360" cy="78" r="9"/><path d="M355 78 l4 4 l7 -8"/></g>
+    <g class="stop st-l2"><circle cx="580" cy="74" r="9"/><path d="M575 74 l4 4 l7 -8"/></g>
+    <g class="stop st-l3"><circle cx="795" cy="102" r="9"/><path d="M790 102 l4 4 l7 -8"/></g>
+    <!-- flussi: dai dati della casa al livello utile -->
+    <g class="flows">
+      <path id="ca-1" class="flow f-l1 f-l2 f-l3" d="M170 146 H298"/>
+      <path id="ca-2" class="flow f-l2 f-l3" d="M422 140 H528"/>
+      <path id="ca-3" class="flow f-l3" d="M632 140 H743"/>
+    </g>
+    <g class="dots d-l1">
+      <circle class="dot" r="3"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#ca-1"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#ca-1"/></animateMotion></circle>
+    </g>
+    <g class="dots d-l2">
+      <circle class="dot" r="3"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#ca-1"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#ca-2"/></animateMotion></circle>
+    </g>
+    <g class="dots d-l3">
+      <circle class="dot" r="3"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#ca-1"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite"><mpath href="#ca-2"/></animateMotion></circle>
+      <circle class="dot" r="3"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite"><mpath href="#ca-3"/></animateMotion></circle>
+    </g>
+    <!-- etichette -->
+    <text x="120" y="222">CASA · MONITOR</text><text x="360" y="222">L1 · DA REMOTO</text><text x="580" y="222">L2 · IN VIDEO</text><text x="797" y="222">L3 · A CASA TUA</text>
+    <text class="season s-l1" x="450" y="22">caso 1 · risolto da remoto</text><text class="season s-l2" x="450" y="22">caso 2 · risolto in video</text><text class="season s-l3" x="450" y="22">caso 3 · risolto a casa tua</text>
+  </svg>
+  <figcaption id="schema-cap">Ogni richiesta parte dai dati, non dal telefono. Sale di livello solo se il precedente non basta.</figcaption>
+</figure>
+
+    <ol class="numbered grid g3">
+      <li class="part" data-phase="l1"><span class="n">01 · Da remoto</span><h3>Lo vediamo e lo sistemiamo.</h3><p>Un parametro fuori posto è un avviso sul nostro schermo: spesso si risolve da qui, senza che tu debba fare nulla.</p></li>
+      <li class="part" data-phase="l2"><span class="n">02 · In video, con te</span><h3>Ti guidiamo guardando gli stessi dati.</h3><p>Se serve una mano sul posto, ti chiamiamo in video: tu davanti all'impianto, noi davanti ai numeri. Niente viaggi a vuoto.</p></li>
+      <li class="part" data-phase="l3"><span class="n">03 · A casa tua</span><h3>Arriviamo con il problema già inquadrato.</h3><p>Quando è necessario, il tecnico Baboo parte sapendo cosa troverà e con il ricambio giusto.</p></li>
     </ol>
-    <p class="legal part">I tempi garantiti di intervento sono definiti nel contratto Baboo Casa.</p>
+    <p class="legal part">I tempi di presa in carico e di intervento sono scritti nel contratto Baboo Casa o nel contratto Baboo Care.</p>
   </div>
 </section>
-<section class="sec reveal" aria-labelledby="h-cosa">
+<section class="sec reveal" aria-labelledby="h-perche">
+  <div class="wrap">
+    <div class="head part"><span class="eyebrow">Perché con una ESCo</span><h2 id="h-perche">Un'assistenza si chiama. Baboo Care ti chiama.</h2></div>
+    <div class="compare">
+      <div class="col part">
+        <h3>Assistenza tradizionale</h3>
+        <ul class="steps">
+          <li>Te ne accorgi tu, spesso dalla bolletta.</li>
+          <li>Chiami, spieghi, aspetti.</li>
+          <li>Il tecnico arriva senza sapere cosa troverà.</li>
+        </ul>
+      </div>
+      <div class="col esco part">
+        <h3>Baboo Care</h3>
+        <ul class="checks">
+          <li>MONITOR vede il valore fuori posto prima che diventi un problema.</li>
+          <li>Quando ci parli abbiamo già i dati davanti.</li>
+          <li>Il tecnico arriva con il problema inquadrato e il ricambio giusto.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="close part">È il senso di una ESCo: chi porta il rischio del risultato guarda l'impianto ogni giorno. <a href="../che-cose-una-esco/">Che cos'è una ESCo</a></p>
+  </div>
+</section>
+<section class="sec alt reveal" aria-labelledby="h-cosa">
   <div class="wrap two">
     <div class="part"><span class="eyebrow">Cosa copre</span><h2 id="h-cosa">La manutenzione non la ricordi tu. La ricordiamo noi.</h2></div>
     <div class="part">
-      <ul class="checks"><li>Manutenzione programmata degli impianti Baboo</li><li>Controlli periodici sui dati di MONITOR</li><li>Assistenza su pompe di calore, fotovoltaico, accumulo e climatizzazione</li><li>Gestione della garanzia con i produttori</li></ul>
-      <p>Per i clienti Baboo Casa è parte del servizio. Per chi ha un impianto Baboo fuori canone, Baboo Care si attiva come contratto di assistenza.</p>
+      <ul class="checks cols2">
+        <li>Manutenzione programmata degli impianti Baboo</li>
+        <li>Controllo continuo sui dati di MONITOR, con un report periodico</li>
+        <li>Verifica dell'accumulo e delle batterie</li>
+        <li>Assistenza su pompe di calore, fotovoltaico, accumulo, climatizzazione e serramenti</li>
+        <li>Gestione della garanzia con i produttori</li>
+        <li>Ricambi originali</li>
+        <li>Pulizia dei moduli fotovoltaici a chiamata, quando serve</li>
+        <li>Presa in carico di impianti esistenti, dopo un sopralluogo</li>
+      </ul>
     </div>
+  </div>
+</section>
+<section class="sec reveal" aria-labelledby="h-modi">
+  <div class="wrap">
+    <div class="head part"><span class="eyebrow">Due modi per averla</span><h2 id="h-modi">Dentro Baboo Casa è già compresa. Fuori, si sceglie.</h2></div>
+    <div class="grid g3 care-plans">
+      <article class="card part"><span class="n">Con Baboo Casa</span><h3>Compresa nel canone</h3><p>Chi ha un livello Baboo Casa ha Baboo Care per tutta la durata del contratto: manutenzione, monitoraggio e assistenza sono già dentro. Non c'è nulla da attivare.</p><p><a href="../baboo-casa/">I tre livelli di Baboo Casa</a></p></article>
+      <article class="card part"><span class="n">Fuori canone</span><h3>Care Base</h3><p>Monitoraggio giorno e notte sui dati di MONITOR, report annuale, verifica dell'accumulo, assistenza da remoto e in video, gestione della garanzia.</p><span class="price" data-care="care-base">Canone al sopralluogo</span></article>
+      <article class="card feat part"><span class="badge">Con la visita a casa</span><span class="n">Fuori canone</span><h3>Care Plus</h3><p>Tutto Care Base, più la manutenzione programmata a casa tua una volta all'anno e la priorità di intervento quando serve il tecnico.</p><span class="price" data-care="care-plus">Canone al sopralluogo</span></article>
+    </div>
+    <p class="legal part">Canoni annuali, IVA inclusa, per impianti fotovoltaici fino a 6 kWp; contratto di 12 mesi, rinnovabile. Per pompe di calore, climatizzazione, serramenti e impianti più grandi il canone si definisce al sopralluogo.</p>
+    <div class="row part"><a class="btn btn-blue" href="#assistenza">Attiva Baboo Care</a><a class="btn btn-outline" href="../#sopralluogo">Prenota il sopralluogo gratuito</a></div>
   </div>
 </section>
 <section class="sec dark monitor-strip reveal" aria-label="MONITOR">
   <div class="wrap ms-grid">
     <div class="part"><span class="eyebrow">MONITOR</span><h2>Ogni impianto Baboo parla con noi. Giorno e notte.</h2></div>
-    <p class="part">Il monitoraggio non è un accessorio: è la prova che la promessa si può verificare. Un valore fuori posto è un avviso sul nostro schermo, non un freddo nella tua casa. <a href="../care/">Come funziona Baboo Care</a> · <a href="https://energy.baboo.eu" rel="noopener">Baboo Monitor</a></p>
+    <div class="part">
+      <p>Il monitoraggio non è un accessorio: è la prova che la promessa si può verificare. Un valore fuori posto è un avviso sul nostro schermo, non un freddo nella tua casa.</p>
+      <ul class="ms-chips" aria-label="Grandezze lette da MONITOR"><li>Produzione</li><li>Consumo</li><li>Temperatura</li><li>Cicli</li><li>Avvisi</li></ul>
+      <p class="ms-links"><a href="https://energy.baboo.eu" rel="noopener">Baboo Monitor</a></p>
+    </div>
   </div>
 </section>
-
-<section class="sec alt reveal" aria-labelledby="h-ass" id="assistenza">
+<section class="sec alt reveal" aria-labelledby="h-faq">
+  <div class="wrap faq-grid">
+    <div class="part"><span class="eyebrow">Domande su Baboo Care</span><h2 id="h-faq">Quello che ci chiedono prima di firmare.</h2><p class="lede">Le altre risposte sono nelle <a href="../faq/">domande frequenti</a>.</p></div>
+    <div class="acc part">
+      <details><summary>Devo chiamare io?</summary><p>Puoi, ma spesso non serve: se MONITOR segnala qualcosa, ti contattiamo noi. Per un'urgenza il telefono resta il modo più rapido.</p></details>
+      <details><summary>Quanto ci mettete?</summary><p>I tempi di presa in carico e di intervento sono scritti nel contratto, non in una promessa sul sito. Li leggi prima di firmare.</p></details>
+      <details><summary>Care vale anche per impianti che non ha installato Baboo?</summary><p>Sì. Prendiamo in carico anche impianti esistenti dopo una verifica tecnica e l'installazione di MONITOR: senza dati, non possiamo promettere di vedere prima di te.</p></details>
+      <details><summary>La pulizia dei moduli è compresa?</summary><p>È una prestazione a chiamata, con o senza piattaforma aerea: la programmiamo quando i dati di MONITOR dicono che rende.</p></details>
+      <details><summary>Cosa succede alla scadenza?</summary><p>Il contratto è annuale e si rinnova; se hai Baboo Casa non devi pensarci.</p></details>
+    </div>
+  </div>
+</section>
+<section class="sec reveal" aria-labelledby="h-ass" id="assistenza">
   <div class="wrap contact-grid">
     <div class="part"><div class="head"><span class="eyebrow">Richiedi assistenza</span><h2 id="h-ass">Dicci cosa vedi. Il resto lo vediamo noi.</h2></div>
       <p class="lede">Per un problema urgente chiamaci: <a href="tel:+3932363934">0323 63934</a>. Per tutto il resto, questo modulo arriva direttamente al team Care.</p>
@@ -99,7 +223,7 @@
         <div class="f"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
       </div>
       <div class="f"><label for="f-imp">Impianto</label>
-        <select id="f-imp" name="impianto" required><option value="">Scegli</option><option>Pompa di calore</option><option>Fotovoltaico o accumulo</option><option>Climatizzazione</option><option>Caldaia o ibrido</option><option>Non so</option></select></div>
+        <select id="f-imp" name="impianto" required><option value="">Scegli</option><option>Pompa di calore</option><option>Fotovoltaico o accumulo</option><option>Climatizzazione</option><option>Caldaia o ibrido</option><option>Serramenti</option><option>Voglio attivare Baboo Care</option><option>Non so</option></select></div>
       <div class="f"><label for="f-note">Cosa succede?</label><textarea id="f-note" name="note" rows="3" required></textarea></div>
       <label class="check"><input type="checkbox" name="privacy" required> Ho letto la <a href="../privacy/">privacy policy</a></label>
       <button class="btn btn-blue" type="submit">Invia la richiesta</button>
@@ -139,5 +263,12 @@
 </footer>
 <script src="../assets/site.js" defer></script>
 <script src="../assets/forms.js" defer></script>
+<script src="../assets/hero.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Service","name":"Baboo Care","serviceType":"Manutenzione e assistenza impianti con monitoraggio remoto","provider":{"@type":"Organization","name":"Baboo ESCo S.r.l.","url":"https://www.baboo.eu/","telephone":"+39 0323 63934","address":{"@type":"PostalAddress","streetAddress":"Via Prati 1","postalCode":"28887","addressLocality":"Omegna","addressRegion":"VB","addressCountry":"IT"}},"areaServed":{"@type":"Country","name":"Italia"},"url":"https://www.baboo.eu/care/","description":"Assistenza in tre livelli: da remoto sui dati MONITOR, in video con te, a casa tua. Il problema si ferma al primo livello utile."},
+ {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Baboo","item":"https://www.baboo.eu/"},{"@type":"ListItem","position":2,"name":"Baboo Care","item":"https://www.baboo.eu/care/"}]}
+]}
+</script>
 </body>
 </html>

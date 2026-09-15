@@ -1,0 +1,18 @@
+{
+  "_nota": "Canoni Baboo Care fuori canone Baboo Casa (contratto FV 0-6 kWp Rev. C, 15/09/2026). IVA 10% inclusa: contratto per consumatori. Nessun prezzo va scritto nell'HTML: la pagina legge solo questo file.",
+  "fascia": "Fotovoltaico fino a 6 kWp",
+  "durata_mesi": 12,
+  "livelli": [
+    {
+      "id": "care-base",
+      "nome": "Care Base",
+      "anno": 99
+    },
+    {
+      "id": "care-plus",
+      "nome": "Care Plus",
+      "anno": 249,
+      "badge": "Con la visita a casa"
+    }
+  ]
+}

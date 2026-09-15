@@ -128,13 +128,15 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
   @media (orientation:portrait){.hero.mountainview:not(.film) .stage .poster{background-image:url("mountainview-ending-v.jpg")}}
   .hero.miniclima:not(.film) .stage .poster{background-image:url("miniclima-ending.jpg")}
   @media (orientation:portrait){.hero.miniclima:not(.film) .stage .poster{background-image:url("miniclima-ending-v.jpg")}}
+  .hero.care:not(.film) .stage .poster{background-image:url("care-ending.jpg")}
+  @media (orientation:portrait){.hero.care:not(.film) .stage .poster{background-image:url("care-ending-v.jpg")}}
 }
 
 /* ---------- schema: fasi generiche (JS accende .on su linee e punti della fase attiva) ---------- */
 .schema .flow.on{stroke:var(--blue);opacity:1}
 .schema .dots.on{opacity:1}
 .schema .season{opacity:0;transition:opacity .6s var(--ease-out);font-size:10px;letter-spacing:.06em;fill:var(--blue)}
-.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry{opacity:1}
+.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry,.schema.ph-l1 .season.s-l1,.schema.ph-l2 .season.s-l2,.schema.ph-l3 .season.s-l3{opacity:1}
 /* schema CLIMA: ventola, aria, termosifone, acqua calda */
 .schema .fan{transform-box:fill-box;transform-origin:center}
 .schema.live .fan{animation:fanSpin 5s linear infinite}
@@ -168,3 +170,18 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.ph-mid .unit-in.b .breeze path{stroke-dasharray:3 4}
 .schema .house path{stroke:var(--ink-soft);opacity:.6}
 @media (prefers-reduced-motion:reduce){.schema.miniclima .unit-in.a .breeze path{opacity:1}}
+
+/* schema CARE: dove si ferma il problema */
+.schema .stop{opacity:0;transition:opacity .6s var(--ease-out)}
+.schema .stop circle{fill:var(--blue);stroke:none}
+.schema .stop path{stroke:#fff;stroke-width:2}
+.schema.ph-l1 .stop.st-l1,.schema.ph-l2 .stop.st-l2,.schema.ph-l3 .stop.st-l3{opacity:1}
+.schema .screen rect,.schema .video rect,.schema .van path,.schema .van circle{transition:stroke .8s var(--ease-out)}
+.schema.ph-l1 .screen rect,.schema.ph-l2 .video rect:first-child,.schema.ph-l3 .van path,.schema.ph-l3 .van circle{stroke:var(--blue)}
+.schema .chart,.schema .cam{stroke:var(--blue)}
+.schema .home .disp{stroke:var(--blue);fill:rgba(78,127,163,.12)}
+/* Care: tre schede (con Baboo Casa / Base / Plus) */
+.care-plans .card .n{display:block;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.6em}
+.care-plans .card.feat .n{color:var(--swan)}
+.care-plans .card{position:relative}
+.care-plans + .legal{margin-top:18px}

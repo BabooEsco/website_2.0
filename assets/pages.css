@@ -40,7 +40,7 @@ ol.plain li{margin:.5em 0}
 ul.steps{list-style:none;margin:0;padding:0}
 ul.steps li{position:relative;padding-left:1.6em;margin:.45em 0;color:var(--ink-soft)}
 ul.steps li::before{content:"";position:absolute;left:0;top:.7em;width:.9em;height:1px;background:var(--swan)}
-.compare .esco ul.checks li{font-size:1.15rem;font-family:var(--font-display);font-weight:600;line-height:1.3}
+.compare .esco ul.checks li{font-size:1.15rem;font-family:var(--font-display);font-weight:400;line-height:1.3}
 @media (max-width:760px){.compare{grid-template-columns:1fr}.compare .col{padding:28px 24px}}
 
 /* FAQ e form (condivisi con la Home) */
@@ -48,7 +48,7 @@ ul.steps li::before{content:"";position:absolute;left:0;top:.7em;width:.9em;heig
 @media (max-width:900px){.faq-grid{grid-template-columns:1fr;gap:20px}}
 .acc details{border-top:1px solid var(--line)}
 .acc details:last-child{border-bottom:1px solid var(--line)}
-.acc summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;position:relative;font-family:var(--font-display);font-weight:600;font-size:1.1rem}
+.acc summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;position:relative;font-family:var(--font-display);font-weight:500;font-size:1.1rem}
 .acc summary::-webkit-details-marker{display:none}
 .acc summary::after{content:"";position:absolute;right:6px;top:50%;width:10px;height:10px;border-right:1.5px solid var(--blue);border-bottom:1.5px solid var(--blue);transform:translateY(-70%) rotate(45deg);transition:transform .35s var(--ease-out)}
 .acc details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}

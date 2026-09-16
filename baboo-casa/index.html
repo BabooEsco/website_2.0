@@ -13,13 +13,14 @@
 <meta property="og:title" content="Baboo Casa · Il comfort di casa in un canone, per 120 mesi">
 <meta property="og:description" content="Baboo Casa: pompa di calore, fotovoltaico con accumulo, serramenti e MONITOR in un canone mensile su 120 mesi. Tre livelli, il canone definitivo al sopralluogo gratuito.">
 <meta property="og:url" content="https://www.baboo.eu/baboo-casa/">
-<meta property="og:image" content="https://www.baboo.eu/assets/hero-ending.jpg">
+<meta property="og:image" content="https://www.baboo.eu/assets/baboo-casa-poster.jpg">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/baboo.css">
 <link rel="stylesheet" href="../assets/pages.css">
+<link rel="stylesheet" href="../assets/hero.css">
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
@@ -48,15 +49,39 @@
   </div>
 </header>
 <main id="main" tabindex="-1">
-<section class="page-hero reveal">
-  <div class="wrap ph-grid">
-    <div class="part">
-      <span class="eyebrow">L'offerta a canone</span>
-      <h1>Il comfort di casa, in un canone. Per 120 mesi.</h1>
-      <p class="lede">Un canone mensile, l'impianto giusto per la tua casa, e noi che restiamo. Tre livelli: ognuno comprende il precedente. Il canone definitivo lo scriviamo dopo il sopralluogo gratuito.</p>
-      <div class="row"><a class="btn btn-blue" href="https://energy.baboo.eu" rel="noopener">Calcola il tuo canone</a><a class="btn btn-outline" href="../#sopralluogo">Prenota il sopralluogo gratuito</a></div>
+<section class="hero baboo-casa" aria-label="Introduzione" data-video="../assets/baboo-casa-scrub.mp4" data-poster="../assets/baboo-casa-poster.jpg" data-ending="../assets/baboo-casa-ending.jpg" data-bytes="8657395" data-film="../assets/baboo-casa-film-v.mp4" data-film-poster="../assets/baboo-casa-poster-v.jpg" data-film-ending="../assets/baboo-casa-ending-v.jpg">
+  <div class="stage">
+    <div class="poster" aria-hidden="true"></div>
+    <video preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+    <div class="scrim" aria-hidden="true"></div>
+
+    <div class="band b1" data-from="0" data-to="0.12">
+      <div class="inner">
+        <span class="kicker">L'offerta a canone</span>
+        <h2 class="line" data-split="words">Una casa. Un canone. Per 120 mesi.</h2>
+      </div>
     </div>
-    <figure class="ph-img"><picture><source type="image/avif" srcset="../assets/hero-ending-480.avif 480w, ../assets/hero-ending-960.avif 960w, ../assets/hero-ending-1440.avif 1440w" sizes="(max-width:600px) calc(100vw - 40px), (max-width:900px) calc(100vw - 80px), (max-width:1360px) 40vw, 524px"><source type="image/webp" srcset="../assets/hero-ending-480.webp 480w, ../assets/hero-ending-960.webp 960w, ../assets/hero-ending-1440.webp 1440w" sizes="(max-width:600px) calc(100vw - 40px), (max-width:900px) calc(100vw - 80px), (max-width:1360px) 40vw, 524px"><img src="../assets/hero-ending.jpg" srcset="../assets/hero-ending-480.jpg 480w, ../assets/hero-ending-960.jpg 960w, ../assets/hero-ending-1440.jpg 1440w" sizes="(max-width:600px) calc(100vw - 40px), (max-width:900px) calc(100vw - 80px), (max-width:1360px) 40vw, 524px" alt="Interno quieto al mattino con display MONITOR acceso" loading="eager" width="1280" height="800"></picture></figure>
+    <div class="band b2" data-from="0.18" data-to="0.33">
+      <div class="inner"><p class="line" data-split="words">Pompa di calore, fotovoltaico, serramenti: un solo interlocutore.</p></div>
+    </div>
+    <div class="band b3" data-from="0.40" data-to="0.54" data-spread="0.6">
+      <div class="inner"><p class="line" data-split="grid">Ogni livello comprende il precedente.</p></div>
+    </div>
+    <div class="band b4" data-from="0.58" data-to="0.72" data-ramp="0.036">
+      <div class="inner"><p class="line" data-split="words">MONITOR legge quanto rende. Ogni giorno.</p></div>
+    </div>
+    <div class="band b5" data-from="0.78" data-to="1" data-ramp="0.05">
+      <div class="inner">
+        <span class="kicker">L'offerta a canone</span>
+        <h1 data-split="words">Il comfort di casa, in un canone. Per 120 mesi.</h1>
+        <p class="subline">Un canone mensile, l'impianto giusto per la tua casa, e noi che restiamo. Tre livelli: ognuno comprende il precedente. Il canone definitivo lo scriviamo dopo il sopralluogo gratuito.</p>
+        <div class="row"><a class="btn btn-blue" href="https://energy.baboo.eu" rel="noopener">Calcola il tuo canone</a><a class="btn btn-outline" href="../#sopralluogo">Prenota il sopralluogo gratuito</a></div>
+      </div>
+    </div>
+
+    <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/></svg>
+    <div class="cue" aria-hidden="true">Scorri</div>
+    <button class="film-skip" type="button" hidden>Salta</button>
   </div>
 </section>
 
@@ -130,5 +155,6 @@
   </div>
 </footer>
 <script src="../assets/site.js" defer></script>
+<script src="../assets/hero.js" defer></script>
 </body>
 </html>

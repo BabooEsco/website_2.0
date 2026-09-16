@@ -140,6 +140,8 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
   @media (orientation:portrait){.hero.care:not(.film) .stage .poster{background-image:url("care-ending-v.jpg")}}
   .hero.business:not(.film) .stage .poster{background-image:url("business-ending.jpg")}
   @media (orientation:portrait){.hero.business:not(.film) .stage .poster{background-image:url("business-ending-v.jpg")}}
+  .hero.baboo-casa:not(.film) .stage .poster{background-image:url("baboo-casa-ending.jpg")}
+  @media (orientation:portrait){.hero.baboo-casa:not(.film) .stage .poster{background-image:url("baboo-casa-ending-v.jpg")}}
 }
 
 /* ---------- schema: fasi generiche (JS accende .on su linee e punti della fase attiva) ---------- */
@@ -298,6 +300,7 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 @keyframes stopPop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
 /* Business: l'arrivo e' una scena chiara (schermo e scrivania): scrim piu' deciso a sinistra per la leggibilita' dei titoli */
 .hero.business .scrim{background:linear-gradient(90deg,rgba(20,28,36,.58) 0%,rgba(20,28,36,.32) 45%,rgba(20,28,36,.08) 100%),radial-gradient(ellipse 120% 90% at 50% 45%,rgba(5,8,12,0) 45%,rgba(5,8,12,.35) 100%)}
+.hero.baboo-casa .scrim{background:linear-gradient(90deg,rgba(20,28,36,.52) 0%,rgba(20,28,36,.28) 45%,rgba(20,28,36,.06) 100%),radial-gradient(ellipse 120% 90% at 50% 45%,rgba(5,8,12,0) 45%,rgba(5,8,12,.30) 100%)}
 /* schema BUSINESS: una sola foto, la camera si sposta sull'elemento della fase; il disegno si accende */
 .schema.business .scene.sc-all{opacity:1}
 .schema.business .scene img{transition:transform 5.2s linear,object-position 5.2s linear;object-position:50% 50%}

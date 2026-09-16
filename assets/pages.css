@@ -199,8 +199,8 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.scene .scenes{position:absolute;inset:0}
 .schema.scene .scene{position:absolute;inset:0;opacity:0;transition:opacity 1.6s var(--ease-out)}
 .schema.scene .scene img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1);transition:transform 5.2s linear}
-.schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night,.schema.scene.ph-win .sc-win,.schema.scene.ph-sum .sc-sum,.schema.scene.ph-acs .sc-acs,.schema.scene.ph-mid .sc-mid,.schema.scene.ph-dry .sc-dry,.schema.scene.ph-air .sc-air{opacity:1}
-.schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img,.schema.scene.live.ph-win .sc-win img,.schema.scene.live.ph-sum .sc-sum img,.schema.scene.live.ph-acs .sc-acs img,.schema.scene.live.ph-mid .sc-mid img,.schema.scene.live.ph-dry .sc-dry img,.schema.scene.live.ph-air .sc-air img{transform:scale(1.05)}
+.schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night,.schema.scene.ph-win .sc-win,.schema.scene.ph-sum .sc-sum,.schema.scene.ph-acs .sc-acs,.schema.scene.ph-mid .sc-mid,.schema.scene.ph-dry .sc-dry,.schema.scene.ph-air .sc-air,.schema.scene.ph-l1 .sc-l1,.schema.scene.ph-l2 .sc-l2,.schema.scene.ph-l3 .sc-l3{opacity:1}
+.schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img,.schema.scene.live.ph-win .sc-win img,.schema.scene.live.ph-sum .sc-sum img,.schema.scene.live.ph-acs .sc-acs img,.schema.scene.live.ph-mid .sc-mid img,.schema.scene.live.ph-dry .sc-dry img,.schema.scene.live.ph-air .sc-air img,.schema.scene.live.ph-l1 .sc-l1 img,.schema.scene.live.ph-l2 .sc-l2 img,.schema.scene.live.ph-l3 .sc-l3 img{transform:scale(1.05)}
 /* velo traslucido su tutta la foto: lo schema si legge, la scena resta visibile sotto */
 .schema.scene .scenes::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.64);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);transition:background 1.2s var(--ease-out)}
 .schema.scene.ph-eve .scenes::after{background:rgba(255,255,255,.58)}
@@ -286,3 +286,11 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.mountainview.live.ph-air .noise path:nth-child(3){animation-delay:-1.2s}
 @keyframes noisePulse{0%,100%{opacity:.45}50%{opacity:1}}
 .schema.mountainview.scene.ph-win .scenes::after{background:rgba(255,255,255,.60)}
+/* CARE su scena: il livello che lavora si accende, il segno di spunta pulsa una volta */
+.schema.care .screen rect,.schema.care .video rect,.schema.care .van path{transition:stroke 1s var(--ease-out),fill 1s var(--ease-out)}
+.schema.care.ph-l1 .screen rect{fill:rgba(160,190,210,.22)}
+.schema.care.ph-l2 .video rect:first-child{fill:rgba(160,190,210,.22)}
+.schema.care.ph-l3 .van path:first-child{fill:rgba(160,190,210,.22)}
+.schema.care.live .stop{transform-box:fill-box;transform-origin:center}
+.schema.care.live.ph-l1 .stop.st-l1,.schema.care.live.ph-l2 .stop.st-l2,.schema.care.live.ph-l3 .stop.st-l3{animation:stopPop .7s var(--ease-out) 1}
+@keyframes stopPop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}

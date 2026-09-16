@@ -199,8 +199,8 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.scene .scenes{position:absolute;inset:0}
 .schema.scene .scene{position:absolute;inset:0;opacity:0;transition:opacity 1.6s var(--ease-out)}
 .schema.scene .scene img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1);transition:transform 5.2s linear}
-.schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night,.schema.scene.ph-win .sc-win,.schema.scene.ph-sum .sc-sum,.schema.scene.ph-acs .sc-acs,.schema.scene.ph-mid .sc-mid,.schema.scene.ph-dry .sc-dry{opacity:1}
-.schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img,.schema.scene.live.ph-win .sc-win img,.schema.scene.live.ph-sum .sc-sum img,.schema.scene.live.ph-acs .sc-acs img,.schema.scene.live.ph-mid .sc-mid img,.schema.scene.live.ph-dry .sc-dry img{transform:scale(1.05)}
+.schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night,.schema.scene.ph-win .sc-win,.schema.scene.ph-sum .sc-sum,.schema.scene.ph-acs .sc-acs,.schema.scene.ph-mid .sc-mid,.schema.scene.ph-dry .sc-dry,.schema.scene.ph-air .sc-air{opacity:1}
+.schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img,.schema.scene.live.ph-win .sc-win img,.schema.scene.live.ph-sum .sc-sum img,.schema.scene.live.ph-acs .sc-acs img,.schema.scene.live.ph-mid .sc-mid img,.schema.scene.live.ph-dry .sc-dry img,.schema.scene.live.ph-air .sc-air img{transform:scale(1.05)}
 /* velo traslucido su tutta la foto: lo schema si legge, la scena resta visibile sotto */
 .schema.scene .scenes::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.64);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);transition:background 1.2s var(--ease-out)}
 .schema.scene.ph-eve .scenes::after{background:rgba(255,255,255,.58)}
@@ -276,3 +276,13 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.miniclima.live.ph-dry .drops line:nth-child(3){animation-delay:-1.1s}
 @keyframes dropFall{0%{transform:translateY(-4px);opacity:0}30%{opacity:1}100%{transform:translateY(10px);opacity:0}}
 .schema.miniclima.scene.ph-dry .scenes::after{background:rgba(255,255,255,.58)}
+/* MOUNTAINVIEW su scena: stanza che si tinge, vetro che brilla d'estate, rumore che pulsa */
+.schema.mountainview .room{fill:transparent;stroke:none;transition:fill 1s var(--ease-out)}
+.schema.mountainview.ph-win .room{fill:rgba(242,217,166,.32)}
+.schema.mountainview.ph-sum .room{fill:rgba(160,190,210,.36)}
+.schema.mountainview.ph-win .inside .rad line{stroke:#DDA26E}
+.schema.mountainview.live.ph-air .noise path{animation:noisePulse 1.8s ease-in-out infinite}
+.schema.mountainview.live.ph-air .noise path:nth-child(2){animation-delay:-.6s}
+.schema.mountainview.live.ph-air .noise path:nth-child(3){animation-delay:-1.2s}
+@keyframes noisePulse{0%,100%{opacity:.45}50%{opacity:1}}
+.schema.mountainview.scene.ph-win .scenes::after{background:rgba(255,255,255,.60)}

@@ -88,16 +88,18 @@
 <section class="sec alt reveal" aria-labelledby="h-giornata">
   <div class="wrap">
     <div class="head part"><span class="eyebrow">Il confine</span><h2 id="h-giornata">La finestra decide cosa resta dentro.</h2></div>
-    <figure class="schema mountainview part ph-win" aria-labelledby="schema-cap" data-live data-cycle="win,sum,air">
+    <figure class="schema scene mountainview part ph-win" aria-labelledby="schema-cap" data-live data-cycle="win,sum,air">
+  <div class="scenes" aria-hidden="true"><div class="scene sc-win"><picture><source type="image/avif" srcset="../../assets/mountainview-scene-win-480.avif 480w, ../../assets/mountainview-scene-win-960.avif 960w" sizes="(max-width:1100px) 100vw, 1060px"><source type="image/webp" srcset="../../assets/mountainview-scene-win-480.webp 480w, ../../assets/mountainview-scene-win-960.webp 960w" sizes="(max-width:1100px) 100vw, 1060px"><img src="../../assets/mountainview-scene-win.jpg" srcset="../../assets/mountainview-scene-win-480.jpg 480w, ../../assets/mountainview-scene-win-960.jpg 960w" sizes="(max-width:1100px) 100vw, 1060px" alt="" loading="lazy" width="1344" height="576"></picture></div><div class="scene sc-sum"><picture><source type="image/avif" srcset="../../assets/mountainview-scene-sum-480.avif 480w, ../../assets/mountainview-scene-sum-960.avif 960w" sizes="(max-width:1100px) 100vw, 1060px"><source type="image/webp" srcset="../../assets/mountainview-scene-sum-480.webp 480w, ../../assets/mountainview-scene-sum-960.webp 960w" sizes="(max-width:1100px) 100vw, 1060px"><img src="../../assets/mountainview-scene-sum.jpg" srcset="../../assets/mountainview-scene-sum-480.jpg 480w, ../../assets/mountainview-scene-sum-960.jpg 960w" sizes="(max-width:1100px) 100vw, 1060px" alt="" loading="lazy" width="1344" height="576"></picture></div><div class="scene sc-air"><picture><source type="image/avif" srcset="../../assets/mountainview-scene-air-480.avif 480w, ../../assets/mountainview-scene-air-960.avif 960w" sizes="(max-width:1100px) 100vw, 1060px"><source type="image/webp" srcset="../../assets/mountainview-scene-air-480.webp 480w, ../../assets/mountainview-scene-air-960.webp 960w" sizes="(max-width:1100px) 100vw, 1060px"><img src="../../assets/mountainview-scene-air.jpg" srcset="../../assets/mountainview-scene-air-480.jpg 480w, ../../assets/mountainview-scene-air-960.jpg 960w" sizes="(max-width:1100px) 100vw, 1060px" alt="" loading="lazy" width="1344" height="576"></picture></div><div class="scrim"></div></div>
+  <div class="panel">
   <svg viewBox="0 0 900 245" role="img" aria-hidden="true" focusable="false">
-    <!-- interno: divano e termosifone -->
-    <g class="inside"><path d="M60 150 H250"/><rect x="90" y="112" width="110" height="38" rx="6"/><rect x="82" y="104" width="18" height="46" rx="6"/><rect x="200" y="104" width="18" height="46" rx="6"/><g class="rad"><line x1="236" y1="116" x2="236" y2="150"/><line x1="243" y1="116" x2="243" y2="150"/></g></g>
+    <!-- interno: stanza che si tinge, divano e termosifone -->
+    <g class="inside"><rect class="room" x="60" y="92" width="200" height="58" rx="3"/><path d="M60 150 H250"/><rect x="90" y="112" width="110" height="38" rx="6"/><rect x="82" y="104" width="18" height="46" rx="6"/><rect x="200" y="104" width="18" height="46" rx="6"/><g class="rad"><line x1="236" y1="116" x2="236" y2="150"/><line x1="243" y1="116" x2="243" y2="150"/></g></g>
     <!-- finestra in sezione: telaio, doppio vetro, camera -->
     <g class="win"><rect x="425" y="40" width="50" height="170" rx="3"/><rect x="437" y="52" width="10" height="146"/><rect x="453" y="52" width="10" height="146"/><line x1="450" y1="52" x2="450" y2="198"/><rect x="425" y="200" width="50" height="10"/></g>
     <!-- esterno: sole e collina -->
     <g class="sun"><circle cx="800" cy="70" r="20"/><g class="rays"><line x1="800" y1="36" x2="800" y2="44"/><line x1="800" y1="96" x2="800" y2="104"/><line x1="766" y1="70" x2="774" y2="70"/><line x1="826" y1="70" x2="834" y2="70"/><line x1="776" y1="46" x2="782" y2="52"/><line x1="818" y1="88" x2="824" y2="94"/><line x1="776" y1="94" x2="782" y2="88"/><line x1="818" y1="52" x2="824" y2="46"/></g></g>
     <g class="hill"><path d="M640 175 C700 130 760 130 850 175"/><path d="M640 175 H850"/></g>
-    <!-- rumore: archi che arrivano dalla strada -->
+    <!-- rumore e vento: archi che arrivano da fuori -->
     <g class="noise"><path d="M700 150 a 14 14 0 0 1 0 -36" transform="translate(0,20)"/><path d="M712 158 a 24 24 0 0 1 0 -52" transform="translate(0,20)"/><path d="M724 166 a 34 34 0 0 1 0 -68" transform="translate(0,20)"/></g>
     <!-- flussi -->
     <g class="flows">
@@ -109,26 +111,49 @@
       <path class="guide" id="m-air-stop" d="M480 158 L474 158"/>
     </g>
     <g class="dots d-win">
-      <circle class="dot" r="3"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#m-heat"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.2s" begin="-1.1s" repeatCount="indefinite"><mpath href="#m-heat"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.6s" begin="-0.4s" repeatCount="indefinite"><mpath href="#m-heat-back"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.6s" begin="-1.7s" repeatCount="indefinite"><mpath href="#m-heat-back"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.2s" begin="0.00s" repeatCount="indefinite"><mpath href="#m-heat"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.2s" begin="-0.16s" repeatCount="indefinite"><mpath href="#m-heat"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.2s" begin="-0.32s" repeatCount="indefinite"><mpath href="#m-heat"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.2s" begin="-1.10s" repeatCount="indefinite"><mpath href="#m-heat"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.2s" begin="-1.26s" repeatCount="indefinite"><mpath href="#m-heat"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.2s" begin="-1.42s" repeatCount="indefinite"><mpath href="#m-heat"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.6s" begin="-0.40s" repeatCount="indefinite"><mpath href="#m-heat-back"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.6s" begin="-0.56s" repeatCount="indefinite"><mpath href="#m-heat-back"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.6s" begin="-0.72s" repeatCount="indefinite"><mpath href="#m-heat-back"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.6s" begin="-1.70s" repeatCount="indefinite"><mpath href="#m-heat-back"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.6s" begin="-1.86s" repeatCount="indefinite"><mpath href="#m-heat-back"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.6s" begin="-2.02s" repeatCount="indefinite"><mpath href="#m-heat-back"/></animateMotion></circle>
     </g>
     <g class="dots d-sum">
-      <circle class="dot" r="3"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#m-sun"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#m-sun"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.8s" begin="-0.6s" repeatCount="indefinite"><mpath href="#m-sun-back"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.8s" begin="-2s" repeatCount="indefinite"><mpath href="#m-sun-back"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.4s" begin="0.00s" repeatCount="indefinite"><mpath href="#m-sun"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.4s" begin="-0.16s" repeatCount="indefinite"><mpath href="#m-sun"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.4s" begin="-0.32s" repeatCount="indefinite"><mpath href="#m-sun"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.4s" begin="-1.20s" repeatCount="indefinite"><mpath href="#m-sun"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.4s" begin="-1.36s" repeatCount="indefinite"><mpath href="#m-sun"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.4s" begin="-1.52s" repeatCount="indefinite"><mpath href="#m-sun"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.8s" begin="-0.60s" repeatCount="indefinite"><mpath href="#m-sun-back"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.8s" begin="-0.76s" repeatCount="indefinite"><mpath href="#m-sun-back"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.8s" begin="-0.92s" repeatCount="indefinite"><mpath href="#m-sun-back"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.8s" begin="-2.00s" repeatCount="indefinite"><mpath href="#m-sun-back"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.8s" begin="-2.16s" repeatCount="indefinite"><mpath href="#m-sun-back"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.8s" begin="-2.32s" repeatCount="indefinite"><mpath href="#m-sun-back"/></animateMotion></circle>
     </g>
     <g class="dots d-air">
-      <circle class="dot" r="3"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.4s" begin="-0.8s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.4s" begin="0.00s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.4s" begin="-0.16s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.4s" begin="-0.32s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.4s" begin="-0.80s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.4s" begin="-0.96s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.4s" begin="-1.12s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.4s" begin="-1.60s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.4s" begin="-1.76s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.4s" begin="-1.92s" repeatCount="indefinite"><mpath href="#m-air"/></animateMotion></circle>
     </g>
     <!-- etichette -->
     <text x="155" y="180">DENTRO</text><text x="450" y="232">FINESTRA</text><text x="745" y="205">FUORI</text>
-    <text class="season s-win" x="450" y="30">inverno</text><text class="season s-sum" x="450" y="30">estate</text><text class="season s-air" x="450" y="30">sempre</text>
+    <text class="season s-win" x="450" y="30">inverno · il calore resta dentro</text><text class="season s-sum" x="450" y="30">estate · il sole resta fuori</text><text class="season s-air" x="450" y="30">sempre · aria e rumore restano fuori</text>
   </svg>
+  </div>
   <figcaption id="schema-cap">D'inverno il calore rimbalza e resta dentro; d'estate il sole rimbalza e resta fuori; aria e rumore si fermano sul telaio, sempre.</figcaption>
 </figure>
 

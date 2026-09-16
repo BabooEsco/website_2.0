@@ -199,8 +199,8 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.scene .scenes{position:absolute;inset:0}
 .schema.scene .scene{position:absolute;inset:0;opacity:0;transition:opacity 1.6s var(--ease-out)}
 .schema.scene .scene img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1);transition:transform 5.2s linear}
-.schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night{opacity:1}
-.schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img{transform:scale(1.05)}
+.schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night,.schema.scene.ph-win .sc-win,.schema.scene.ph-sum .sc-sum,.schema.scene.ph-acs .sc-acs{opacity:1}
+.schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img,.schema.scene.live.ph-win .sc-win img,.schema.scene.live.ph-sum .sc-sum img,.schema.scene.live.ph-acs .sc-acs img{transform:scale(1.05)}
 /* velo traslucido su tutta la foto: lo schema si legge, la scena resta visibile sotto */
 .schema.scene .scenes::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.64);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);transition:background 1.2s var(--ease-out)}
 .schema.scene.ph-eve .scenes::after{background:rgba(255,255,255,.58)}
@@ -250,3 +250,16 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 .schema.solero .grid-ico{opacity:.55;transition:opacity 1s}
 .schema.solero.ph-night .grid-ico{opacity:1}
+/* CLIMA su scena: stanza calda/fresca, termosifone acceso, vapore sull'acqua calda */
+.schema.clima .room{fill:transparent;stroke:none;transition:fill 1s var(--ease-out)}
+.schema.clima.ph-win .room{fill:rgba(242,217,166,.32)}
+.schema.clima.ph-sum .room{fill:rgba(160,190,210,.38)}
+.schema.clima.ph-win .rad line{stroke:#DDA26E}
+.schema.clima .steam path{stroke:var(--swan);opacity:0;transition:opacity 1s var(--ease-out)}
+.schema.clima.ph-acs .steam path{opacity:1}
+.schema.clima.live.ph-acs .steam path{animation:steamUp 2.2s ease-in-out infinite}
+.schema.clima.live.ph-acs .steam path:nth-child(2){animation-delay:-.7s}
+.schema.clima.live.ph-acs .steam path:nth-child(3){animation-delay:-1.4s}
+@keyframes steamUp{0%{transform:translateY(0);opacity:.2}50%{opacity:1}100%{transform:translateY(-6px);opacity:0}}
+.schema.clima.live .fan{animation-duration:2.6s}
+.schema.clima.scene.ph-win .scenes::after{background:rgba(255,255,255,.60)}

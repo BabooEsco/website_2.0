@@ -201,11 +201,14 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.scene .scene img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1);transition:transform 5.2s linear}
 .schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night{opacity:1}
 .schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img{transform:scale(1.05)}
-.schema.scene .scrim{position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to top,rgba(20,28,36,.55),rgba(20,28,36,0))}
-.schema.scene .panel{position:relative;margin:104px 28px 0;padding:8px 12px 4px;border-radius:4px;background:rgba(255,255,255,.80);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background 1.2s var(--ease-out)}
-.schema.scene.ph-eve .panel{background:rgba(255,255,255,.74)}
-.schema.scene.ph-night .panel{background:rgba(55,67,80,.80)}
-.schema.scene figcaption{position:relative;margin:0;padding:18px 32px 24px;max-width:none;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+/* velo traslucido su tutta la foto: lo schema si legge, la scena resta visibile sotto */
+.schema.scene .scenes::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.64);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);transition:background 1.2s var(--ease-out)}
+.schema.scene.ph-eve .scenes::after{background:rgba(255,255,255,.58)}
+.schema.scene.ph-night .scenes::after{background:rgba(55,67,80,.68)}
+.schema.scene .scrim{display:none}
+.schema.scene .panel{position:relative;margin:0;padding:28px 28px 0}
+.schema.scene figcaption{position:relative;margin:0;padding:14px 32px 26px;max-width:none;color:var(--slate);transition:color 1s var(--ease-out)}
+.schema.scene.ph-night figcaption{color:#DCE5EC}
 .schema.scene path,.schema.scene line,.schema.scene circle,.schema.scene rect{transition:stroke 1s var(--ease-out),fill 1s var(--ease-out),opacity 1s var(--ease-out)}
 .schema.scene.ph-night .house path,.schema.scene.ph-night .house rect,.schema.scene.ph-night .inv rect,.schema.scene.ph-night .inv line,.schema.scene.ph-night .home path,.schema.scene.ph-night .batt rect,.schema.scene.ph-night .grid-ico line{stroke:#C9D6E1}
 .schema.scene.ph-night text{fill:#C9D6E1}
@@ -220,7 +223,7 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.scene .dot.t2{r:2;opacity:.3}
 .schema.scene.ph-night .dot{fill:#DCE5EC}
 .schema.scene.ph-night .dot.h{filter:drop-shadow(0 0 6px rgba(220,229,236,.95))}
-@media (max-width:600px){.schema.scene{padding:0;overflow:hidden}.schema.scene .panel{margin:72px 12px 0;overflow-x:auto;-webkit-overflow-scrolling:touch}.schema.scene svg{min-width:640px;padding:0}.schema.scene figcaption{padding:14px 16px 18px}}
+@media (max-width:600px){.schema.scene{padding:0;overflow:hidden}.schema.scene .panel{margin:0;padding:16px 12px 0;overflow-x:auto;-webkit-overflow-scrolling:touch}.schema.scene svg{min-width:640px;padding:0}.schema.scene figcaption{padding:10px 16px 18px}}
 @media (prefers-reduced-motion:reduce){.schema.scene .scene img{transition:none;transform:none}.schema.scene .scene{transition:none}}
 /* SOLERO: sole, moduli, finestra, batteria, led */
 .schema.solero .sun{transform-box:fill-box;transform-origin:center;transition:transform 1.4s var(--ease-out),opacity 1.2s var(--ease-out)}

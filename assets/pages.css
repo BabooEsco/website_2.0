@@ -199,8 +199,8 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.scene .scenes{position:absolute;inset:0}
 .schema.scene .scene{position:absolute;inset:0;opacity:0;transition:opacity 1.6s var(--ease-out)}
 .schema.scene .scene img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1);transition:transform 5.2s linear}
-.schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night,.schema.scene.ph-win .sc-win,.schema.scene.ph-sum .sc-sum,.schema.scene.ph-acs .sc-acs{opacity:1}
-.schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img,.schema.scene.live.ph-win .sc-win img,.schema.scene.live.ph-sum .sc-sum img,.schema.scene.live.ph-acs .sc-acs img{transform:scale(1.05)}
+.schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night,.schema.scene.ph-win .sc-win,.schema.scene.ph-sum .sc-sum,.schema.scene.ph-acs .sc-acs,.schema.scene.ph-mid .sc-mid,.schema.scene.ph-dry .sc-dry{opacity:1}
+.schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img,.schema.scene.live.ph-win .sc-win img,.schema.scene.live.ph-sum .sc-sum img,.schema.scene.live.ph-acs .sc-acs img,.schema.scene.live.ph-mid .sc-mid img,.schema.scene.live.ph-dry .sc-dry img{transform:scale(1.05)}
 /* velo traslucido su tutta la foto: lo schema si legge, la scena resta visibile sotto */
 .schema.scene .scenes::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.64);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);transition:background 1.2s var(--ease-out)}
 .schema.scene.ph-eve .scenes::after{background:rgba(255,255,255,.58)}
@@ -263,3 +263,16 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 @keyframes steamUp{0%{transform:translateY(0);opacity:.2}50%{opacity:1}100%{transform:translateY(-6px);opacity:0}}
 .schema.clima.live .fan{animation-duration:2.6s}
 .schema.clima.scene.ph-win .scenes::after{background:rgba(255,255,255,.60)}
+/* MINICLIMA su scena: la stanza che lavora si tinge, il sole si vela nei giorni d'afa */
+.schema.miniclima .room{fill:transparent;stroke:none;transition:fill 1s var(--ease-out)}
+.schema.miniclima.ph-sum .room.a{fill:rgba(160,190,210,.30)}
+.schema.miniclima.ph-dry .room.a{fill:rgba(160,190,210,.16)}
+.schema.miniclima.ph-mid .room.b{fill:rgba(242,217,166,.30)}
+.schema.miniclima .sun{transition:opacity 1s var(--ease-out)}
+.schema.miniclima.ph-dry .sun{opacity:.45}
+.schema.miniclima.ph-dry .drops line{stroke:var(--blue)}
+.schema.miniclima.live.ph-dry .drops line{animation:dropFall 1.6s ease-in infinite}
+.schema.miniclima.live.ph-dry .drops line:nth-child(2){animation-delay:-.55s}
+.schema.miniclima.live.ph-dry .drops line:nth-child(3){animation-delay:-1.1s}
+@keyframes dropFall{0%{transform:translateY(-4px);opacity:0}30%{opacity:1}100%{transform:translateY(10px);opacity:0}}
+.schema.miniclima.scene.ph-dry .scenes::after{background:rgba(255,255,255,.58)}

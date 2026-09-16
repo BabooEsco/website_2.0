@@ -146,7 +146,7 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema .flow.on{stroke:var(--blue);opacity:1}
 .schema .dots.on{opacity:1}
 .schema .season{opacity:0;transition:opacity .6s var(--ease-out);font-size:10px;letter-spacing:.06em;fill:var(--blue)}
-.schema.ph-day .season.s-day,.schema.ph-eve .season.s-eve,.schema.ph-night .season.s-night,.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry,.schema.ph-l1 .season.s-l1,.schema.ph-l2 .season.s-l2,.schema.ph-l3 .season.s-l3{opacity:1}
+.schema.ph-day .season.s-day,.schema.ph-eve .season.s-eve,.schema.ph-night .season.s-night,.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry,.schema.ph-l1 .season.s-l1,.schema.ph-l2 .season.s-l2,.schema.ph-l3 .season.s-l3,.schema.ph-fv .season.s-fv,.schema.ph-pdc .season.s-pdc,.schema.ph-inv .season.s-inv,.schema.ph-ev .season.s-ev{opacity:1}
 /* schema CLIMA: ventola, aria, termosifone, acqua calda */
 .schema .fan{transform-box:fill-box;transform-origin:center}
 .schema.live .fan{animation:fanSpin 5s linear infinite}
@@ -298,3 +298,29 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 @keyframes stopPop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
 /* Business: l'arrivo e' una scena chiara (schermo e scrivania): scrim piu' deciso a sinistra per la leggibilita' dei titoli */
 .hero.business .scrim{background:linear-gradient(90deg,rgba(20,28,36,.58) 0%,rgba(20,28,36,.32) 45%,rgba(20,28,36,.08) 100%),radial-gradient(ellipse 120% 90% at 50% 45%,rgba(5,8,12,0) 45%,rgba(5,8,12,.35) 100%)}
+/* schema BUSINESS: una sola foto, la camera si sposta sull'elemento della fase; il disegno si accende */
+.schema.business .scene.sc-all{opacity:1}
+.schema.business .scene img{transition:transform 5.2s linear,object-position 5.2s linear;object-position:50% 50%}
+.schema.business.live.ph-fv .scene img{transform:scale(1.14);object-position:22% 0%}
+.schema.business.live.ph-pdc .scene img{transform:scale(1.2);object-position:38% 0%}
+.schema.business.live.ph-inv .scene img{transform:scale(1.14);object-position:18% 45%}
+.schema.business.live.ph-ev .scene img{transform:scale(1.2);object-position:34% 100%}
+.schema.business .hub rect{transition:stroke .8s var(--ease-out),fill .8s var(--ease-out)}
+.schema.business.live .hub rect{stroke:var(--blue);fill:rgba(160,190,210,.16)}
+.schema.business .chart{stroke:var(--blue)}
+.schema.business .pv rect,.schema.business .win,.schema.business .pdc rect,.schema.business .ev rect,.schema.business .ev path{transition:fill .8s var(--ease-out),stroke .8s var(--ease-out)}
+.schema.business .pv rect{fill:rgba(78,127,163,.12)}
+.schema.business.ph-fv .pv rect{fill:rgba(78,127,163,.38)}
+.schema.business.ph-fv .pv rect,.schema.business.ph-fv .pv line{stroke:var(--blue)}
+.schema.business.ph-pdc .pdc rect,.schema.business.ph-pdc .pdc circle,.schema.business.ph-pdc .pdc path{stroke:var(--blue)}
+.schema.business.ph-pdc .pdc rect{fill:rgba(160,190,210,.25)}
+.schema.business .win{fill:transparent}
+.schema.business.ph-inv .win{fill:rgba(160,190,210,.38);stroke:var(--blue)}
+.schema.business.ph-ev .ev rect,.schema.business.ph-ev .ev path,.schema.business.ph-ev .ev circle{stroke:var(--blue)}
+.schema.business.ph-ev .ev rect:first-child{fill:rgba(160,190,210,.3)}
+.schema.business .ground{stroke:var(--line)}
+.schema.business .fan{animation-duration:3s}
+.schema.business.scene .scenes::after{background:rgba(255,255,255,.62)}
+@media (max-width:900px){.numbered.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.numbered.g4{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.schema.business .scene img{transition:none;transform:none;object-position:50% 50%}}

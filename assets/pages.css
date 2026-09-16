@@ -138,6 +138,8 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
   @media (orientation:portrait){.hero.miniclima:not(.film) .stage .poster{background-image:url("miniclima-ending-v.jpg")}}
   .hero.care:not(.film) .stage .poster{background-image:url("care-ending.jpg")}
   @media (orientation:portrait){.hero.care:not(.film) .stage .poster{background-image:url("care-ending-v.jpg")}}
+  .hero.business:not(.film) .stage .poster{background-image:url("business-ending.jpg")}
+  @media (orientation:portrait){.hero.business:not(.film) .stage .poster{background-image:url("business-ending-v.jpg")}}
 }
 
 /* ---------- schema: fasi generiche (JS accende .on su linee e punti della fase attiva) ---------- */
@@ -294,3 +296,5 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.care.live .stop{transform-box:fill-box;transform-origin:center}
 .schema.care.live.ph-l1 .stop.st-l1,.schema.care.live.ph-l2 .stop.st-l2,.schema.care.live.ph-l3 .stop.st-l3{animation:stopPop .7s var(--ease-out) 1}
 @keyframes stopPop{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+/* Business: l'arrivo e' una scena chiara (schermo e scrivania): scrim piu' deciso a sinistra per la leggibilita' dei titoli */
+.hero.business .scrim{background:linear-gradient(90deg,rgba(20,28,36,.58) 0%,rgba(20,28,36,.32) 45%,rgba(20,28,36,.08) 100%),radial-gradient(ellipse 120% 90% at 50% 45%,rgba(5,8,12,0) 45%,rgba(5,8,12,.35) 100%)}

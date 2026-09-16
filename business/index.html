@@ -13,13 +13,14 @@
 <meta property="og:title" content="Baboo Business · Energia per imprese e condomìni, con il rischio dalla nostra parte">
 <meta property="og:description" content="Baboo per imprese, condomìni e attività: diagnosi energetica, fotovoltaico industriale, pompe di calore e VRF, monitoraggio MONITOR. Una ESCo certificata UNI CEI 11352.">
 <meta property="og:url" content="https://www.baboo.eu/business/">
-<meta property="og:image" content="https://www.baboo.eu/assets/hero-ending.jpg">
+<meta property="og:image" content="https://www.baboo.eu/assets/business-poster.jpg">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/baboo.css">
 <link rel="stylesheet" href="../assets/pages.css">
+<link rel="stylesheet" href="../assets/hero.css">
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
@@ -48,15 +49,39 @@
   </div>
 </header>
 <main id="main" tabindex="-1">
-<section class="page-hero reveal">
-  <div class="wrap ph-grid">
-    <div class="part">
-      <span class="eyebrow">Baboo Business</span>
-      <h1>L'energia della tua impresa, misurata. Il rischio, dalla nostra parte.</h1>
-      <p class="lede">Capannoni, uffici, condomìni, attività aperte al pubblico. Una ESCo certificata parte dai numeri veri del tuo edificio, propone solo interventi che si ripagano e resta a misurarli.</p>
-      <div class="row"><a class="btn btn-blue" href="#contatto-business">Parla con un esperto</a></div>
+<section class="hero business" aria-label="Introduzione" data-video="../assets/business-scrub.mp4" data-poster="../assets/business-poster.jpg" data-ending="../assets/business-ending.jpg" data-bytes="10363321" data-film="../assets/business-film-v.mp4" data-film-poster="../assets/business-poster-v.jpg" data-film-ending="../assets/business-ending-v.jpg">
+  <div class="stage">
+    <div class="poster" aria-hidden="true"></div>
+    <video preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+    <div class="scrim" aria-hidden="true"></div>
+
+    <div class="band b1" data-from="0" data-to="0.12">
+      <div class="inner">
+        <span class="kicker">Baboo Business</span>
+        <h2 class="line" data-split="words">L'energia della tua impresa, misurata.</h2>
+      </div>
     </div>
-    
+    <div class="band b2" data-from="0.18" data-to="0.33">
+      <div class="inner"><p class="line" data-split="words">Capannoni, condomìni, uffici.</p></div>
+    </div>
+    <div class="band b3" data-from="0.40" data-to="0.54" data-spread="0.6">
+      <div class="inner"><p class="line" data-split="grid">Prima si misura. Poi si decide.</p></div>
+    </div>
+    <div class="band b4" data-from="0.58" data-to="0.72" data-ramp="0.036">
+      <div class="inner"><p class="line" data-split="words">MONITOR legge quanto rende. Ogni giorno.</p></div>
+    </div>
+    <div class="band b5" data-from="0.78" data-to="1" data-ramp="0.05">
+      <div class="inner">
+        <span class="kicker">Baboo Business</span>
+        <h1 data-split="words">L'energia della tua impresa, misurata. Il rischio, dalla nostra parte.</h1>
+        <p class="subline">Capannoni, uffici, condomìni, attività aperte al pubblico. Una ESCo certificata parte dai numeri veri del tuo edificio, propone solo interventi che si ripagano e resta a misurarli.</p>
+        <div class="row"><a class="btn btn-blue" href="#contatto-business">Parla con un esperto</a></div>
+      </div>
+    </div>
+
+    <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/></svg>
+    <div class="cue" aria-hidden="true">Scorri</div>
+    <button class="film-skip" type="button" hidden>Salta</button>
   </div>
 </section>
 
@@ -156,5 +181,6 @@
 </footer>
 <script src="../assets/site.js" defer></script>
 <script src="../assets/forms.js" defer></script>
+<script src="../assets/hero.js" defer></script>
 </body>
 </html>

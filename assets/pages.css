@@ -148,7 +148,7 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema .flow.on{stroke:var(--blue);opacity:1}
 .schema .dots.on{opacity:1}
 .schema .season{opacity:0;transition:opacity .6s var(--ease-out);font-size:10px;letter-spacing:.06em;fill:var(--blue)}
-.schema.ph-day .season.s-day,.schema.ph-eve .season.s-eve,.schema.ph-night .season.s-night,.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry,.schema.ph-l1 .season.s-l1,.schema.ph-l2 .season.s-l2,.schema.ph-l3 .season.s-l3,.schema.ph-fv .season.s-fv,.schema.ph-pdc .season.s-pdc,.schema.ph-inv .season.s-inv,.schema.ph-ev .season.s-ev{opacity:1}
+.schema.ph-day .season.s-day,.schema.ph-eve .season.s-eve,.schema.ph-night .season.s-night,.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry,.schema.ph-l1 .season.s-l1,.schema.ph-l2 .season.s-l2,.schema.ph-l3 .season.s-l3,.schema.ph-fv .season.s-fv,.schema.ph-pdc .season.s-pdc,.schema.ph-inv .season.s-inv,.schema.ph-ev .season.s-ev,.schema.ph-casa .season.s-casa,.schema.ph-solare .season.s-solare,.schema.ph-indip .season.s-indip{opacity:1}
 /* schema CLIMA: ventola, aria, termosifone, acqua calda */
 .schema .fan{transform-box:fill-box;transform-origin:center}
 .schema.live .fan{animation:fanSpin 5s linear infinite}
@@ -327,3 +327,27 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 @media (max-width:900px){.numbered.g4{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.numbered.g4{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.schema.business .scene img{transition:none;transform:none;object-position:50% 50%}}
+
+/* ---------- Baboo Casa: una casa, tre livelli (la stessa foto, il fuoco si sposta per livello) ---------- */
+.schema.casa .scene.sc-all{opacity:1}
+.schema.casa .scene img{transition:transform 5.2s linear,object-position 5.2s linear;object-position:50% 50%}
+.schema.casa.live.ph-casa .scene img{transform:scale(1.22);object-position:6% 80%}
+.schema.casa.live.ph-solare .scene img{transform:scale(1.16);object-position:50% 0%}
+.schema.casa.live.ph-indip .scene img{transform:scale(1.22);object-position:94% 72%}
+.schema.casa .pdc rect,.schema.casa .pdc circle,.schema.casa .pdc path,.schema.casa .pv rect,.schema.casa .pv line,.schema.casa .win,.schema.casa .batt rect,.schema.casa .ev rect,.schema.casa .ev path,.schema.casa .ev circle,.schema.casa .ev line{transition:fill .8s var(--ease-out),stroke .8s var(--ease-out)}
+.schema.casa .pv rect{fill:rgba(78,127,163,.12)}
+.schema.casa .win{fill:transparent}
+.schema.casa .lvl{fill:rgba(78,127,163,.28);stroke:none;transition:fill .8s var(--ease-out),height .8s var(--ease-out),y .8s var(--ease-out)}
+.schema.casa.ph-casa .pdc rect,.schema.casa.ph-casa .pdc circle,.schema.casa.ph-casa .pdc path,.schema.casa.ph-solare .pdc rect,.schema.casa.ph-solare .pdc circle,.schema.casa.ph-solare .pdc path,.schema.casa.ph-indip .pdc rect,.schema.casa.ph-indip .pdc circle,.schema.casa.ph-indip .pdc path{stroke:var(--blue)}
+.schema.casa.ph-casa .pdc rect,.schema.casa.ph-solare .pdc rect,.schema.casa.ph-indip .pdc rect{fill:rgba(160,190,210,.25)}
+.schema.casa.ph-solare .pv rect,.schema.casa.ph-indip .pv rect{fill:rgba(78,127,163,.38);stroke:var(--blue)}
+.schema.casa.ph-solare .pv line,.schema.casa.ph-indip .pv line{stroke:var(--blue)}
+.schema.casa.ph-solare .batt rect,.schema.casa.ph-indip .batt rect{stroke:var(--blue)}
+.schema.casa.ph-solare .lvl,.schema.casa.ph-indip .lvl{fill:var(--blue);y:145px;height:38px}
+.schema.casa.ph-indip .win{fill:rgba(160,190,210,.38);stroke:var(--blue)}
+.schema.casa.ph-indip .ev rect,.schema.casa.ph-indip .ev path,.schema.casa.ph-indip .ev circle,.schema.casa.ph-indip .ev line{stroke:var(--blue)}
+.schema.casa.ph-indip .ev rect:first-child{fill:rgba(160,190,210,.3)}
+.schema.casa .ground,.schema.casa .carport{stroke:var(--line)}
+.schema.casa.live .fan{animation-duration:3s}
+.schema.casa.scene .scenes::after{background:rgba(255,255,255,.62)}
+@media (prefers-reduced-motion:reduce){.schema.casa .scene img{transition:none;transform:none;object-position:50% 50%}}

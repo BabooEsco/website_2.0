@@ -97,7 +97,77 @@
     <p class="legal part">Canoni "a partire da", su 120 mesi. Il canone definitivo è determinato dal sopralluogo tecnico gratuito. Il finanziamento è erogato da un istituto finanziario autorizzato ex art. 106 TUB, soggetto ad approvazione.</p>
   </div>
 </section>
-<section class="sec reveal" aria-labelledby="h-incluso">
+<section class="sec reveal" aria-labelledby="h-tre-livelli">
+  <div class="wrap">
+    <div class="head part"><span class="eyebrow">Una casa, tre livelli</span><h2 id="h-tre-livelli">Si parte dal comfort. Si arriva all'indipendenza.</h2></div>
+    <figure class="schema scene casa part ph-casa" aria-labelledby="schema-cap-casa" data-live data-cycle="casa,solare,indip">
+  <div class="scenes" aria-hidden="true"><div class="scene sc-all"><picture><source type="image/avif" srcset="../assets/baboo-casa-scene-all-480.avif 480w, ../assets/baboo-casa-scene-all-960.avif 960w" sizes="(max-width:1100px) 100vw, 1060px"><source type="image/webp" srcset="../assets/baboo-casa-scene-all-480.webp 480w, ../assets/baboo-casa-scene-all-960.webp 960w" sizes="(max-width:1100px) 100vw, 1060px"><img src="../assets/baboo-casa-scene-all.jpg" srcset="../assets/baboo-casa-scene-all-480.jpg 480w, ../assets/baboo-casa-scene-all-960.jpg 960w" sizes="(max-width:1100px) 100vw, 1060px" alt="" loading="lazy" width="1344" height="576"></picture></div><div class="scrim"></div></div>
+  <div class="panel">
+  <svg viewBox="0 0 900 245" role="img" aria-hidden="true" focusable="false">
+    <!-- pompa di calore -->
+    <g class="pdc"><rect x="56" y="150" width="52" height="42" rx="2"/><g class="fan"><circle cx="82" cy="171" r="10"/><path d="M82 171 C87 164 90 162 93 164 C88 165 85 169 82 171 Z"/><path d="M82 171 C87 178 85 183 82 181 C81 177 82 174 82 171 Z"/><path d="M82 171 C74 173 71 170 73 168 C76 170 79 171 82 171 Z"/></g></g>
+    <!-- casa: corpo, tetto, serramenti -->
+    <g class="bld"><rect x="200" y="95" width="340" height="100" rx="2"/><path d="M190 95 L370 40 L550 95"/>
+      <g class="wins"><rect class="win" x="240" y="106" width="44" height="22" rx="2"/><rect class="win" x="350" y="106" width="44" height="22" rx="2"/><rect class="win" x="460" y="106" width="44" height="22" rx="2"/><rect class="win" x="240" y="148" width="44" height="42" rx="2"/><rect class="win" x="350" y="148" width="44" height="42" rx="2"/><rect class="win" x="460" y="148" width="44" height="42" rx="2"/></g></g>
+    <g class="pv"><g transform="translate(206 90) rotate(-17)"><rect x="0" y="-14" width="156" height="14" rx="1"/><line x1="26" y1="-14" x2="26" y2="0"/><line x1="52" y1="-14" x2="52" y2="0"/><line x1="78" y1="-14" x2="78" y2="0"/><line x1="104" y1="-14" x2="104" y2="0"/><line x1="130" y1="-14" x2="130" y2="0"/></g><g transform="translate(378 42) rotate(17)"><rect x="0" y="-14" width="156" height="14" rx="1"/><line x1="26" y1="-14" x2="26" y2="0"/><line x1="52" y1="-14" x2="52" y2="0"/><line x1="78" y1="-14" x2="78" y2="0"/><line x1="104" y1="-14" x2="104" y2="0"/><line x1="130" y1="-14" x2="130" y2="0"/></g></g>
+    <!-- carport: accumulo, wallbox, auto -->
+    <path class="carport" d="M600 110 H820 M620 110 V195 M800 110 V195"/>
+    <g class="batt"><rect x="630" y="140" width="22" height="46" rx="2"/><rect class="lvl" x="633" y="171" width="16" height="12" rx="1"/></g>
+    <g class="ev"><rect x="668" y="134" width="14" height="30" rx="2"/><line x1="672" y1="142" x2="678" y2="142"/><path d="M682 150 C694 150 698 160 708 168"/><rect x="700" y="162" width="100" height="28" rx="9"/><path d="M722 162 L736 148 H772 L786 162"/><circle cx="724" cy="192" r="7"/><circle cx="776" cy="192" r="7"/></g>
+    <path class="ground" d="M40 195 H860"/>
+    <!-- flussi: calore, sole, accumulo, ricarica -->
+    <g class="flows">
+      <path id="c-pdc" class="flow f-casa f-solare f-indip" d="M108 168 C150 168 168 140 200 140"/>
+      <path id="c-pv" class="flow f-solare f-indip" d="M285 66 C285 100 335 118 372 140"/>
+      <path id="c-batt" class="flow f-solare f-indip" d="M456 66 C520 66 605 96 641 140"/>
+      <path id="c-ev" class="flow f-indip" d="M652 176 C660 176 664 160 668 152"/>
+    </g>
+    <g class="dots d-casa d-solare d-indip">
+      <circle class="dot h" r="3"><animateMotion dur="2.2s" begin="0.00s" repeatCount="indefinite"><mpath href="#c-pdc"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.2s" begin="-0.16s" repeatCount="indefinite"><mpath href="#c-pdc"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.2s" begin="-0.32s" repeatCount="indefinite"><mpath href="#c-pdc"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.2s" begin="-1.10s" repeatCount="indefinite"><mpath href="#c-pdc"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.2s" begin="-1.26s" repeatCount="indefinite"><mpath href="#c-pdc"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.2s" begin="-1.42s" repeatCount="indefinite"><mpath href="#c-pdc"/></animateMotion></circle>
+    </g>
+    <g class="dots d-solare d-indip">
+      <circle class="dot h" r="3"><animateMotion dur="2.6s" begin="0.00s" repeatCount="indefinite"><mpath href="#c-pv"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.6s" begin="-0.16s" repeatCount="indefinite"><mpath href="#c-pv"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.6s" begin="-0.32s" repeatCount="indefinite"><mpath href="#c-pv"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.6s" begin="-1.30s" repeatCount="indefinite"><mpath href="#c-pv"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.6s" begin="-1.46s" repeatCount="indefinite"><mpath href="#c-pv"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.6s" begin="-1.62s" repeatCount="indefinite"><mpath href="#c-pv"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.0s" begin="0.00s" repeatCount="indefinite"><mpath href="#c-batt"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.0s" begin="-0.16s" repeatCount="indefinite"><mpath href="#c-batt"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.0s" begin="-0.32s" repeatCount="indefinite"><mpath href="#c-batt"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.0s" begin="-1.50s" repeatCount="indefinite"><mpath href="#c-batt"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.0s" begin="-1.66s" repeatCount="indefinite"><mpath href="#c-batt"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.0s" begin="-1.82s" repeatCount="indefinite"><mpath href="#c-batt"/></animateMotion></circle>
+    </g>
+    <g class="dots d-indip">
+      <circle class="dot h" r="3"><animateMotion dur="1.8s" begin="0.00s" repeatCount="indefinite"><mpath href="#c-ev"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="1.8s" begin="-0.16s" repeatCount="indefinite"><mpath href="#c-ev"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="1.8s" begin="-0.32s" repeatCount="indefinite"><mpath href="#c-ev"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="1.8s" begin="-0.90s" repeatCount="indefinite"><mpath href="#c-ev"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="1.8s" begin="-1.06s" repeatCount="indefinite"><mpath href="#c-ev"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="1.8s" begin="-1.22s" repeatCount="indefinite"><mpath href="#c-ev"/></animateMotion></circle>
+    </g>
+    <!-- etichette -->
+    <text x="82" y="232">POMPA DI CALORE</text><text x="370" y="232">CASA</text><text x="710" y="232">ACCUMULO · RICARICA</text>
+    <text class="season s-casa" x="450" y="22">01 · Casa · pompa di calore CLIMA e MONITOR</text><text class="season s-solare" x="450" y="22">02 · Casa Solare · più fotovoltaico SOLERO con accumulo</text><text class="season s-indip" x="450" y="22">03 · Casa Indipendente · più wallbox, serramenti MOUNTAINVIEW e CER</text>
+  </svg>
+  </div>
+  <figcaption id="schema-cap-casa">Ogni livello comprende il precedente: la stessa casa, un pezzo alla volta, con MONITOR che legge tutto dal primo giorno.</figcaption>
+</figure>
+
+    <ol class="grid g3 numbered">
+      <li class="part" data-phase="casa"><span class="n">01</span><h3>Casa</h3><p>Pompa di calore CLIMA e MONITOR. La casa alla temperatura giusta, tenuta sotto controllo ogni giorno.</p></li>
+      <li class="part" data-phase="solare"><span class="n">02</span><h3>Casa Solare</h3><p>Più SOLERO con accumulo. Il tetto produce di giorno, la batteria conserva per la sera.</p></li>
+      <li class="part" data-phase="indip"><span class="n">03</span><h3>Casa Indipendente</h3><p>Più wallbox, serramenti MOUNTAINVIEW e predisposizione CER. L'auto si carica a casa, il calore resta dentro.</p></li>
+    </ol>
+  </div>
+</section>
+<section class="sec alt reveal" aria-labelledby="h-incluso">
   <div class="wrap two">
     <div class="part"><span class="eyebrow">Cosa significa un canone Baboo</span><h2 id="h-incluso">Un servizio, non una rata.</h2></div>
     <div class="part">

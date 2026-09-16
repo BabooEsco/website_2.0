@@ -97,9 +97,17 @@ address{font-style:normal;line-height:1.8}
 .schema.ph-eve .charge{width:10px}
 .schema.ph-night .charge{width:6px}
 /* la tile della fase in corso si accende */
-.reveal .numbered li{transition:opacity .8s var(--ease-out),transform .8s var(--ease-out),border-color .6s var(--ease-out),box-shadow .6s var(--ease-out)}
-.numbered li.on{border-color:var(--blue);box-shadow:0 10px 30px rgba(78,127,163,.14)}
-.numbered li.on .n{color:var(--blue-deep)}
+/* la tile della fase in corso si inverte in slate (come la colonna ESCo del confronto) e una barra sottile mostra il tempo della fase */
+.numbered li{position:relative;overflow:hidden;transition:background .6s var(--ease-out),border-color .6s var(--ease-out),box-shadow .6s var(--ease-out)}
+.numbered li h3,.numbered li p,.numbered li .n{transition:color .6s var(--ease-out)}
+.reveal .numbered li{transition:opacity .8s var(--ease-out),transform .8s var(--ease-out),background .6s var(--ease-out),border-color .6s var(--ease-out),box-shadow .6s var(--ease-out)}
+.numbered li.on{background:var(--slate);border-color:var(--slate);box-shadow:0 14px 34px rgba(55,67,80,.25)}
+.numbered li.on h3{color:#fff}
+.numbered li.on p{color:#DCE5EC}
+.numbered li.on .n{color:var(--swan)}
+.schema.live ~ .numbered li.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--swan);transform-origin:left;transform:scaleX(0);animation:tileTimer 4.6s linear forwards}
+@keyframes tileTimer{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.numbered li.on::after{display:none}}
 @media (prefers-reduced-motion:reduce){.schema .dots{display:none}.schema .charge{width:40px}}
 .schema text{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;fill:var(--ink-soft);text-anchor:middle}
 .schema text.note{font-size:10px;letter-spacing:.06em;text-anchor:start;fill:var(--blue)}

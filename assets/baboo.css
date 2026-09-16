@@ -236,4 +236,8 @@ body.menu-open .site-header.on-hero .burger span{background:var(--ink)}
 .partner .role{margin:0;font-size:1.05rem}
 .partner .role strong{font-weight:500}
 .partner .more{margin:0;color:var(--ink-soft);font-size:.95rem}
+.partner.big{margin-top:20px}
+.partner.big .logo{height:60px}
+.partner.big .logo img{max-width:260px}
+.partners .row{margin:0 0 4px}
 .partner .ph{display:inline-flex;align-items:center;height:100%;padding:0 14px;border:1px dashed var(--swan);border-radius:3px;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;color:var(--blue)}

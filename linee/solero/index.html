@@ -88,16 +88,18 @@
 <section class="sec alt reveal" aria-labelledby="h-giornata">
   <div class="wrap">
     <div class="head part"><span class="eyebrow">Una giornata dell'impianto</span><h2 id="h-giornata">Il sole si usa due volte.</h2></div>
-    <figure class="schema part ph-day" aria-labelledby="schema-cap" data-live data-cycle>
+    <figure class="schema scene solero part ph-day" aria-labelledby="schema-cap" data-live data-cycle>
+  <div class="scenes" aria-hidden="true"><div class="scene sc-day"><picture><source type="image/avif" srcset="../../assets/solero-scene-day-480.avif 480w, ../../assets/solero-scene-day-960.avif 960w" sizes="(max-width:1100px) 100vw, 1060px"><source type="image/webp" srcset="../../assets/solero-scene-day-480.webp 480w, ../../assets/solero-scene-day-960.webp 960w" sizes="(max-width:1100px) 100vw, 1060px"><img src="../../assets/solero-scene-day.jpg" srcset="../../assets/solero-scene-day-480.jpg 480w, ../../assets/solero-scene-day-960.jpg 960w" sizes="(max-width:1100px) 100vw, 1060px" alt="" loading="lazy" width="1344" height="576"></picture></div><div class="scene sc-eve"><picture><source type="image/avif" srcset="../../assets/solero-scene-eve-480.avif 480w, ../../assets/solero-scene-eve-960.avif 960w" sizes="(max-width:1100px) 100vw, 1060px"><source type="image/webp" srcset="../../assets/solero-scene-eve-480.webp 480w, ../../assets/solero-scene-eve-960.webp 960w" sizes="(max-width:1100px) 100vw, 1060px"><img src="../../assets/solero-scene-eve.jpg" srcset="../../assets/solero-scene-eve-480.jpg 480w, ../../assets/solero-scene-eve-960.jpg 960w" sizes="(max-width:1100px) 100vw, 1060px" alt="" loading="lazy" width="1344" height="576"></picture></div><div class="scene sc-night"><picture><source type="image/avif" srcset="../../assets/solero-scene-night-480.avif 480w, ../../assets/solero-scene-night-960.avif 960w" sizes="(max-width:1100px) 100vw, 1060px"><source type="image/webp" srcset="../../assets/solero-scene-night-480.webp 480w, ../../assets/solero-scene-night-960.webp 960w" sizes="(max-width:1100px) 100vw, 1060px"><img src="../../assets/solero-scene-night.jpg" srcset="../../assets/solero-scene-night-480.jpg 480w, ../../assets/solero-scene-night-960.jpg 960w" sizes="(max-width:1100px) 100vw, 1060px" alt="" loading="lazy" width="1344" height="576"></picture></div><div class="scrim"></div></div>
+  <div class="panel">
   <svg viewBox="0 0 900 300" role="img" aria-hidden="true" focusable="false">
-    <!-- sole -->
+    <!-- sole: alto di giorno, basso la sera, assente di notte -->
     <g class="sun"><circle cx="90" cy="82" r="24"/><g class="rays"><line x1="90" y1="38" x2="90" y2="48"/><line x1="90" y1="116" x2="90" y2="126"/><line x1="46" y1="82" x2="56" y2="82"/><line x1="124" y1="82" x2="134" y2="82"/><line x1="59" y1="51" x2="66" y2="58"/><line x1="114" y1="106" x2="121" y2="113"/><line x1="59" y1="113" x2="66" y2="106"/><line x1="114" y1="58" x2="121" y2="51"/></g></g>
     <!-- tetto con moduli -->
     <g class="house"><path d="M225 150 L300 88 L375 150"/><path d="M243 150 V210 H357 V150"/><g class="modules"><path d="M252 141 L300 101 L348 141 Z"/><line x1="276" y1="121" x2="324" y2="121"/><line x1="264" y1="131" x2="336" y2="131"/><line x1="300" y1="101" x2="300" y2="141"/><line x1="285" y1="113" x2="285" y2="141"/><line x1="315" y1="113" x2="315" y2="141"/></g><rect x="290" y="178" width="20" height="32"/></g>
-    <!-- inverter -->
-    <g class="inv"><rect x="450" y="128" width="64" height="44" rx="2"/><line x1="462" y1="150" x2="502" y2="150"/><circle cx="470" cy="140" r="2"/></g>
-    <!-- casa -->
-    <g class="home"><path d="M668 64 L700 40 L732 64"/><path d="M676 64 V96 H724 V64"/><rect x="694" y="78" width="12" height="18"/></g>
+    <!-- inverter con led -->
+    <g class="inv"><rect x="450" y="128" width="64" height="44" rx="2"/><line x1="462" y1="150" x2="502" y2="150"/><circle class="led" cx="470" cy="140" r="2.5"/></g>
+    <!-- casa: la finestra si accende la sera -->
+    <g class="home"><circle class="glow" cx="700" cy="86" r="30"/><path d="M668 64 L700 40 L732 64"/><path d="M676 64 V96 H724 V64"/><rect class="win" x="694" y="78" width="12" height="18"/></g>
     <!-- batteria -->
     <g class="batt"><rect x="668" y="136" width="64" height="30" rx="2"/><rect x="732" y="145" width="6" height="12"/><rect class="charge" x="674" y="142" width="40" height="18"/></g>
     <!-- rete -->
@@ -112,33 +114,69 @@
       <path id="p-rete-rev" class="guide" d="M676 240 C600 240 580 150 514 150"/>
       <path id="p-back" class="flow back f-eve" d="M740 151 H754 V70 H736"/>
     </g>
-    <!-- energia che scorre: punti su percorso (SMIL), visibili solo nella fase attiva -->
+    <!-- energia che scorre: comete (testa + coda), visibili solo nella fase attiva -->
     <g class="dots d-day">
-      <circle class="dot" r="3"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="3s" begin="-1.5s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2s" begin="-1s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="3.2s" begin="-1.6s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.6s" begin="-1.3s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#p-rete"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3s" begin="0.00s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3s" begin="-0.16s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3s" begin="-0.32s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3s" begin="-1.50s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3s" begin="-1.66s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3s" begin="-1.82s" repeatCount="indefinite"><mpath href="#p-sun"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2s" begin="0.00s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2s" begin="-0.16s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2s" begin="-0.32s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2s" begin="-1.00s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2s" begin="-1.16s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2s" begin="-1.32s" repeatCount="indefinite"><mpath href="#p-roof"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.2s" begin="0.00s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.2s" begin="-0.16s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.2s" begin="-0.32s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.2s" begin="-1.60s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.2s" begin="-1.76s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.2s" begin="-1.92s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.6s" begin="0.00s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.6s" begin="-0.16s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.6s" begin="-0.32s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.6s" begin="-1.30s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.6s" begin="-1.46s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.6s" begin="-1.62s" repeatCount="indefinite"><mpath href="#p-batt"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.6s" begin="0.00s" repeatCount="indefinite"><mpath href="#p-rete"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.6s" begin="-0.16s" repeatCount="indefinite"><mpath href="#p-rete"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.6s" begin="-0.32s" repeatCount="indefinite"><mpath href="#p-rete"/></animateMotion></circle>
     </g>
     <g class="dots d-eve">
-      <circle class="dot" r="3"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="2.8s" begin="-1.4s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.8s" begin="0.00s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.8s" begin="-0.16s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.8s" begin="-0.32s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="2.8s" begin="-1.40s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="2.8s" begin="-1.56s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="2.8s" begin="-1.72s" repeatCount="indefinite"><mpath href="#p-back"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.2s" begin="-0.80s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.2s" begin="-0.96s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.2s" begin="-1.12s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
     </g>
     <g class="dots d-night">
-      <circle class="dot" r="3"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="3.2s" begin="-1.6s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="3.2s" begin="-0.8s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
-      <circle class="dot" r="3"><animateMotion dur="3.2s" begin="-2.4s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.2s" begin="0.00s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.2s" begin="-0.16s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.2s" begin="-0.32s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.2s" begin="-1.60s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.2s" begin="-1.76s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.2s" begin="-1.92s" repeatCount="indefinite"><mpath href="#p-rete-rev"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.2s" begin="-0.80s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.2s" begin="-0.96s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.2s" begin="-1.12s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot h" r="3"><animateMotion dur="3.2s" begin="-2.40s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t1" r="3"><animateMotion dur="3.2s" begin="-2.56s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
+      <circle class="dot t2" r="3"><animateMotion dur="3.2s" begin="-2.72s" repeatCount="indefinite"><mpath href="#p-casa"/></animateMotion></circle>
     </g>
     <!-- etichette -->
-    <text x="90" y="160">SOLE</text><text x="300" y="240">TETTO</text><text x="482" y="200">INVERTER</text>
+    <text class="lbl-sun" x="90" y="160">SOLE</text><text x="300" y="240">TETTO</text><text x="482" y="200">INVERTER</text>
     <text x="700" y="124">CASA</text><text x="700" y="192">BATTERIA</text><text x="700" y="294">RETE</text>
-    <text class="note" x="762" y="114">la sera</text>
+    <text class="season s-day" x="450" y="30">di giorno · il tetto produce</text>
+    <text class="season s-eve" x="450" y="30">la sera · la batteria restituisce</text>
+    <text class="season s-night" x="450" y="30">di notte · la rete integra</text>
   </svg>
+  </div>
   <figcaption id="schema-cap">Di giorno il tetto alimenta la casa e carica la batteria; la sera la batteria restituisce; la rete integra solo quando serve.</figcaption>
 </figure>
 

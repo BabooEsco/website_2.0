@@ -144,7 +144,7 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema .flow.on{stroke:var(--blue);opacity:1}
 .schema .dots.on{opacity:1}
 .schema .season{opacity:0;transition:opacity .6s var(--ease-out);font-size:10px;letter-spacing:.06em;fill:var(--blue)}
-.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry,.schema.ph-l1 .season.s-l1,.schema.ph-l2 .season.s-l2,.schema.ph-l3 .season.s-l3{opacity:1}
+.schema.ph-day .season.s-day,.schema.ph-eve .season.s-eve,.schema.ph-night .season.s-night,.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry,.schema.ph-l1 .season.s-l1,.schema.ph-l2 .season.s-l2,.schema.ph-l3 .season.s-l3{opacity:1}
 /* schema CLIMA: ventola, aria, termosifone, acqua calda */
 .schema .fan{transform-box:fill-box;transform-origin:center}
 .schema.live .fan{animation:fanSpin 5s linear infinite}
@@ -193,3 +193,57 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .care-plans .card.feat .n{color:var(--swan)}
 .care-plans .card{position:relative}
 .care-plans + .legal{margin-top:18px}
+
+/* ---------- schema con scena fotografica: una foto per fase dietro il pannello dello schema ---------- */
+.schema.scene{padding:0;border:0;overflow:hidden;position:relative;background:var(--slate)}
+.schema.scene .scenes{position:absolute;inset:0}
+.schema.scene .scene{position:absolute;inset:0;opacity:0;transition:opacity 1.6s var(--ease-out)}
+.schema.scene .scene img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1);transition:transform 5.2s linear}
+.schema.scene.ph-day .sc-day,.schema.scene.ph-eve .sc-eve,.schema.scene.ph-night .sc-night{opacity:1}
+.schema.scene.live.ph-day .sc-day img,.schema.scene.live.ph-eve .sc-eve img,.schema.scene.live.ph-night .sc-night img{transform:scale(1.05)}
+.schema.scene .scrim{position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to top,rgba(20,28,36,.55),rgba(20,28,36,0))}
+.schema.scene .panel{position:relative;margin:104px 28px 0;padding:8px 12px 4px;border-radius:4px;background:rgba(255,255,255,.80);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background 1.2s var(--ease-out)}
+.schema.scene.ph-eve .panel{background:rgba(255,255,255,.74)}
+.schema.scene.ph-night .panel{background:rgba(55,67,80,.80)}
+.schema.scene figcaption{position:relative;margin:0;padding:18px 32px 24px;max-width:none;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.schema.scene path,.schema.scene line,.schema.scene circle,.schema.scene rect{transition:stroke 1s var(--ease-out),fill 1s var(--ease-out),opacity 1s var(--ease-out)}
+.schema.scene.ph-night .house path,.schema.scene.ph-night .house rect,.schema.scene.ph-night .inv rect,.schema.scene.ph-night .inv line,.schema.scene.ph-night .home path,.schema.scene.ph-night .batt rect,.schema.scene.ph-night .grid-ico line{stroke:#C9D6E1}
+.schema.scene.ph-night text{fill:#C9D6E1}
+.schema.scene.ph-night .season{fill:var(--swan)}
+/* flussi: la linea attiva e' piena e blu, le altre quasi sparite */
+.schema.scene .flow{opacity:.25}
+.schema.scene .flow.on{opacity:1;stroke:var(--blue);stroke-dasharray:none;stroke-width:1.2}
+.schema.scene.ph-night .flow.on{stroke:var(--swan)}
+/* comete: testa luminosa e coda che sfuma */
+.schema.scene .dot.h{r:4.5;filter:drop-shadow(0 0 5px rgba(78,127,163,.95))}
+.schema.scene .dot.t1{r:3;opacity:.6}
+.schema.scene .dot.t2{r:2;opacity:.3}
+.schema.scene.ph-night .dot{fill:#DCE5EC}
+.schema.scene.ph-night .dot.h{filter:drop-shadow(0 0 6px rgba(220,229,236,.95))}
+@media (max-width:600px){.schema.scene{padding:0;overflow:hidden}.schema.scene .panel{margin:72px 12px 0;overflow-x:auto;-webkit-overflow-scrolling:touch}.schema.scene svg{min-width:640px;padding:0}.schema.scene figcaption{padding:14px 16px 18px}}
+@media (prefers-reduced-motion:reduce){.schema.scene .scene img{transition:none;transform:none}.schema.scene .scene{transition:none}}
+/* SOLERO: sole, moduli, finestra, batteria, led */
+.schema.solero .sun{transform-box:fill-box;transform-origin:center;transition:transform 1.4s var(--ease-out),opacity 1.2s var(--ease-out)}
+.schema.solero .sun circle{fill:rgba(78,127,163,.10)}
+.schema.solero.ph-eve .sun{opacity:1;transform:translate(20px,70px) scale(.9)}
+.schema.solero.ph-eve .rays{opacity:.4}
+.schema.solero.ph-night .sun{opacity:0;transform:translate(30px,120px) scale(.8)}
+.schema.solero.ph-night .rays{opacity:0}
+.schema.solero .lbl-sun{transition:opacity 1s}
+.schema.solero.ph-night .lbl-sun{opacity:0}
+.schema.solero.ph-day .modules path{fill:rgba(78,127,163,.28)}
+.schema.solero.ph-night .modules path{fill:rgba(160,190,210,.10)}
+.schema.solero.ph-night .modules path,.schema.solero.ph-night .modules line{stroke:var(--swan)}
+.schema.solero .win{fill:transparent}
+.schema.solero.ph-eve .win,.schema.solero.ph-night .win{fill:#F2D9A6;stroke:#F2D9A6}
+.schema.solero .glow{opacity:0;fill:rgba(242,217,166,.25);stroke:none}
+.schema.solero.ph-eve .glow,.schema.solero.ph-night .glow{opacity:1}
+.schema.solero .charge{fill:rgba(78,127,163,.35)}
+.schema.solero.ph-day .charge{width:48px}
+.schema.solero.ph-eve .charge{width:14px}
+.schema.solero.ph-night .charge{width:6px;fill:rgba(160,190,210,.6)}
+.schema.solero .led{fill:var(--blue);stroke:none}
+.schema.solero.live .led{animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.schema.solero .grid-ico{opacity:.55;transition:opacity 1s}
+.schema.solero.ph-night .grid-ico{opacity:1}

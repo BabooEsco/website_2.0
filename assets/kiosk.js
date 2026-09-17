@@ -12,6 +12,7 @@
   const HERO_SPEED = 210;             // px al secondo dentro il hero a scorrimento (il video dura ~45 s)
   const RAMP_MS = 2000;               // accelerazione dolce all'avvio, senza strappo
   const END_PAUSE = 4500;             // sosta in fondo alla pagina prima di cambiare
+  const END_PAUSE_HERO = 7000;        // sosta sul fotogramma finale del video (titolo e pulsanti) prima di cambiare
   const root = document.documentElement.getAttribute('data-root') || './';
   const PAGES = ['', 'baboo-casa/', 'linee/solero/', 'linee/clima/', 'business/', 'care/', 'linee/miniclima/', 'linee/mountainview/', 'showroom/', 'chi-siamo/'];
 
@@ -50,8 +51,10 @@
   /* ---- scorrimento automatico ---- */
   let raf = null, last = 0, endTimer = null, idleTimer = null, paused = false, pos = 0, t0 = 0;
   function stopScroll() { if (raf) cancelAnimationFrame(raf); raf = null; last = 0; clearTimeout(endTimer); endTimer = null; }
-  function maxY() { return Math.max(0, document.documentElement.scrollHeight - innerHeight); }
-  function inHero() { const h = document.querySelector('.hero'); return h && h.offsetHeight > innerHeight * 2 && scrollY < h.offsetHeight - innerHeight; }
+  // nelle pagine con il video a scorrimento la vetrina percorre solo il hero: il video arriva alla fine e lì si ferma
+  function scrubHero() { const h = document.querySelector('.hero'); return (h && h.offsetHeight > innerHeight * 2) ? h : null; }
+  function maxY() { const h = scrubHero(); return Math.max(0, (h ? h.offsetHeight : document.documentElement.scrollHeight) - innerHeight); }
+  function inHero() { const h = scrubHero(); return !!h && scrollY < h.offsetHeight - innerHeight; }
   function step(now) {
     raf = null;
     if (!on() || paused) return;
@@ -62,7 +65,7 @@
     const speed = (inHero() ? HERO_SPEED : SPEED) * ease;
     pos = Math.min(maxY(), pos + speed * dt / 1000);
     scrollTo(0, pos);
-    if (pos >= maxY() - 0.5) { endTimer = setTimeout(nextPage, END_PAUSE); return; }
+    if (pos >= maxY() - 0.5) { endTimer = setTimeout(nextPage, scrubHero() ? END_PAUSE_HERO : END_PAUSE); return; }
     raf = requestAnimationFrame(step);
   }
   function startScroll(delay) {
@@ -119,9 +122,9 @@
     const since = Date.now() - lastTouch;
     if (lastTouch && since < IDLE_MS) { paused = true; document.documentElement.classList.add('kiosk-paused'); idleTimer = setTimeout(resume, IDLE_MS - since); }
     else {
-      // in modalità film (telefono/tablet) si aspetta che il film finisca prima di scorrere
+      // in modalità film (telefono/tablet) il film si guarda fino alla fine, poi si passa alla pagina successiva senza scorrere
       const film = document.querySelector('.hero.film');
-      startScroll(film ? 17500 : 1800);
+      if (film) endTimer = setTimeout(nextPage, 17500 + END_PAUSE_HERO); else startScroll(1800);
     }
   }
 })();

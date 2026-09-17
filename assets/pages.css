@@ -351,3 +351,14 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema.casa.live .fan{animation-duration:3s}
 .schema.casa.scene .scenes::after{background:rgba(255,255,255,.62)}
 @media (prefers-reduced-motion:reduce){.schema.casa .scene img{transition:none;transform:none;object-position:50% 50%}}
+
+/* ---------- Showroom: il percorso della visita (card fotografiche cliccabili) ---------- */
+.visit .card{display:block;padding:0;overflow:hidden;color:inherit;text-decoration:none;transition:border-color .3s var(--ease-out),transform .3s var(--ease-out),box-shadow .3s var(--ease-out)}
+.visit .card:hover,.visit .card:focus-visible{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 14px 34px rgba(55,67,80,.12)}
+.visit .card picture,.visit .card img{display:block;width:100%}
+.visit .card img{height:auto;aspect-ratio:3/4;object-fit:cover}
+.visit .card .txt{padding:20px 22px 24px}
+.visit .card .n{display:block;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--blue);margin-bottom:.6em}
+.visit .card h3{margin-bottom:.4em}
+.visit .card p{color:var(--ink-soft);font-size:.95rem}
+.ph-img.coffee{aspect-ratio:4/3;margin-top:28px}

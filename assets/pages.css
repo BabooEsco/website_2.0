@@ -362,3 +362,16 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .visit .card h3{margin-bottom:.4em}
 .visit .card p{color:var(--ink-soft);font-size:.95rem}
 .ph-img.coffee{aspect-ratio:4/3;margin-top:28px}
+
+/* ---------- Hero fotografico a tutta larghezza (Showroom) ---------- */
+.photo-hero{position:relative;min-height:72vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--slate);color:#fff;isolation:isolate}
+.photo-hero .bg,.photo-hero .bg img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.photo-hero .bg img{object-fit:cover;object-position:50% 55%}
+.photo-hero .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,28,36,.42) 0%,rgba(20,28,36,.18) 40%,rgba(20,28,36,0) 62%),linear-gradient(180deg,rgba(20,28,36,.10) 0%,rgba(20,28,36,.04) 38%,rgba(20,28,36,.66) 100%)}
+.photo-hero .inner{position:relative;width:100%;padding:120px var(--pad) 64px}
+.photo-hero .eyebrow{color:var(--swan)}
+.photo-hero h1{color:#fff;font-size:clamp(2rem,3.6vw,3.4rem);max-width:16ch;margin:.3em 0 .45em;text-shadow:0 2px 24px rgba(5,8,12,.35)}
+.photo-hero .lede{color:#E6EDF3;max-width:56ch;text-shadow:0 1px 14px rgba(5,8,12,.35)}
+.photo-hero .row{margin-top:28px}
+@media (orientation:portrait){.photo-hero{min-height:78vh}.photo-hero .bg img{object-position:50% 40%}.photo-hero .scrim{background:linear-gradient(180deg,rgba(20,28,36,.12) 0%,rgba(20,28,36,.08) 30%,rgba(20,28,36,.74) 100%)}}
+@media (max-width:600px){.photo-hero .inner{padding:96px var(--pad) 44px}.photo-hero h1{max-width:none}.photo-hero .lede{font-size:1rem}}

@@ -122,9 +122,18 @@
     const since = Date.now() - lastTouch;
     if (lastTouch && since < IDLE_MS) { paused = true; document.documentElement.classList.add('kiosk-paused'); idleTimer = setTimeout(resume, IDLE_MS - since); }
     else {
-      // in modalità film (telefono/tablet) il film si guarda fino alla fine, poi si passa alla pagina successiva senza scorrere
-      const film = document.querySelector('.hero.film');
-      if (film) endTimer = setTimeout(nextPage, 17500 + END_PAUSE_HERO); else startScroll(1800);
+      // la decisione si prende dopo che hero.js ha scelto la modalità (scrub, film o statico): gli script sono in coda,
+      // e il hero a scorrimento è riconoscibile solo dall'altezza che il CSS gli dà
+      endTimer = setTimeout(() => {
+        const hero = document.querySelector('.hero[data-video]');
+        if (hero && !scrubHero()) {
+          // telefono e tablet: il film si guarda fino alla fine (o l'immagine ferma resta qualche secondo), poi pagina successiva, senza scorrere
+          const v = hero.querySelector('video'); let done = false;
+          const go = () => { if (done) return; done = true; clearTimeout(endTimer); endTimer = setTimeout(nextPage, END_PAUSE_HERO); };
+          if (v) v.addEventListener('ended', go, { once: true });
+          endTimer = setTimeout(go, hero.classList.contains('film') ? 22000 : 6000);
+        } else startScroll(0);
+      }, 1800);
     }
   }
 })();

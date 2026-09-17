@@ -13,13 +13,14 @@
 <meta property="og:title" content="Showroom Baboo · Via Prati 1, Omegna">
 <meta property="og:description" content="Vieni a vedere pompe di calore, accumuli, serramenti e MONITOR dal vivo nello showroom Baboo di Omegna. Prenota una visita.">
 <meta property="og:url" content="https://www.baboo.eu/showroom/">
-<meta property="og:image" content="https://www.baboo.eu/assets/showroom-hero.jpg">
+<meta property="og:image" content="https://www.baboo.eu/assets/showroom-poster.jpg">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/baboo.css">
 <link rel="stylesheet" href="../assets/pages.css">
+<link rel="stylesheet" href="../assets/hero.css">
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
@@ -48,17 +49,39 @@
   </div>
 </header>
 <main id="main" tabindex="-1">
-<section class="photo-hero showroom" aria-label="Introduzione">
-  <picture class="bg">
-    <source media="(orientation:portrait)" type="image/avif" srcset="../assets/showroom-ingresso-480.avif 480w, ../assets/showroom-ingresso.jpg 880w" sizes="100vw"><source media="(orientation:portrait)" type="image/webp" srcset="../assets/showroom-ingresso-480.webp 480w, ../assets/showroom-ingresso.jpg 880w" sizes="100vw"><source media="(orientation:portrait)" type="image/jpeg" srcset="../assets/showroom-ingresso-480.jpg 480w, ../assets/showroom-ingresso.jpg 880w" sizes="100vw"><source type="image/avif" srcset="../assets/showroom-wide-480.avif 480w, ../assets/showroom-wide-960.avif 960w, ../assets/showroom-wide-1440.avif 1440w" sizes="100vw"><source type="image/webp" srcset="../assets/showroom-wide-480.webp 480w, ../assets/showroom-wide-960.webp 960w, ../assets/showroom-wide-1440.webp 1440w" sizes="100vw">
-    <img src="../assets/showroom-wide.jpg" srcset="../assets/showroom-wide-480.jpg 480w, ../assets/showroom-wide-960.jpg 960w, ../assets/showroom-wide-1440.jpg 1440w, ../assets/showroom-wide.jpg 2560w" sizes="100vw" alt="La sala d'ingresso dello showroom Baboo: moduli fotovoltaici, accumulo e wallbox" loading="eager" fetchpriority="high" width="2560" height="1522">
-  </picture>
-  <div class="scrim" aria-hidden="true"></div>
-  <div class="wrap inner">
-    <span class="eyebrow">Showroom</span>
-    <h1>Vieni a toccare quello che di solito si compra al telefono.</h1>
-    <p class="lede">In Via Prati 1, a Omegna, ci sono pompe di calore accese, un accumulo che lavora, serramenti da aprire e MONITOR su uno schermo vero. Mezz'ora dal vivo vale più di dieci preventivi.</p>
-    <div class="row"><a class="btn btn-blue" href="#visita">Prenota la visita</a><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Via+Prati+1+28887+Omegna+VB" target="_blank" rel="noopener">Indicazioni stradali</a></div>
+<section class="hero showroom" aria-label="Introduzione" data-video="../assets/showroom-scrub.mp4" data-poster="../assets/showroom-poster.jpg" data-ending="../assets/showroom-ending.jpg" data-bytes="6186027" data-film="../assets/showroom-film-v.mp4" data-film-poster="../assets/showroom-poster-v.jpg" data-film-ending="../assets/showroom-ending-v.jpg">
+  <div class="stage">
+    <div class="poster" aria-hidden="true"></div>
+    <video preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+    <div class="scrim" aria-hidden="true"></div>
+
+    <div class="band b1" data-from="0" data-to="0.12">
+      <div class="inner">
+        <span class="kicker">Showroom</span>
+        <h2 class="line" data-split="words">Via Prati 1, Omegna. Entra.</h2>
+      </div>
+    </div>
+    <div class="band b2" data-from="0.18" data-to="0.33">
+      <div class="inner"><p class="line" data-split="words">Una pompa di calore accesa. Una caldaia aperta.</p></div>
+    </div>
+    <div class="band b3" data-from="0.40" data-to="0.54" data-spread="0.6">
+      <div class="inner"><p class="line" data-split="grid">Serramenti da aprire. Il freddo che si ferma.</p></div>
+    </div>
+    <div class="band b4" data-from="0.58" data-to="0.72" data-ramp="0.036">
+      <div class="inner"><p class="line" data-split="words">MONITOR su uno schermo vero.</p></div>
+    </div>
+    <div class="band b5" data-from="0.78" data-to="1" data-ramp="0.05">
+      <div class="inner">
+        <span class="kicker">Showroom</span>
+        <h1 data-split="words">Vieni a toccare quello che di solito si compra al telefono.</h1>
+        <p class="subline">In Via Prati 1, a Omegna, ci sono pompe di calore accese, un accumulo che lavora, serramenti da aprire e MONITOR su uno schermo vero. Mezz'ora dal vivo vale più di dieci preventivi.</p>
+        <div class="row"><a class="btn btn-blue" href="#visita">Prenota la visita</a><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Via+Prati+1+28887+Omegna+VB" target="_blank" rel="noopener">Indicazioni stradali</a></div>
+      </div>
+    </div>
+
+    <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/></svg>
+    <div class="cue" aria-hidden="true">Scorri</div>
+    <button class="film-skip" type="button" hidden>Salta</button>
   </div>
 </section>
 
@@ -140,6 +163,7 @@
 <script src="../assets/site.js" defer></script>
 <script src="../assets/kiosk.js?v=4" defer></script>
 <script src="../assets/forms.js" defer></script>
+<script src="../assets/hero.js" defer></script>
 <script>document.querySelectorAll("[data-interesse]").forEach(function(a){a.addEventListener("click",function(){var s=document.getElementById("f-int");if(s)s.value=a.getAttribute("data-interesse");});});</script>
 </body>
 </html>

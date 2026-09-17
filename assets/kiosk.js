@@ -8,8 +8,9 @@
   const KEY_LAST = 'baboo_kiosk_last';// ultimo tocco del visitatore (ms)
   const IDLE_MS = 60000;              // inattività prima di riprendere
   const HOLD_MS = 3000;               // pressione lunga per entrare/uscire
-  const SPEED = 150;                  // px al secondo durante lo scorrimento
-  const HERO_SPEED = 380;             // px al secondo dentro il hero a scorrimento (il video dura comunque ~25 s)
+  const SPEED = 70;                   // px al secondo durante lo scorrimento (passo di lettura lento)
+  const HERO_SPEED = 210;             // px al secondo dentro il hero a scorrimento (il video dura ~45 s)
+  const RAMP_MS = 2000;               // accelerazione dolce all'avvio, senza strappo
   const END_PAUSE = 4500;             // sosta in fondo alla pagina prima di cambiare
   const root = document.documentElement.getAttribute('data-root') || './';
   const PAGES = ['', 'baboo-casa/', 'linee/solero/', 'linee/clima/', 'business/', 'care/', 'linee/miniclima/', 'linee/mountainview/', 'showroom/', 'chi-siamo/'];
@@ -47,18 +48,21 @@
   }
 
   /* ---- scorrimento automatico ---- */
-  let raf = null, last = 0, endTimer = null, idleTimer = null, paused = false;
+  let raf = null, last = 0, endTimer = null, idleTimer = null, paused = false, pos = 0, t0 = 0;
   function stopScroll() { if (raf) cancelAnimationFrame(raf); raf = null; last = 0; clearTimeout(endTimer); endTimer = null; }
   function maxY() { return Math.max(0, document.documentElement.scrollHeight - innerHeight); }
   function inHero() { const h = document.querySelector('.hero'); return h && h.offsetHeight > innerHeight * 2 && scrollY < h.offsetHeight - innerHeight; }
   function step(now) {
     raf = null;
     if (!on() || paused) return;
-    const dt = last ? Math.min(50, now - last) : 16; last = now;
-    const speed = inHero() ? HERO_SPEED : SPEED;
-    const y = Math.min(maxY(), scrollY + speed * dt / 1000);
-    scrollTo(0, y);
-    if (y >= maxY() - 1) { endTimer = setTimeout(nextPage, END_PAUSE); return; }
+    if (!last) { last = now; t0 = now; pos = scrollY; }
+    const dt = Math.min(34, now - last); last = now;
+    // posizione in virgola mobile: non si rilegge scrollY (arrotondato), così il passo resta uniforme
+    const ramp = Math.min(1, (now - t0) / RAMP_MS); const ease = ramp * ramp * (3 - 2 * ramp);
+    const speed = (inHero() ? HERO_SPEED : SPEED) * ease;
+    pos = Math.min(maxY(), pos + speed * dt / 1000);
+    scrollTo(0, pos);
+    if (pos >= maxY() - 0.5) { endTimer = setTimeout(nextPage, END_PAUSE); return; }
     raf = requestAnimationFrame(step);
   }
   function startScroll(delay) {

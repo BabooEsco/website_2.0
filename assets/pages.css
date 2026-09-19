@@ -508,7 +508,11 @@ html.sim-open{overflow:hidden}
 .legal-doc .iub_container h1,.legal-doc .iub_container h2,.legal-doc .iub_container h3,.legal-doc .iub_container h4{font-family:var(--font-display)!important;font-weight:var(--w-display)!important;color:var(--ink)!important;letter-spacing:0!important}
 .legal-doc .iub_container h2{font-size:1.45rem!important;margin:1.6em 0 .5em!important}
 .legal-doc .iub_container h3{font-size:1.15rem!important}
-.legal-doc .iub_container p,.legal-doc .iub_container li{font-size:1rem!important;line-height:1.6!important;color:var(--ink)!important}
+.legal-doc #iubenda_policy,.legal-doc #iubenda_policy *{font-family:var(--font-text)!important}
+.legal-doc .iub_container p,.legal-doc .iub_container li,.legal-doc .iub_container td,.legal-doc .iub_container span{font-size:1rem!important;line-height:1.6!important;color:var(--ink)!important}
+.legal-doc .iub_container h1,.legal-doc .iub_container h2,.legal-doc .iub_container h3,.legal-doc .iub_container h4{font-family:var(--font-display)!important}
+.legal-doc .iub_container ul.for_boxes>li{border-color:var(--line)!important}
+.legal-doc .iub_container .box_primary,.legal-doc .iub_container .expand-content{background:transparent!important;border-color:var(--line)!important}
 .legal-doc .iub_container a{color:var(--blue)!important}
 .legal-doc .iub_container .iub_footer{color:var(--ink-soft)!important;font-size:.85rem!important}
 .legal-doc .legal-fallback{font-size:.9rem;color:var(--ink-soft);margin-top:16px}

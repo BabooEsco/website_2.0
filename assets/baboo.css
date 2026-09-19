@@ -231,3 +231,8 @@ html.kiosk-paused .kiosk-chip .dot{animation:none;background:var(--swan)}
 html.kiosk .film-skip{display:none!important}
 html.kiosk{scroll-behavior:auto}
 @media (max-width:520px){.kiosk-chip .hint{display:none}}
+
+/* ---------- link di servizio nel menu (Assistenza): più discreto delle voci d'offerta ---------- */
+.menu .util a{color:var(--ink-soft);font-weight:400}
+.menu .util a:hover{color:var(--blue)}
+@media (max-width:1100px){.menu .util a{color:var(--ink)!important;font-weight:500}}

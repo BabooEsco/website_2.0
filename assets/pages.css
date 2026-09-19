@@ -516,3 +516,49 @@ html.sim-open{overflow:hidden}
 .legal-doc .iub_container a{color:var(--blue)!important}
 .legal-doc .iub_container .iub_footer{color:var(--ink-soft)!important;font-size:.85rem!important}
 .legal-doc .legal-fallback{font-size:.9rem;color:var(--ink-soft);margin-top:16px}
+
+/* ---------- Assistenza ---------- */
+.triage .card{display:flex;flex-direction:column;gap:10px;padding:28px 28px 24px}
+.triage .card .n{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--blue)}
+.triage .card h3{margin:0;font-size:1.35rem}
+.triage .card p{margin:0;color:var(--ink-soft)}
+.triage .card .btn{align-self:flex-start;margin-top:auto}
+.triage .card .small{font-size:.85rem;color:var(--ink-soft)}
+.triage .urgent{border-color:var(--slate)}
+.triage .urgent .n{color:var(--slate)}
+.tabs{margin-top:8px}
+.tablist{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;padding:0}
+.tablist [role=tab]{padding:10px 16px;border:1px solid var(--swan);border-radius:4px;background:var(--white);color:var(--ink);font:500 .9rem/1 var(--font-text);cursor:pointer;transition:background .3s var(--ease-out),border-color .3s var(--ease-out),color .3s var(--ease-out)}
+.tablist [role=tab]:hover{border-color:var(--blue);color:var(--blue)}
+.tablist [role=tab][aria-selected=true]{background:var(--slate);border-color:var(--slate);color:#fff}
+.tabs [role=tabpanel][hidden]{display:none}
+.tabs .numbered h3{font-size:1.1rem}
+.tabs .close{margin-top:24px}
+.lead .hint{display:block;margin:6px 0 0;font:400 .85rem/1.4 var(--font-text);letter-spacing:0;text-transform:none;color:var(--ink-soft)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg label{position:relative;margin:0}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:46px;padding:10px 14px;border:1px solid var(--line);border-radius:2px;font:400 1rem var(--font-text);color:var(--ink);cursor:pointer;text-transform:none;letter-spacing:0;transition:background .3s var(--ease-out),border-color .3s var(--ease-out),color .3s var(--ease-out)}
+.seg input:checked+span{background:var(--slate);border-color:var(--slate);color:#fff}
+.seg input:focus-visible+span{outline:3px solid var(--swan);outline-offset:2px}
+.seg input.touched:invalid+span{border-color:#B5533C}
+.lead input[type=file]{padding:10px;border-style:dashed;cursor:pointer;font-size:.95rem}
+.lead input[type=file]::file-selector-button{margin-right:12px;padding:8px 14px;border:1px solid var(--slate);border-radius:2px;background:var(--white);color:var(--slate);font:500 .85rem var(--font-text);cursor:pointer}
+.files{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.files li{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--light);border-radius:2px;font-size:.92rem}
+.files li span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.files li small{color:var(--ink-soft)}
+.files li button{width:28px;height:28px;border:0;border-radius:50%;background:transparent;cursor:pointer;position:relative}
+.files li button::before,.files li button::after{content:"";position:absolute;left:8px;right:8px;top:50%;height:1.5px;background:var(--ink-soft);transform:rotate(45deg)}
+.files li button::after{transform:rotate(-45deg)}
+.files li button:hover::before,.files li button:hover::after{background:#B5533C}
+.lead.done>:not(.form-msg){display:none}
+.form-msg.ok{font-size:1.1rem;color:var(--ink);line-height:1.6}
+.form-msg.ok .ref{font-family:var(--font-mono);color:var(--blue)}
+.contacts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.contacts li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.contacts li:last-child{border-bottom:1px solid var(--line)}
+.contacts .k{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);padding-top:.35em}
+.contacts b{font-family:var(--font-display);font-weight:400;font-size:1.2rem;display:block}
+.contacts small{color:var(--ink-soft)}
+@media (max-width:520px){.contacts li{grid-template-columns:1fr;gap:4px}.seg{grid-template-columns:1fr}}

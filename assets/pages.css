@@ -534,31 +534,48 @@ html.sim-open{overflow:hidden}
 .tabs [role=tabpanel][hidden]{display:none}
 .tabs .numbered h3{font-size:1.1rem}
 .tabs .close{margin-top:24px}
-.lead .hint{display:block;margin:6px 0 0;font:400 .85rem/1.4 var(--font-text);letter-spacing:0;text-transform:none;color:var(--ink-soft)}
-.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.seg label{position:relative;margin:0}
-.seg input{position:absolute;opacity:0;width:1px;height:1px}
-.seg span{display:flex;align-items:center;justify-content:center;min-height:46px;padding:10px 14px;border:1px solid var(--line);border-radius:2px;font:400 1rem var(--font-text);color:var(--ink);cursor:pointer;text-transform:none;letter-spacing:0;transition:background .3s var(--ease-out),border-color .3s var(--ease-out),color .3s var(--ease-out)}
-.seg input:checked+span{background:var(--slate);border-color:var(--slate);color:#fff}
-.seg input:focus-visible+span{outline:3px solid var(--swan);outline-offset:2px}
-.seg input.touched:invalid+span{border-color:#B5533C}
-.lead input[type=file]{padding:10px;border-style:dashed;cursor:pointer;font-size:.95rem}
-.lead input[type=file]::file-selector-button{margin-right:12px;padding:8px 14px;border:1px solid var(--slate);border-radius:2px;background:var(--white);color:var(--slate);font:500 .85rem var(--font-text);cursor:pointer}
+/* il telefono della richiesta: riusa .sim-dialog/.phone/.screen/.opts del simulatore */
+.ticket-dialog form{display:flex;flex-direction:column;height:100%;min-height:0}
+.ticket-dialog .sim-body{display:flex;flex-direction:column}
+.ticket-dialog .step[hidden]{display:none}
+.ticket-dialog .step h2{font-size:1.45rem}
+.ticket-dialog .opt{position:relative}
+.ticket-dialog .opt input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.ticket-dialog .opt:has(input:checked){border-color:var(--blue);background:var(--light)}
+.ticket-dialog .opt:has(input:checked) .mark{background:var(--blue);border-color:var(--blue)}
+.ticket-dialog .opt:has(input:checked) .mark::after{content:"";position:absolute;left:6px;top:2.5px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.ticket-dialog .opt:has(input:focus-visible){outline:3px solid var(--swan);outline-offset:2px}
+.ticket-dialog .f{margin:0 0 14px}
+.ticket-dialog .f label{display:block;font:500 .72rem/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.ticket-dialog .f input,.ticket-dialog .f textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:400 1rem var(--font-text);color:var(--ink);background:#fff;transition:border-color .3s var(--ease-out)}
+.ticket-dialog .f textarea{resize:vertical;min-height:132px}
+.ticket-dialog .f input:focus,.ticket-dialog .f textarea:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 3px rgba(160,190,210,.4)}
+.ticket-dialog .touched:invalid{border-color:#B5533C}
+.ticket-dialog .err{margin:6px 0 0;min-height:1.3em;font-size:.88rem;color:#B5533C}
+.ticket-dialog input[type=file]{padding:10px;border-style:dashed;cursor:pointer;font-size:.92rem}
+.ticket-dialog input[type=file]::file-selector-button{margin-right:10px;padding:8px 12px;border:1px solid var(--slate);border-radius:8px;background:var(--white);color:var(--slate);font:500 .82rem var(--font-text);cursor:pointer}
 .files{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
-.files li{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--light);border-radius:2px;font-size:.92rem}
+.files li{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--light);border-radius:8px;font-size:.9rem}
 .files li span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .files li small{color:var(--ink-soft)}
-.files li button{width:28px;height:28px;border:0;border-radius:50%;background:transparent;cursor:pointer;position:relative}
+.files li button{width:28px;height:28px;border:0;border-radius:50%;background:transparent;cursor:pointer;position:relative;flex:none}
 .files li button::before,.files li button::after{content:"";position:absolute;left:8px;right:8px;top:50%;height:1.5px;background:var(--ink-soft);transform:rotate(45deg)}
 .files li button::after{transform:rotate(-45deg)}
 .files li button:hover::before,.files li button:hover::after{background:#B5533C}
-.lead.done>:not(.form-msg){display:none}
-.form-msg.ok{font-size:1.1rem;color:var(--ink);line-height:1.6}
-.form-msg.ok .ref{font-family:var(--font-mono);color:var(--blue)}
+.ticket-dialog .sum{display:grid;grid-template-columns:auto 1fr;gap:0 12px;margin:0 0 14px;padding:0;border-top:1px solid var(--line);font-size:.9rem}
+.ticket-dialog .sum dt{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);padding:8px 0;border-bottom:1px solid var(--line)}
+.ticket-dialog .sum dd{margin:0;padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink);word-break:break-word}
+.ticket-dialog .sim-nav{grid-template-columns:auto 1fr auto}
+.ticket-dialog .check{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:var(--ink);line-height:1.45}
+.ticket-dialog .check input{width:20px;height:20px;flex:none;margin-top:2px}
+.ticket-dialog .form-msg h2{font-size:1.45rem;margin:.2em 0 .5em}
+.ticket-dialog .form-msg .ref{font-family:var(--font-mono);font-weight:400;color:var(--blue)}
+.ticket-dialog .form-msg p{margin:0 0 .8em}
+.ticket-dialog .sim-nav .btn.sm[disabled]{opacity:.45}
 .contacts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .contacts li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
 .contacts li:last-child{border-bottom:1px solid var(--line)}
 .contacts .k{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);padding-top:.35em}
 .contacts b{font-family:var(--font-display);font-weight:400;font-size:1.2rem;display:block}
 .contacts small{color:var(--ink-soft)}
-@media (max-width:520px){.contacts li{grid-template-columns:1fr;gap:4px}.seg{grid-template-columns:1fr}}
+@media (max-width:520px){.contacts li{grid-template-columns:1fr;gap:4px}}

@@ -490,3 +490,25 @@ html.sim-open{overflow:hidden}
   .doc-back{display:none}
 }
 @media print{.site-header,.site-footer,.band-cta,.doc-toc,.doc-back{display:none!important}.doc-grid{display:block}.sec.alt{background:#fff}}
+
+/* mappa a caricamento su richiesta (Showroom): niente Google finché non si clicca */
+.map-gate{position:relative;display:flex;align-items:center;justify-content:center;background:var(--light) radial-gradient(circle at 50% 45%,rgba(160,190,210,.35),transparent 60%)}
+.map-open{display:flex;flex-direction:column;align-items:center;gap:10px;background:none;border:0;padding:32px;font:inherit;color:var(--ink);cursor:pointer;text-align:center;max-width:36ch}
+.map-open .pin{width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--blue);margin-bottom:6px}
+.map-open b{font-weight:500;font-size:1.05rem}
+.map-open>span:not(.pin):not(.btn){color:var(--ink-soft);font-size:.9rem}
+.map-open .btn{margin-top:8px}
+/* pagine legali: testo iubenda nel nostro layout */
+.legal-doc .legal-lead{font-size:1.05rem;color:var(--ink);padding:16px 20px;background:var(--white);border-left:3px solid var(--blue);border-radius:0 4px 4px 0}
+.legal-doc .iub-wrap{margin-top:24px}
+.legal-doc .iub-wrap a.iubenda-embed{display:none}
+.legal-doc .iub-wrap.iub-loaded+.legal-fallback,.legal-doc .iub-wrap:has(.iub_container)+.legal-fallback{display:none}
+.legal-doc .iub_container,.legal-doc .iub_base_container{font:inherit!important;color:var(--ink)!important;background:transparent!important;box-shadow:none!important;padding:0!important}
+.legal-doc .iub_content{padding:0!important}
+.legal-doc .iub_container h1,.legal-doc .iub_container h2,.legal-doc .iub_container h3,.legal-doc .iub_container h4{font-family:var(--font-display)!important;font-weight:var(--w-display)!important;color:var(--ink)!important;letter-spacing:0!important}
+.legal-doc .iub_container h2{font-size:1.45rem!important;margin:1.6em 0 .5em!important}
+.legal-doc .iub_container h3{font-size:1.15rem!important}
+.legal-doc .iub_container p,.legal-doc .iub_container li{font-size:1rem!important;line-height:1.6!important;color:var(--ink)!important}
+.legal-doc .iub_container a{color:var(--blue)!important}
+.legal-doc .iub_container .iub_footer{color:var(--ink-soft)!important;font-size:.85rem!important}
+.legal-doc .legal-fallback{font-size:.9rem;color:var(--ink-soft);margin-top:16px}

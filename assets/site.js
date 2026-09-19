@@ -118,6 +118,17 @@
       try { sessionStorage.setItem('baboo_da_url', location.pathname); const m = /[?&]da=([a-z-]+)/.exec(a.getAttribute('href') || ''); if (m) sessionStorage.setItem('baboo_da', m[1]); } catch (e) { }
     }));
   } catch (e) { }
+
+  /* ---- mappa su richiesta: l'iframe di Google entra solo al clic ---- */
+  document.querySelectorAll('.map-gate').forEach(g => {
+    const btn = g.querySelector('.map-open');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.title = 'Mappa dello showroom Baboo'; f.src = g.getAttribute('data-src'); f.setAttribute('referrerpolicy', 'no-referrer-when-downgrade'); f.setAttribute('loading', 'lazy');
+      g.replaceChildren(f); g.classList.remove('map-gate');
+    });
+  });
   /* ---- canoni: i prezzi vengono solo dal file dati ---- */
   const priceEls = document.querySelectorAll('[data-canone]');
   if (priceEls.length) {

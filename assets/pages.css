@@ -518,6 +518,8 @@ html.sim-open{overflow:hidden}
 .legal-doc .legal-fallback{font-size:.9rem;color:var(--ink-soft);margin-top:16px}
 
 /* ---------- Assistenza ---------- */
+.photo-hero.assistenza .bg img{object-position:50% 22%}
+@media (orientation:portrait){.photo-hero.assistenza .bg img{object-position:50% 30%}}
 .triage .card{display:flex;flex-direction:column;gap:10px;padding:28px 28px 24px}
 .triage .card .n{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--blue)}
 .triage .card h3{margin:0;font-size:1.35rem}

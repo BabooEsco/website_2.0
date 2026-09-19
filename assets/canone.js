@@ -80,7 +80,7 @@
       h += '<ul class="inc">' + lv.inc.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul>';
       r.notes.forEach(function (n) { h += '<p class="note">' + esc(n) + '</p>'; });
       h += '<p class="legal">Canone “a partire da”, su 120 mesi. Il canone definitivo è determinato dal sopralluogo tecnico gratuito. Il finanziamento è erogato da un istituto finanziario autorizzato ex art. 106 TUB, soggetto ad approvazione.</p></div>';
-      h += '<div class="sim-nav end"><a class="btn btn-blue sm" href="' + root + '#sopralluogo">Prenota il sopralluogo gratuito</a><a class="lnk" href="' + root + 'baboo-casa/">Scopri Baboo Casa</a><button type="button" class="lnk" data-act="restart">Ricomincia</button></div>';
+      h += '<div class="sim-nav end"><a class="btn btn-blue sm" href="' + root + '?da=canone#sopralluogo" data-act="prenota">Prenota il sopralluogo gratuito</a><a class="lnk" href="' + root + 'baboo-casa/">Scopri Baboo Casa</a><button type="button" class="lnk" data-act="restart">Ricomincia</button></div>';
     }
     screen.innerHTML = h;
     var first = screen.querySelector('h2'); if (first) { first.setAttribute('tabindex', '-1'); first.focus({ preventScroll: true }); }
@@ -89,6 +89,15 @@
   screen.addEventListener('click', function (e) {
     var b = e.target.closest('[data-v],[data-act]'); if (!b) return;
     var act = b.getAttribute('data-act');
+    if (act === 'prenota') { /* passa le risposte al form della Home (solo etichette, niente dati personali) */
+      try {
+        var lab = function (qid, v) { var q = Q.filter(function (x) { return x.id === qid; })[0]; var o = q && q.o.filter(function (x) { return x[0] === v; })[0]; return o ? o[1] : ''; };
+        var r = level();
+        sessionStorage.setItem('baboo_sim', JSON.stringify({ livello: LV[r.id].n, casa: lab('casa', ans.casa), mq: lab('mq', ans.mq), risc: lab('risc', ans.risc), extra: (ans.extra || []).map(function (v) { return lab('extra', v); }) }));
+        sessionStorage.setItem('baboo_da', 'canone'); sessionStorage.setItem('baboo_da_url', location.pathname);
+      } catch (e) { }
+      return; /* il link prosegue normalmente */
+    }
     if (act === 'back') { step = Math.max(0, step - 1); return render(); }
     if (act === 'restart') { ans = {}; step = 0; return render(); }
     if (act === 'next') { step++; return render(); }

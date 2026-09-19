@@ -101,6 +101,7 @@ ul.checks li{position:relative;padding-left:1.6em;margin:.45em 0}
 ul.checks li::before{content:"";position:absolute;left:0;top:.55em;width:.9em;height:.5em;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(-45deg)}
 .sec.dark ul.checks li::before,.feat ul.checks li::before{border-color:var(--swan)}
 .legal{font-size:.82rem;color:var(--ink-soft);max-width:80ch;margin-top:24px}
+.form-from{margin:0 0 4px;padding:10px 14px;background:var(--light);border-left:3px solid var(--blue);font-size:.92rem;color:var(--ink-soft);border-radius:0 4px 4px 0}
 .rule{height:1px;background:var(--line);border:0;margin:0}
 
 /* ---------- header / nav ---------- */

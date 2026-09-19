@@ -1,0 +1,30 @@
+# Produzione del sito Baboo sul VPS Hostinger: https://www.baboo.eu
+# Si lancia SOLO a mano (Actions -> "Produzione su VPS" -> Run workflow), con il consenso esplicito di Renato.
+name: Produzione su VPS
+
+on:
+  workflow_dispatch:
+    inputs:
+      conferma:
+        description: 'Scrivi PRODUZIONE per confermare'
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.conferma == 'PRODUZIONE' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.VPS_KEY }}
+      - name: Conosci l'host
+        run: ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+      - name: Copia in produzione
+        run: |
+          rsync -az --delete \
+            --exclude '.git' --exclude '.github' --exclude 'review' --exclude 'Claude outputs' \
+            --exclude '*.md' --exclude '*.tgz' --exclude '*.py' \
+            ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/www/
+      - name: Verifica
+        run: curl -sI https://www.baboo.eu/ | head -3

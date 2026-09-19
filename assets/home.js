@@ -115,31 +115,7 @@
     d.addEventListener('toggle', () => { if (d.open) details.forEach(o => { if (o !== d) o.open = false; }); });
   });
 
-  /* ---------- form: endpoint configurabile, altrimenti mail precompilata ---------- */
-  const form = document.getElementById('lead-form');
-  if (form) {
-    const msg = form.querySelector('.form-msg');
-    form.querySelectorAll('input,select').forEach(el => el.addEventListener('blur', () => el.classList.add('touched')));
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      form.querySelectorAll('input,select').forEach(el => el.classList.add('touched'));
-      if (!form.checkValidity()) { msg.textContent = 'Controlla i campi evidenziati: ci servono per richiamarti.'; form.querySelector(':invalid').focus(); return; }
-      const data = Object.fromEntries(new FormData(form).entries());
-      const endpoint = form.getAttribute('data-endpoint');
-      const thanks = 'Grazie. Ti richiamiamo entro il prossimo giorno lavorativo per fissare la data.';
-      if (endpoint) {
-        try {
-          const r = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
-          if (!r.ok) throw new Error('http ' + r.status);
-          form.classList.add('sent'); msg.textContent = thanks; return;
-        } catch (err) { /* si passa alla mail */ }
-      }
-      const body = 'Richiesta di sopralluogo gratuito dal sito baboo.eu\n\nNome: ' + data.nome + '\nTelefono: ' + data.telefono + '\nEmail: ' + data.email + '\nComune: ' + data.comune + '\nIntervento: ' + data.intervento + '\n';
-      location.href = 'mailto:info@baboo.eu?subject=' + encodeURIComponent('Sopralluogo gratuito: ' + data.comune) + '&body=' + encodeURIComponent(body);
-      form.classList.add('sent');
-      msg.textContent = 'Si è aperta la tua posta con la richiesta già scritta: premi Invia. ' + thanks;
-    });
-  }
+  /* ---------- form: gestito da forms.js (relè /api/lead con provenienza) ---------- */
 
   /* ---------- ridotto movimento: stati finali, in entrambe le direzioni ---------- */
   function pinToFinalStates() {

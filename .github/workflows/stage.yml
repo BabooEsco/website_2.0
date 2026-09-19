@@ -1,0 +1,31 @@
+# Stage del nuovo sito Baboo sul VPS Hostinger: https://stage.baboo.eu (noindex via Nginx).
+# Ogni push su main copia i file in /var/www/stage. La produzione (/var/www/www) usa prod.yml, solo manuale.
+name: Stage su VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: stage
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.VPS_KEY }}
+      - name: Conosci l'host
+        run: ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+      - name: Copia su stage
+        run: |
+          rsync -az --delete \
+            --exclude '.git' --exclude '.github' --exclude 'review' --exclude 'Claude outputs' \
+            --exclude '*.md' --exclude '*.tgz' --exclude '*.py' \
+            ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/stage/
+      - name: Verifica
+        run: curl -sI https://stage.baboo.eu/ | head -3

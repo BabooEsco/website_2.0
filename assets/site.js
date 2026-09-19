@@ -107,6 +107,17 @@
     }).catch(() => {});
   }
 
+
+  /* ---- provenienza per il form: UTM e referrer del primo tocco, pagina di partenza al clic su "Prenota" ---- */
+  try {
+    const q = new URLSearchParams(location.search);
+    const utm = {}; ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid'].forEach(k => { if (q.get(k)) utm[k] = q.get(k); });
+    if (Object.keys(utm).length && !sessionStorage.getItem('baboo_utm')) sessionStorage.setItem('baboo_utm', JSON.stringify(utm));
+    if (document.referrer && !sessionStorage.getItem('baboo_ref')) { const r = new URL(document.referrer); if (r.host !== location.host) sessionStorage.setItem('baboo_ref', r.host + r.pathname); }
+    document.querySelectorAll('a[href*="#sopralluogo"],a[href*="#visita"],a[href*="#assistenza"],a[href*="#contatto"]').forEach(a => a.addEventListener('click', () => {
+      try { sessionStorage.setItem('baboo_da_url', location.pathname); const m = /[?&]da=([a-z-]+)/.exec(a.getAttribute('href') || ''); if (m) sessionStorage.setItem('baboo_da', m[1]); } catch (e) { }
+    }));
+  } catch (e) { }
   /* ---- canoni: i prezzi vengono solo dal file dati ---- */
   const priceEls = document.querySelectorAll('[data-canone]');
   if (priceEls.length) {

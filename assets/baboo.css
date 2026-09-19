@@ -236,3 +236,12 @@ html.kiosk{scroll-behavior:auto}
 .menu .util a{color:var(--ink-soft);font-weight:400}
 .menu .util a:hover{color:var(--blue)}
 @media (max-width:1100px){.menu .util a{color:var(--ink)!important;font-weight:500}}
+
+/* ---------- pulsante rapido Assistenza (tutte le pagine, in basso a destra) ---------- */
+.help-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:90;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px 0 14px;border-radius:999px;background:var(--slate);color:#fff;font:500 .9rem/1 var(--font-text);letter-spacing:.01em;text-decoration:none;box-shadow:0 10px 30px rgba(20,28,36,.28),inset 0 0 0 1px rgba(160,190,210,.35);transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),background .3s var(--ease-out)}
+.help-fab:hover,.help-fab:focus-visible{background:var(--blue-deep);color:#fff;transform:translateY(-2px);box-shadow:0 14px 34px rgba(20,28,36,.34),inset 0 0 0 1px rgba(160,190,210,.5)}
+.help-fab svg{width:22px;height:22px;flex:none}
+.help-fab span{white-space:nowrap}
+@media (max-width:600px){.help-fab{width:52px;height:52px;min-height:0;padding:0;justify-content:center;right:14px}.help-fab span{position:absolute;left:-9999px}}
+body.menu-open .help-fab,html.sim-open .help-fab{display:none}
+@media print{.help-fab{display:none}}

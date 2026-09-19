@@ -535,8 +535,10 @@ html.sim-open{overflow:hidden}
 .tabs .numbered h3{font-size:1.1rem}
 .tabs .close{margin-top:24px}
 /* il telefono della richiesta: riusa .sim-dialog/.phone/.screen/.opts del simulatore */
-.ticket-dialog form{display:flex;flex-direction:column;height:100%;min-height:0}
-.ticket-dialog .sim-body{display:flex;flex-direction:column}
+.ticket-dialog .screen{display:flex;flex-direction:column;min-height:0}
+.ticket-dialog form{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;height:auto}
+.ticket-dialog .sim-top,.ticket-dialog .sim-nav{flex:0 0 auto}
+.ticket-dialog .sim-body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .ticket-dialog .step[hidden]{display:none}
 .ticket-dialog .step h2{font-size:1.45rem}
 .ticket-dialog .opt{position:relative}

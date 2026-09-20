@@ -174,7 +174,14 @@
     const man = wd === 3 || val('cliente') !== 'Sì';
     const grid = wd === 1 ? ['08:30', '09:45', '11:00', '14:00'] : ['10:00', '11:30'];
     const giorni = []; const d = new Date(); d.setDate(d.getDate() + 3);
-    while (giorni.length < 6) { if (d.getDay() === wd) { const iso = d.toISOString().slice(0, 10); if (giorni.length !== 1) giorni.push({ data: iso, slot: grid.filter((_, i) => !(giorni.length === 2 && i === 0)).map((h, i) => ({ inizio: iso + 'T' + h + ':00', fine: '', fascia: i ? 'fra le ' + h + ' e le ' + String(+h.slice(0, 2) + 2).padStart(2, '0') + h.slice(2) : '' })) }); } d.setDate(d.getDate() + 1); }
+    const pad = n => String(n).padStart(2, '0');
+    for (let k = 0, guard = 0; giorni.length < 5 && guard < 120; d.setDate(d.getDate() + 1), guard++) {
+      if (d.getDay() !== wd) continue;
+      k++; if (k === 2) continue;                       /* il secondo giorno utile è "occupato da un cantiere" */
+      const iso = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+      const slots = grid.filter((_, i) => !(k === 3 && i === 0));   /* nel terzo manca il primo slot */
+      giorni.push({ data: iso, slot: slots.map((h, i) => ({ inizio: iso + 'T' + h + ':00', fine: '', fascia: i ? 'fra le ' + h + ' e le ' + pad(+h.slice(0, 2) + 2) + h.slice(2) : '' })) });
+    }
     return new Promise(ok => setTimeout(() => ok({ zona: wd === 1 ? 'verbania' : 'lontana', conferma: man ? 'manuale' : 'auto', nota: wd === 1 ? 'Nella tua zona passiamo il lunedì.' : 'Nella tua zona passiamo il mercoledì, a rotazione.', giorni }), 500));
   }
 

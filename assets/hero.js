@@ -92,15 +92,41 @@
     }
   }
 
-  /* ---- seek con gate (anti-deadlock) ---- */
-  let seekBusy = false, pendingTime = null;
+  /* ---- seek con gate (anti-deadlock) ----
+     Il gate aspetta 'seeked' prima del seek successivo. Ma 'seeked' può non arrivare mai: Safari lo salta se il tempo
+     richiesto è già quello attuale, e dopo un po' di inattività sospende il media element perdendo l'evento in volo.
+     Senza rete di sicurezza il gate restava chiuso per sempre: testi che scorrono, video fermo (bug del 20/09).
+     Quindi: niente seek se il tempo è già quello, un tempo massimo di attesa, e riapertura del gate al risveglio. */
+  let seekBusy = false, pendingTime = null, seekTimer = null;
+  function releaseSeek() {
+    clearTimeout(seekTimer); seekTimer = null; seekBusy = false;
+    if (pendingTime !== null) { const t = pendingTime; pendingTime = null; requestSeek(t); }
+  }
   function requestSeek(t) {
     if (!video.duration || !isFinite(t)) return;
     if (seekBusy) { pendingTime = t; return; }
-    seekBusy = true; video.currentTime = t;
+    if (Math.abs(t - video.currentTime) < 0.004) return;   // già lì: Safari non manderebbe 'seeked'
+    seekBusy = true; pendingTime = null;
+    seekTimer = setTimeout(releaseSeek, 400);              // 'seeked' perso: si riparte da soli
+    try { video.currentTime = t; } catch (e) { releaseSeek(); }
   }
-  video.addEventListener('seeked', () => { seekBusy = false; if (pendingTime !== null) { const t = pendingTime; pendingTime = null; requestSeek(t); } });
-  video.addEventListener('error', () => { seekBusy = false; pendingTime = null; if (filmOn) filmFail(); else failVideo(); });
+  video.addEventListener('seeked', releaseSeek);
+  video.addEventListener('error', () => { clearTimeout(seekTimer); seekBusy = false; pendingTime = null; if (filmOn) filmFail(); else failVideo(); });
+  /* al ritorno sulla scheda (o dopo una lunga pausa) il browser può aver scaricato il video: si ricarica dal blob */
+  let waking = false;
+  function wakeHero() {
+    if (!scrubOn || filmOn || waking) return;
+    clearTimeout(seekTimer); seekBusy = false; pendingTime = null;
+    if (blobUrl && video.readyState < 2) {
+      waking = true; const done = () => { waking = false; };
+      video.src = blobUrl; video.load();
+      video.addEventListener('canplay', () => { done(); stage.classList.add('video-ready'); requestSeek(heroProgress() * video.duration); }, { once: true });
+      setTimeout(done, 6000);
+    } else { target = heroProgress(); shown = target; if (video.duration) requestSeek(shown * video.duration); }
+  }
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') wakeHero(); });
+  addEventListener('pageshow', wakeHero);
+  addEventListener('focus', wakeHero);
 
   /* ---- lerp con rAF che riposa ---- */
   let target = 0, shown = 0, rafId = null, lastTick = 0, heroOnScreen = true;
@@ -112,6 +138,7 @@
     const converged = Math.abs(target - shown) < 0.0005 && (loadK >= 1 || loadStart === null);
     if (converged) { shown = target; rafId = null; lastTick = 0; } else { rafId = requestAnimationFrame(tick); }
     if (video.duration) requestSeek(shown * video.duration);
+    else if (blobUrl && scrubOn && !filmOn && !waking && video.readyState === 0) wakeHero();
     updateCaptions(shown);
   }
   function onScroll() { if (!scrubOn) return; target = heroProgress(); if (rafId === null && heroOnScreen) rafId = requestAnimationFrame(tick); }

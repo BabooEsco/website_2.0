@@ -49,7 +49,7 @@
     form.querySelectorAll('input,select,textarea').forEach(el => el.classList.add('touched'));
     if (!form.checkValidity()) { msg.textContent = 'Controlla i campi evidenziati: ci servono per risponderti.'; form.querySelector(':invalid').focus(); return; }
     const data = Object.fromEntries(new FormData(form).entries());
-    const thanks = 'Grazie. Ti rispondiamo entro il prossimo giorno lavorativo.';
+    const thanks = form.getAttribute('data-thanks') || 'Grazie. Ti rispondiamo entro il prossimo giorno lavorativo.';
     const btn = form.querySelector('[type="submit"]'); if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Invio…'; }
     const payload = Object.assign({}, data, {
       oggetto: subject, origine, privacy: !!data.privacy, privacy_v: PRIVACY_V,

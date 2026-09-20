@@ -583,3 +583,39 @@ html.sim-open{overflow:hidden}
 .contacts b{font-family:var(--font-display);font-weight:400;font-size:1.2rem;display:block}
 .contacts small{color:var(--ink-soft)}
 @media (max-width:520px){.contacts li{grid-template-columns:1fr;gap:4px}}
+
+/* ---- Manutenzione: card dei servizi, cose da preparare, telefono della prenotazione (riusa .ticket-dialog) ---- */
+.servizi .card{text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:border-color .3s var(--ease-out),transform .3s var(--ease-out)}
+.servizi .card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.servizi .card p{flex:1 1 auto}
+.servizi .card .n{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--blue)}
+@media (max-width:1100px){.servizi.g4{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.servizi.g4{grid-template-columns:1fr}}
+.servizi .more{font:500 .78rem var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.ticks{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:10px}
+.ticks li{position:relative;padding-left:30px;line-height:1.5}
+.ticks li::before{content:"";position:absolute;left:0;top:.35em;width:16px;height:16px;border-radius:50%;background:var(--blue)}
+.ticks li::after{content:"";position:absolute;left:5px;top:.35em;width:4px;height:8px;margin-top:2px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.prenota-dialog .alt-link{margin:14px 0 0;font-size:.85rem;color:var(--ink-soft)}
+.prenota-dialog .ac-wrap{position:relative}
+.prenota-dialog .ac{position:absolute;left:0;right:0;top:100%;z-index:3;margin:4px 0 0;padding:4px;list-style:none;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 30px rgba(20,28,36,.14);max-height:216px;overflow:auto}
+.prenota-dialog .ac li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:9px 10px;border-radius:7px;cursor:pointer;font-size:.95rem}
+.prenota-dialog .ac li b{font-weight:500}
+.prenota-dialog .ac li small{color:var(--ink-soft);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em}
+.prenota-dialog .ac li:hover,.prenota-dialog .ac li:focus{background:var(--light);outline:none}
+.prenota-dialog .f input[type=number]{-moz-appearance:textfield}
+.prenota-dialog .days{display:grid;gap:14px}
+.prenota-dialog .day h3{margin:0 0 8px;font:500 .72rem/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.prenota-dialog .slots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.prenota-dialog .slot{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;transition:border-color .25s var(--ease-out),background .25s var(--ease-out)}
+.prenota-dialog .slot input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.prenota-dialog .slot b{font-weight:500;font-size:1.02rem}
+.prenota-dialog .slot small{font-size:.74rem;color:var(--ink-soft);line-height:1.3}
+.prenota-dialog .slot small.man{color:var(--blue)}
+.prenota-dialog .slot:hover{border-color:var(--swan)}
+.prenota-dialog .slot:has(input:checked){border-color:var(--blue);background:var(--light)}
+.prenota-dialog .slot:has(input:focus-visible){outline:3px solid var(--swan);outline-offset:2px}
+.prenota-dialog .days .more{background:none;border:0;padding:6px 0;color:var(--blue);font:inherit;font-size:.9rem;cursor:pointer;text-align:left;justify-self:start}
+.prenota-dialog .days .wait{margin:0}
+.prenota-dialog .quando-alt{margin:0;padding:12px 14px;background:var(--light);border-radius:10px;font-size:.95rem;line-height:1.5}
+.prenota-dialog .form-msg h2.when{color:var(--blue)}

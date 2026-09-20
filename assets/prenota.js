@@ -8,11 +8,16 @@
   const root = document.documentElement.getAttribute('data-root') || '';
   const PRIVACY_V = '2026-09';
   const ss = k => { try { return sessionStorage.getItem(k); } catch (e) { return null; } };
-  const DEMO = /[?&]demo=1/.test(location.search) && /^(stage\.baboo\.eu|localhost|127\.0\.0\.1)$/.test(location.hostname);
+  /* la demo resta accesa per tutta la visita su stage (sessionStorage), così vale anche arrivando dal footer o dalla pillola; ?demo=0 la spegne */
+  const STAGE = /^(stage\.baboo\.eu|localhost|127\.0\.0\.1)$/.test(location.hostname);
+  if (STAGE && /[?&]demo=1/.test(location.search)) { try { sessionStorage.setItem('baboo_demo', '1'); } catch (e) { } }
+  if (/[?&]demo=0/.test(location.search)) { try { sessionStorage.removeItem('baboo_demo'); } catch (e) { } }
+  const DEMO = STAGE && (/[?&]demo=1/.test(location.search) || ss('baboo_demo') === '1');
 
   const dlg = document.getElementById('prenota');
   const form = dlg && dlg.querySelector('#prenota-form');
   if (!dlg || !form) return;
+  if (DEMO) { const k = form.querySelector('.sim-top .kicker'); if (k) k.textContent = 'Manutenzione · demo'; }
   const epSlot = form.getAttribute('data-endpoint-slot') || (root + 'api/slot');
   const epBook = form.getAttribute('data-endpoint') || (root + 'api/prenotazione');
   const all = [...form.querySelectorAll('.step')];

@@ -596,7 +596,7 @@ html.sim-open{overflow:hidden}
 .ticks li{position:relative;padding-left:30px;line-height:1.5}
 .ticks li::before{content:"";position:absolute;left:0;top:.35em;width:16px;height:16px;border-radius:50%;background:var(--blue)}
 .ticks li::after{content:"";position:absolute;left:5px;top:.35em;width:4px;height:8px;margin-top:2px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-.prenota-dialog .alt-link{margin:14px 0 0;font-size:.85rem;color:var(--ink-soft)}
+.ticket-dialog .alt-link{margin:14px 0 0;font-size:.85rem;color:var(--ink-soft)}
 .prenota-dialog .ac-wrap{position:relative}
 .prenota-dialog .ac{position:absolute;left:0;right:0;top:100%;z-index:3;margin:4px 0 0;padding:4px;list-style:none;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 30px rgba(20,28,36,.14);max-height:216px;overflow:auto}
 .prenota-dialog .ac li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:9px 10px;border-radius:7px;cursor:pointer;font-size:.95rem}

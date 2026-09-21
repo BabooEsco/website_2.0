@@ -520,6 +520,8 @@ html.sim-open{overflow:hidden}
 /* ---------- Assistenza ---------- */
 .photo-hero.assistenza .bg img{object-position:50% 22%}
 @media (orientation:portrait){.photo-hero.assistenza .bg img{object-position:50% 30%}}
+.photo-hero.manutenzione .bg img{object-position:50% 60%}
+@media (orientation:portrait){.photo-hero.manutenzione .bg img{object-position:50% 50%}}
 .triage .card{display:flex;flex-direction:column;gap:10px;padding:28px 28px 24px}
 .triage .card .n{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--blue)}
 .triage .card h3{margin:0;font-size:1.35rem}

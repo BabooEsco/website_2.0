@@ -619,3 +619,23 @@ html.sim-open{overflow:hidden}
 .prenota-dialog .days .wait{margin:0}
 .prenota-dialog .quando-alt{margin:0;padding:12px 14px;background:var(--light);border-radius:10px;font-size:.95rem;line-height:1.5}
 .prenota-dialog .form-msg h2.when{color:var(--blue)}
+
+/* ---- /manutenzione/gestisci/: la prenotazione dal link della mail ---- */
+.page-hero .narrow{max-width:720px}
+#gestisci .g-box{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px}
+#gestisci .g-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+#gestisci .g-head .kicker b{font-weight:500}
+#gestisci .g-stato{font:500 .7rem var(--font-mono);letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--light);color:var(--ink-soft)}
+#gestisci .g-stato[data-s=confermata]{background:var(--blue);color:#fff}
+#gestisci .g-stato[data-s=annullata]{background:#EEE3E0;color:#8A3D2C}
+#gestisci .g-quando{font-size:1.7rem;font-weight:300;margin:.2em 0 .6em;color:var(--blue)}
+#gestisci .g-dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0 0 20px;font-size:.95rem}
+#gestisci .g-dl dt{font:500 .68rem/1.8 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+#gestisci .g-dl dd{margin:0}
+#gestisci .g-confirm,#gestisci .g-move{margin-top:16px;padding:16px;background:var(--light);border-radius:10px}
+#gestisci .g-confirm p,#gestisci .g-move p{margin:0 0 10px}
+#gestisci textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:400 .95rem var(--font-text);color:var(--ink);background:#fff;margin-bottom:12px;resize:vertical}
+#gestisci .lnk{background:none;border:0;padding:8px 0;color:var(--blue);font:inherit;font-size:.9rem;cursor:pointer}
+#gestisci .g-msg{min-height:1.3em;margin:10px 0 0;font-size:.9rem;color:#B5533C}
+#gestisci .g-late{margin-top:14px}
+#gestisci .g-done h2,#gestisci .g-gone h2{margin:0 0 .4em}

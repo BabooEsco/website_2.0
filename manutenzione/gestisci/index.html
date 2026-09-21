@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it" data-root="../../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La tua prenotazione · Manutenzione Baboo</title>
+<meta name="description" content="Giorno, ora e indirizzo della manutenzione prenotata. Disdici o chiedi uno spostamento.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#374350">
+<!-- DEPLOY STEP: sostituire og:url e og:image con URL assoluti del sito live -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Baboo ESCo">
+<meta property="og:title" content="La tua prenotazione · Manutenzione Baboo">
+<meta property="og:description" content="Giorno, ora e indirizzo della manutenzione prenotata. Disdici o chiedi uno spostamento.">
+<meta property="og:url" content="https://www.baboo.eu/manutenzione/gestisci/">
+<meta property="og:image" content="https://www.baboo.eu/assets/hero-ending.jpg">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preload" href="../../assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/baboo.css?v=20260921a">
+<link rel="stylesheet" href="../../assets/pages.css?v=20260921a">
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<div class="env" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="logo" href="../../" aria-label="Baboo Energy Service Company, home"><img class="dark" src="../../assets/logo-header.png" width="152" height="60" alt="Baboo Energy Service Company"><img class="lite" src="../../assets/logo-header-light.png" width="152" height="60" alt=""></a>
+    <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu"><span></span><span></span><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="../../baboo-casa/">Baboo Casa</a></li>
+      <li><a href="../../business/">Business</a></li>
+      <li>
+        <button class="has-sub" aria-expanded="false" aria-controls="sub-linee">Le linee <span class="caret" aria-hidden="true"></span></button>
+        <ul class="sub" id="sub-linee">
+          <li><a href="../../linee/solero/"><b>SOLERO</b><span>Fotovoltaico e accumulo</span></a></li>
+          <li><a href="../../linee/clima/"><b>CLIMA</b><span>Pompe di calore per riscaldare</span></a></li>
+          <li><a href="../../linee/miniclima/"><b>MINICLIMA</b><span>Climatizzazione split</span></a></li>
+          <li><a href="../../linee/mountainview/"><b>MOUNTAINVIEW</b><span>Serramenti</span></a></li>
+        </ul>
+      </li>
+      <li><a href="../../care/">Care</a></li>
+      <li><a href="../../showroom/">Showroom</a></li>
+      <li><a href="../../chi-siamo/">Chi siamo</a></li>
+      <li class="cta"><a class="btn btn-blue" href="../../canone/#simulatore">Calcola il tuo canone</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+<section class="page-hero reveal">
+  <div class="wrap">
+    <div class="part narrow">
+      <span class="eyebrow">Manutenzione programmata</span>
+      <h1>La tua prenotazione.</h1>
+      <p class="lede">Qui trovi giorno, ora e indirizzo dell'intervento. Se cambia qualcosa, puoi disdire fino al giorno prima o chiederci uno spostamento.</p>
+    </div>
+  </div>
+</section>
+<section class="sec alt reveal" aria-label="Dettaglio della prenotazione" id="gestisci">
+  <div class="wrap">
+    <div class="g-load part"><p class="hint">Leggo la prenotazione…</p></div>
+    <div class="g-card part" hidden>
+      <div class="g-box">
+        <div class="g-head"><span class="kicker">Prenotazione <b class="g-ref"></b></span><span class="g-stato" data-s=""></span></div>
+        <h2 class="g-quando"></h2>
+        <dl class="g-dl"><dt>Servizio</dt><dd class="g-servizio"></dd><dt>Indirizzo</dt><dd class="g-dove"></dd></dl>
+        <div class="g-actions" hidden>
+          <div class="row"><button type="button" class="btn btn-outline" data-g="ask-cancel">Disdici</button><button type="button" class="btn btn-blue" data-g="ask-move">Chiedi uno spostamento</button></div>
+          <div class="g-confirm" hidden><p>Vuoi annullare la prenotazione? Il posto torna libero per un altro cliente.</p><textarea rows="2" maxlength="300" placeholder="Se vuoi, dicci perché (facoltativo)"></textarea><div class="row"><button type="button" class="btn btn-slate" data-g="cancel">Sì, annulla</button><button type="button" class="lnk" data-g="back">No, la tengo</button></div></div>
+          <div class="g-move" hidden><p>Ti richiamiamo per trovare un altro giorno. La prenotazione resta com'è finché non ci sentiamo.</p><textarea rows="2" maxlength="300" placeholder="Es. meglio la settimana dopo, o solo il pomeriggio (facoltativo)"></textarea><div class="row"><button type="button" class="btn btn-blue" data-g="move">Chiedi lo spostamento</button><button type="button" class="lnk" data-g="back">Annulla</button></div></div>
+          <p class="g-msg err" role="alert"></p>
+        </div>
+        <p class="g-late small" hidden>Per disdire o spostare a meno di un giorno dall'intervento, chiamaci: <a href="tel:+39032363934">0323 63934</a>.</p>
+      </div>
+    </div>
+    <div class="g-gone part" hidden><div class="g-box"><h2>Questo link non è più valido.</h2><p>Per la tua prenotazione chiama lo <a href="tel:+39032363934">0323 63934</a>, oppure <a href="../../manutenzione/">prenota di nuovo</a>.</p></div></div>
+    <div class="g-done part" hidden><div class="g-box"><h2></h2><p></p></div></div>
+  </div>
+</section>
+<section class="sec reveal" aria-labelledby="h-prep2">
+  <div class="wrap two">
+    <div class="part"><span class="eyebrow">Il giorno dell'intervento</span><h2 id="h-prep2">Tre cose che fanno risparmiare tempo a tutti.</h2></div>
+    <div class="part">
+      <ul class="ticks">
+        <li><b>L'accesso all'impianto.</b> Locale caldaia aperto, unità esterna raggiungibile, quadro del fotovoltaico libero.</li>
+        <li><b>Il libretto d'impianto</b> e, se lo hai, l'ultimo rapporto di controllo.</li>
+        <li><b>La dichiarazione di conformità</b> dell'installazione, se non l'abbiamo fatta noi.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo foot-logo" href="../../" aria-label="Baboo Energy Service Company, home"><img src="../../assets/logo-baboo-light.png" width="192" height="80" alt="Baboo Energy Service Company"></a>
+        <p style="margin-top:14px;max-width:34ch">Una ESCo certificata progetta, installa, misura e resta. Omegna, Lago d'Orta.</p>
+        <p><a href="tel:+3932363934">0323 63934</a><br><a href="mailto:info@baboo.eu">info@baboo.eu</a></p>
+      </div>
+      <div><h4>Offerta</h4><ul><li><a href="../../baboo-casa/">Baboo Casa</a></li><li><a href="../../business/">Business</a></li><li><a href="../../care/">Care</a></li><li><a href="https://energy.baboo.eu" rel="noopener">Baboo Monitor</a></li></ul></div>
+      <div><h4>Le linee</h4><ul><li><a href="../../linee/solero/">SOLERO</a></li><li><a href="../../linee/clima/">CLIMA</a></li><li><a href="../../linee/miniclima/">MINICLIMA</a></li><li><a href="../../linee/mountainview/">MOUNTAINVIEW</a></li></ul></div>
+      <div><h4>Baboo</h4><ul><li><a href="../../chi-siamo/">Chi siamo</a></li><li><a href="../../showroom/">Showroom</a></li><li><a href="../../comunita/">Comunità energetiche</a></li><li><a href="../../che-cose-una-esco/">Che cos'è una ESCo</a></li><li><a href="../../come-lavoriamo/">Come lavoriamo</a></li><li><a href="../../faq/">Domande frequenti</a></li><li><a href="../../assistenza/">Assistenza</a></li><li><a href="../../manutenzione/">Manutenzione</a></li></ul></div>
+    </div>
+    <div class="legal-row">
+      <span>Baboo ESCo S.r.l. · Via Prati 1, 28887 Omegna (VB) · P.IVA 02300450034 · <span class="kiosk-trigger">ESCo certificata UNI CEI 11352</span></span>
+      <a href="../../privacy/">Privacy policy</a><a href="../../cookie/">Cookie policy</a>
+    </div>
+  </div>
+</footer>
+<a class="help-fab" href="../../assistenza/" aria-label="Serve aiuto? Vai all'assistenza"><span>Serve aiuto?</span><b class="q" aria-hidden="true">?</b></a>
+<script src="../../assets/site.js?v=20260921a" defer></script>
+<script src="../../assets/kiosk.js?v=4" defer></script>
+<script src="../../assets/gestisci.js?v=20260921a" defer></script>
+</body>
+</html>

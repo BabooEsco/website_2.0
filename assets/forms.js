@@ -10,7 +10,7 @@
   const root = document.documentElement.getAttribute('data-root') || '';
   const endpoint = form.getAttribute('data-endpoint') || (root + 'api/lead');
   const PRIVACY_V = '2026-09';
-  const NOMI = { solero: 'SOLERO', clima: 'CLIMA', miniclima: 'MINICLIMA', mountainview: 'MOUNTAINVIEW', casa: 'Baboo Casa', canone: 'Calcola il tuo canone', business: 'Business', care: 'Care', showroom: 'Showroom', faq: 'Domande frequenti', comunita: 'Comunità energetiche' };
+  const NOMI = { solero: 'SOLERO', clima: 'CLIMA', miniclima: 'MINICLIMA', mountainview: 'MOUNTAINVIEW', casa: 'Baboo Casa', canone: 'Calcola il tuo canone', business: 'Business', condominio: 'Condominio', care: 'Care', showroom: 'Showroom', faq: 'Domande frequenti', comunita: 'Comunità energetiche' };
   const PRESEL = { solero: 'Fotovoltaico e accumulo', clima: 'Riscaldamento e raffrescamento', miniclima: 'Riscaldamento e raffrescamento', mountainview: 'Serramenti', canone: null, casa: null };
   const ss = (k, v) => { try { if (v === undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k, v); } catch (e) { return null; } };
 
@@ -56,7 +56,7 @@
       pagina: location.pathname, pagina_da: ss('baboo_da_url') || '', referrer: ss('baboo_ref') || '',
       utm: utm || undefined, sim: sim || undefined,
       messaggio: data.note || data.description || data.messaggio || undefined,
-      segmento: data.tipo === 'Condominio' ? 'condominio' : data.tipo ? 'azienda' : undefined,
+      segmento: origine === 'condominio' ? 'condominio' : data.tipo === 'Ente pubblico' ? 'azienda' : data.tipo ? 'azienda' : undefined,
     });
     try {
       const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 12000);

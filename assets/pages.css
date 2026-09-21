@@ -140,6 +140,8 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
   @media (orientation:portrait){.hero.care:not(.film) .stage .poster{background-image:url("care-ending-v.jpg")}}
   .hero.business:not(.film) .stage .poster{background-image:url("business-ending.jpg")}
   @media (orientation:portrait){.hero.business:not(.film) .stage .poster{background-image:url("business-ending-v.jpg")}}
+  .hero.condominio:not(.film) .stage .poster{background-image:url("condominio-ending.jpg")}
+  @media (orientation:portrait){.hero.condominio:not(.film) .stage .poster{background-image:url("condominio-ending-v.jpg")}}
   .hero.baboo-casa:not(.film) .stage .poster{background-image:url("baboo-casa-ending.jpg")}
   @media (orientation:portrait){.hero.baboo-casa:not(.film) .stage .poster{background-image:url("baboo-casa-ending-v.jpg")}}
   .hero.showroom:not(.film) .stage .poster{background-image:url("showroom-ending.jpg")}
@@ -150,7 +152,7 @@ ul.checks.cols2 li{break-inside:avoid;margin:0 0 .7em}
 .schema .flow.on{stroke:var(--blue);opacity:1}
 .schema .dots.on{opacity:1}
 .schema .season{opacity:0;transition:opacity .6s var(--ease-out);font-size:10px;letter-spacing:.06em;fill:var(--blue)}
-.schema.ph-day .season.s-day,.schema.ph-eve .season.s-eve,.schema.ph-night .season.s-night,.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry,.schema.ph-l1 .season.s-l1,.schema.ph-l2 .season.s-l2,.schema.ph-l3 .season.s-l3,.schema.ph-fv .season.s-fv,.schema.ph-pdc .season.s-pdc,.schema.ph-inv .season.s-inv,.schema.ph-ev .season.s-ev,.schema.ph-casa .season.s-casa,.schema.ph-solare .season.s-solare,.schema.ph-indip .season.s-indip{opacity:1}
+.schema.ph-day .season.s-day,.schema.ph-eve .season.s-eve,.schema.ph-night .season.s-night,.schema.ph-win .season.s-win,.schema.ph-sum .season.s-sum,.schema.ph-acs .season.s-acs,.schema.ph-air .season.s-air,.schema.ph-mid .season.s-mid,.schema.ph-dry .season.s-dry,.schema.ph-l1 .season.s-l1,.schema.ph-l2 .season.s-l2,.schema.ph-l3 .season.s-l3,.schema.ph-ct .season.s-ct,.schema.ph-fv .season.s-fv,.schema.ph-pdc .season.s-pdc,.schema.ph-inv .season.s-inv,.schema.ph-ev .season.s-ev,.schema.ph-casa .season.s-casa,.schema.ph-solare .season.s-solare,.schema.ph-indip .season.s-indip{opacity:1}
 /* schema CLIMA: ventola, aria, termosifone, acqua calda */
 .schema .fan{transform-box:fill-box;transform-origin:center}
 .schema.live .fan{animation:fanSpin 5s linear infinite}
@@ -641,3 +643,35 @@ html.sim-open{overflow:hidden}
 #gestisci .g-msg{min-height:1.3em;margin:10px 0 0;font-size:.9rem;color:#B5533C}
 #gestisci .g-late{margin-top:14px}
 #gestisci .g-done h2,#gestisci .g-gone h2{margin:0 0 .4em}
+
+/* ---------- Condominio: una palazzina, quattro cantieri (stessa logica di Business: la foto si sposta, il disegno si accende) ---------- */
+.hero.condominio .scrim{background:linear-gradient(90deg,rgba(20,28,36,.56) 0%,rgba(20,28,36,.30) 45%,rgba(20,28,36,.08) 100%),radial-gradient(ellipse 120% 90% at 50% 45%,rgba(5,8,12,0) 45%,rgba(5,8,12,.32) 100%)}
+.cross{margin-top:28px;color:var(--ink-soft)}
+.schema.condominio .scene.sc-all{opacity:1}
+.schema.condominio .scene img{transition:transform 5.2s linear,object-position 5.2s linear;object-position:50% 50%}
+.schema.condominio.live.ph-ct .scene img{transform:scale(1.2);object-position:30% 100%}
+.schema.condominio.live.ph-inv .scene img{transform:scale(1.14);object-position:28% 55%}
+.schema.condominio.live.ph-fv .scene img{transform:scale(1.16);object-position:30% 10%}
+.schema.condominio.live.ph-ev .scene img{transform:scale(1.2);object-position:80% 100%}
+.schema.condominio .hub rect{transition:stroke .8s var(--ease-out),fill .8s var(--ease-out)}
+.schema.condominio.live .hub rect{stroke:var(--blue);fill:rgba(160,190,210,.16)}
+.schema.condominio .chart{stroke:var(--blue)}
+.schema.condominio .pv rect,.schema.condominio .win,.schema.condominio .door,.schema.condominio .ct rect,.schema.condominio .ev rect,.schema.condominio .ev path{transition:fill .8s var(--ease-out),stroke .8s var(--ease-out)}
+.schema.condominio .pv rect{fill:rgba(78,127,163,.12)}
+.schema.condominio.ph-fv .pv rect{fill:rgba(78,127,163,.38)}
+.schema.condominio.ph-fv .pv rect,.schema.condominio.ph-fv .pv line{stroke:var(--blue)}
+.schema.condominio .ct rect:first-child{fill:rgba(160,190,210,.08)}
+.schema.condominio.ph-ct .ct rect,.schema.condominio.ph-ct .ct line{stroke:var(--blue)}
+.schema.condominio.ph-ct .ct rect{fill:rgba(160,190,210,.25)}
+.schema.condominio .win,.schema.condominio .door{fill:transparent}
+.schema.condominio.ph-inv .win{fill:rgba(160,190,210,.38);stroke:var(--blue)}
+.schema.condominio.ph-ev .ev rect,.schema.condominio.ph-ev .ev path,.schema.condominio.ph-ev .ev circle{stroke:var(--blue)}
+.schema.condominio.ph-ev .ev rect:first-child{fill:rgba(160,190,210,.3)}
+.schema.condominio .ground{stroke:var(--line)}
+.schema.condominio.scene .scenes::after{background:rgba(255,255,255,.62)}
+@media (prefers-reduced-motion:reduce){.schema.condominio .scene img{transition:none;transform:none;object-position:50% 50%}}
+/* due partner affiancati (Condominio) */
+.partners .duo{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:8px}
+.partners .duo .partner{border-top:1px solid var(--line);padding-top:18px}
+.partners .duo .logo img{max-height:40px;width:auto;height:auto}
+@media (max-width:640px){.partners .duo{grid-template-columns:1fr}}

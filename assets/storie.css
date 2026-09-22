@@ -1,0 +1,66 @@
+/* Storie dei clienti — pagina /storie/ e blocchi "La parola ai clienti" nelle altre pagine.
+   Stesso design system di baboo.css (token :root). Card verticali 9:16: i video sono Shorts. */
+
+/* ---------- filtri ---------- */
+.st-filtri{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+.st-chip{display:inline-flex;align-items:baseline;gap:.5em;padding:10px 14px;border:1px solid var(--swan);border-radius:4px;background:var(--white);color:var(--ink);font:400 .9rem/1 var(--font-text);cursor:pointer;transition:border-color .3s var(--ease-out),background-color .3s var(--ease-out),color .3s var(--ease-out)}
+.st-chip b{font-family:var(--font-mono);font-weight:400;letter-spacing:.06em;color:var(--slate)}
+.st-chip:hover{border-color:var(--blue)}
+.st-chip.is-on{background:var(--slate);border-color:var(--slate);color:#fff}
+.st-chip.is-on b{color:var(--swan)}
+.st-link{background:none;border:0;padding:0;color:var(--blue);font:inherit;cursor:pointer;text-decoration:underline}
+
+/* ---------- griglia e card ---------- */
+.st-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+@media (max-width:1100px){.st-grid{grid-template-columns:repeat(3,1fr);gap:24px}}
+@media (max-width:760px){.st-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+.st-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:border-color .25s var(--ease-soft),transform .25s var(--ease-soft)}
+.st-card:hover{border-color:var(--swan);transform:translateY(-2px)}
+.st-card[hidden]{display:none}
+.st-play{position:relative;display:block;width:100%;aspect-ratio:9/16;padding:0;border:0;background:var(--slate);cursor:pointer;text-align:left;color:#fff;overflow:hidden}
+.st-play img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+.st-card:hover .st-play img{transform:scale(1.03)}
+.st-play::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,28,36,0) 45%,rgba(20,28,36,.82) 100%)}
+.st-play:focus-visible{outline:3px solid var(--swan);outline-offset:-3px}
+.st-tipo,.st-durata{position:absolute;top:12px;z-index:1;font:500 .68rem/1 var(--font-text);letter-spacing:.1em;text-transform:uppercase;padding:6px 9px;border-radius:2px}
+.st-tipo{left:12px;background:var(--blue);color:#fff}
+.st-durata{right:12px;background:rgba(20,28,36,.6);color:#fff;font-family:var(--font-mono);letter-spacing:.04em;text-transform:none}
+.st-durata:empty{display:none}
+.st-ico{position:absolute;left:50%;top:50%;z-index:1;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(6px);transition:background-color .3s var(--ease-out),transform .3s var(--ease-out)}
+.st-ico::before{content:"";position:absolute;left:26px;top:20px;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent #fff}
+.st-card:hover .st-ico{background:var(--blue);transform:scale(1.06)}
+.st-nome{position:absolute;left:16px;right:16px;bottom:16px;z-index:1;display:flex;flex-direction:column;gap:2px;text-shadow:0 1px 2px rgba(5,8,12,.8)}
+.st-nome b{font-family:var(--font-display);font-weight:300;font-size:1.35rem;line-height:1.15;color:#fff}
+.st-nome span{font-size:.9rem;color:#fff}
+.st-nome small{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--swan)}
+.st-txt{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px}
+.st-int{margin:0;color:var(--ink);font-size:.95rem;line-height:1.45}
+.st-cit{margin:0;color:var(--ink-soft);font-size:.92rem;font-style:italic;line-height:1.45}
+.st-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.st-badge{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;color:var(--slate);border:1px solid var(--line);border-radius:2px;padding:4px 7px}
+.st-vuoto{margin-top:24px}
+
+/* ---------- blocco "La parola ai clienti" nelle altre pagine ---------- */
+.st-block .st-grid{grid-template-columns:repeat(3,1fr)}
+@media (max-width:760px){.st-block .st-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.st-block .st-grid{grid-template-columns:1fr;max-width:340px}}
+.st-block .row{margin-top:32px}
+.st-block[hidden]{display:none}
+
+/* ---------- lightbox: cornice verticale come il simulatore ---------- */
+.st-dialog{border:0;background:transparent;padding:0;max-width:none;max-height:none;width:100vw;height:100dvh;margin:0;inset:0;display:none;align-items:center;justify-content:center}
+.st-dialog[open]{display:flex}
+.st-dialog::backdrop{background:rgba(20,28,36,.72);backdrop-filter:blur(8px)}
+.st-frame{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px}
+.st-screen{width:min(420px,calc((100dvh - 140px) * .5625));aspect-ratio:9/16;background:#000;border-radius:18px;overflow:hidden;box-shadow:0 30px 80px rgba(5,8,12,.6)}
+.st-screen iframe{width:100%;height:100%;border:0;display:block}
+.st-close{position:absolute;top:-6px;right:-52px;width:44px;height:44px;border-radius:50%;border:1px solid var(--swan);background:rgba(255,255,255,.1);color:#fff;font:300 1.6rem/1 var(--font-text);cursor:pointer}
+.st-close:hover{background:var(--blue)}
+.st-nota{margin:0;color:var(--swan);font-size:.8rem}
+@media (max-width:560px){
+  .st-frame{width:100%;height:100%;gap:0}
+  .st-screen{width:100%;height:100%;border-radius:0;aspect-ratio:auto}
+  .st-close{top:14px;right:14px;z-index:2;background:rgba(20,28,36,.6)}
+  .st-nota{display:none}
+}
+@media (prefers-reduced-motion:reduce){.st-card,.st-play img,.st-ico{transition:none}}

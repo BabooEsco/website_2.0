@@ -26,6 +26,7 @@ jobs:
           rsync -az --delete \
             --exclude '.git' --exclude '.github' --exclude 'review' --exclude 'Claude outputs' \
             --exclude '*.md' --exclude '*.tgz' --exclude '*.py' \
+            --exclude 'blog/' --exclude 'blog-media/' \
             ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/stage/
       - name: Verifica
         run: curl -sI https://stage.baboo.eu/ | head -3

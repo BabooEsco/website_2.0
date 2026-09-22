@@ -1,0 +1,51 @@
+/* Le persone di Baboo — sezione team di /chi-siamo/ (riempita da team.js con /team.json).
+   Stesso design system di baboo.css (token :root). Card con foto quadrata, nome, ruolo, riga di
+   presentazione e, solo dove c'è, il pulsante del video. */
+
+.team-block[hidden]{display:none}
+.team-block .head{max-width:70ch}
+.team-block .head .lede{margin-top:.6em}
+.tm-gruppo{font-family:var(--font-mono);font-weight:400;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:8px 0 18px;padding-top:18px;border-top:1px solid var(--line)}
+.tm-gruppo:first-child{border-top:0;padding-top:0}
+.tm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-bottom:36px}
+.tm-grid:last-child{margin-bottom:0}
+@media (max-width:1100px){.tm-grid{grid-template-columns:repeat(3,1fr);gap:24px}}
+@media (max-width:760px){.tm-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media (max-width:420px){.tm-grid{grid-template-columns:1fr;max-width:340px}}
+
+.tm-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:border-color .25s var(--ease-soft),transform .25s var(--ease-soft)}
+.tm-card:hover{border-color:var(--swan);transform:translateY(-2px)}
+.tm-foto{margin:0;aspect-ratio:1/1;background:var(--light);overflow:hidden}
+.tm-foto img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+.tm-card:hover .tm-foto img{transform:scale(1.03)}
+.tm-txt{display:flex;flex-direction:column;gap:6px;padding:16px 18px 18px}
+.tm-nome{font-family:var(--font-display);font-weight:300;font-size:1.3rem;line-height:1.15;color:var(--ink);margin:0}
+.tm-ruolo{margin:0;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep)}
+.tm-bio{margin:4px 0 0;color:var(--ink-soft);font-size:.92rem;line-height:1.45}
+.tm-play{display:inline-flex;align-items:center;gap:10px;margin-top:auto;padding:10px 0 0;border:0;background:none;color:var(--slate);font:500 .9rem/1 var(--font-text);cursor:pointer;text-align:left}
+.tm-play:hover{color:var(--blue-deep)}
+.tm-play:focus-visible{outline:3px solid var(--swan);outline-offset:3px;border-radius:2px}
+.tm-ico{position:relative;flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--slate);transition:background-color .3s var(--ease-out),border-color .3s var(--ease-out)}
+.tm-ico::before{content:"";position:absolute;left:13px;top:10px;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent var(--slate);transition:border-left-color .3s var(--ease-out)}
+.tm-play:hover .tm-ico{background:var(--blue);border-color:var(--blue)}
+.tm-play:hover .tm-ico::before{border-left-color:#fff}
+
+/* ---------- player ---------- */
+.tm-dialog{border:0;background:transparent;padding:0;max-width:none;max-height:none;width:100vw;height:100dvh;margin:0;inset:0;display:none;align-items:center;justify-content:center}
+.tm-dialog[open]{display:flex}
+.tm-dialog::backdrop{background:rgba(20,28,36,.72);backdrop-filter:blur(8px)}
+.tm-frame{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px}
+.tm-screen{width:min(960px,calc(100vw - 80px),calc((100dvh - 140px) * 1.7778));aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(5,8,12,.6)}
+.tm-dialog.is-vert .tm-screen{width:min(420px,calc((100dvh - 140px) * .5625));aspect-ratio:9/16;border-radius:18px}
+.tm-screen iframe{width:100%;height:100%;border:0;display:block}
+.tm-close{position:absolute;top:-6px;right:-52px;width:44px;height:44px;border-radius:50%;border:1px solid var(--swan);background:rgba(255,255,255,.1);color:#fff;font:300 1.6rem/1 var(--font-text);cursor:pointer}
+.tm-close:hover{background:var(--blue)}
+.tm-nota{margin:0;color:var(--swan);font-size:.8rem}
+@media (max-width:560px){
+  .tm-frame{width:100%;height:100%;gap:0;justify-content:center}
+  .tm-screen,.tm-dialog.is-vert .tm-screen{width:100%;border-radius:0}
+  .tm-dialog.is-vert .tm-screen{height:100%;aspect-ratio:auto}
+  .tm-close{top:14px;right:14px;z-index:2;background:rgba(20,28,36,.6)}
+  .tm-nota{display:none}
+}
+@media (prefers-reduced-motion:reduce){.tm-card,.tm-foto img,.tm-ico{transition:none}}

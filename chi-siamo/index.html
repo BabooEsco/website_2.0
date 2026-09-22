@@ -20,6 +20,7 @@
 <link rel="preload" href="../assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/baboo.css?v=20260921d">
 <link rel="stylesheet" href="../assets/pages.css?v=20260921d">
+<link rel="stylesheet" href="../assets/team.css?v=20260922a">
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
@@ -69,6 +70,14 @@
       <div class="tile part"><span class="num">UNI 11339</span><span class="lab">Esperto in Gestione dell'Energia: chi firma le nostre diagnosi energetiche ha una certificazione personale, verificabile.</span></div>
       <div class="tile part"><span class="num">MONITOR</span><span class="lab">La telemetria su ogni impianto Baboo. È la prova che quello che promettiamo si può misurare.</span></div>
     </div>
+  </div>
+</section>
+<!-- Le persone di Baboo (piano-team-chi-siamo-2026-09-22.md): il blocco nasce vuoto e nascosto; assets/team.js lo riempie
+     leggendo /team.json, generato sul VPS da build_team.py con le schede dipendente di Odoo etichettate "Sito web". -->
+<section class="sec reveal team-block" data-team aria-labelledby="h-team" hidden>
+  <div class="wrap">
+    <div class="head part"><span class="eyebrow">Chi lo fa</span><h2 id="h-team">Le persone di Baboo</h2><p class="lede">Un impianto Baboo è un impegno che dura anni, e il rischio che tutto funzioni come deve lo gestiamo noi. Queste sono le persone che lo fanno ogni giorno, con nome e cognome.</p></div>
+    <div data-team-grid></div>
   </div>
 </section>
 <!-- Partner di marca (Guida PM v1.2 §10): logo + una riga di ruolo + max due righe. Loghi forniti da Renato il 16/09 (assets/partner-*.png, 3x per lo slot da 44 px); area di rispetto e versioni ammesse da verificare sui brand kit. Righe di ruolo: bozza, passano dal copywriter; quella di Edison va validata da Edison. -->
@@ -144,5 +153,6 @@
 <a class="help-fab" href="../assistenza/" aria-label="Serve aiuto? Vai all'assistenza"><span>Serve aiuto?</span><b class="q" aria-hidden="true">?</b></a>
 <script src="../assets/site.js?v=20260921d" defer></script>
 <script src="../assets/kiosk.js?v=4" defer></script>
+<script src="../assets/team.js?v=20260922a" defer></script>
 </body>
 </html>

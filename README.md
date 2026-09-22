@@ -12,6 +12,7 @@ Sito statico: HTML, CSS e JavaScript puri, nessun build step. `index.html` e' la
 - Pagine interne: sono generate da `design/build_pages.py` (nella cartella madre). Modificare li' e rigenerare, non a mano.
 - Canoni Baboo Casa: solo in `assets/data/canoni.json`. Nessun prezzo va scritto nell'HTML.
 - Video hero e immagini: `assets/`. I file grezzi restano in `review/`, che non fa parte del repository.
+- Sezione "Le persone di Baboo" in Chi siamo: non si modifica nell'HTML. Le persone vivono nelle schede dipendente di Odoo (etichetta "Sito web", tab Sito web); sul VPS `build_team.py` scrive `team.json` e `team-media/` (esclusi dal rsync) e `assets/team.js` riempie il blocco. Piano: `piano-team-chi-siamo-2026-09-22.md` nel progetto DA VINCI.
 
 ## Vincoli di marchio (guida PM v1.1)
 Il marchio si scrive Baboo; le linee (SOLERO, CLIMA, MINICLIMA, MAXICLIMA, THERMO, MOUNTAINVIEW, MONITOR) in maiuscolo. Canoni sempre "da", su 120 mesi, con rimando al sopralluogo e nota art. 106 TUB. Nessuno SLA numerico. Banda slate con CTA e MONITOR presenti in ogni pagina.

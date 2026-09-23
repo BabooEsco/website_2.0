@@ -11,6 +11,7 @@ Sito statico: HTML, CSS e JavaScript puri, nessun build step. `index.html` e' la
 - Testi e struttura della Home: `index.html`.
 - Pagine interne: sono generate da `design/build_pages.py` (nella cartella madre). Modificare li' e rigenerare, non a mano.
 - Canoni Baboo Casa: solo in `assets/data/canoni.json`. Nessun prezzo va scritto nell'HTML.
+- Condizioni Generali di Contratto (`/condizioni-generali/`): il testo sta in `design/condizioni_generali.py` (codice, revisione, articoli); per una nuova revisione si aggiorna lì e si rigenera. Il testo pubblicato è quello validato dal legale, non si riscrive.
 - Video hero e immagini: `assets/`. I file grezzi restano in `review/`, che non fa parte del repository.
 - Sezione "Le persone di Baboo" in Chi siamo: non si modifica nell'HTML. Le persone vivono nelle schede dipendente di Odoo (etichetta "Sito web", tab Sito web); sul VPS `build_team.py` scrive `team.json` e `team-media/` (esclusi dal rsync) e `assets/team.js` riempie il blocco. Piano: `piano-team-chi-siamo-2026-09-22.md` nel progetto DA VINCI.
 

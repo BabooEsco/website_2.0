@@ -53,3 +53,12 @@
 .bp-body th{font-weight:500;color:var(--ink)}
 .bp-body a{text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;text-decoration-color:var(--swan)}
 .bp-body a:hover{text-decoration-color:var(--blue-deep)}
+
+/* ---------- barra degli argomenti (indice e archivi) ---------- */
+.bp-tags{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+.bp-tags a{display:inline-block;padding:7px 15px;border:1px solid var(--line);border-radius:100px;font-size:.88rem;line-height:1.3;color:var(--ink-soft);transition:border-color .25s var(--ease-soft),color .25s var(--ease-soft),background-color .25s var(--ease-soft)}
+.bp-tags a:hover{border-color:var(--swan);color:var(--ink)}
+.bp-tags a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.bp-tags a.is-on{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.bp-tags a.is-on:hover{color:var(--white)}
+@media (max-width:640px){.bp-tags{gap:8px;margin-bottom:24px}.bp-tags a{padding:6px 13px;font-size:.84rem}}

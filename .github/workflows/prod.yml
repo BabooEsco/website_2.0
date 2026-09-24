@@ -28,4 +28,5 @@ jobs:
             --exclude 'blog/' --exclude 'blog-media/' --exclude 'storie/' --exclude 'storie-media/' --exclude 'testimonianze.json' --exclude 'team-media/' --exclude 'team.json' \
             ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/www/
       - name: Verifica
-        run: curl -sI https://www.baboo.eu/ | head -3
+        # Prima del cambio DNS www.baboo.eu punta ancora al vecchio sito: si interroga il VPS direttamente, con l'Host giusto.
+        run: curl -sI -H 'Host: www.baboo.eu' http://${{ secrets.VPS_HOST }}/ | head -3

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Pagine del sito. Il blog ha la sua sitemap in /blog/sitemap.xml (generata sul server). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.baboo.eu/</loc></url>
+  <url><loc>https://www.baboo.eu/baboo-casa/</loc></url>
+  <url><loc>https://www.baboo.eu/condominio/</loc></url>
+  <url><loc>https://www.baboo.eu/business/</loc></url>
+  <url><loc>https://www.baboo.eu/linee/solero/</loc></url>
+  <url><loc>https://www.baboo.eu/linee/clima/</loc></url>
+  <url><loc>https://www.baboo.eu/linee/miniclima/</loc></url>
+  <url><loc>https://www.baboo.eu/linee/mountainview/</loc></url>
+  <url><loc>https://www.baboo.eu/care/</loc></url>
+  <url><loc>https://www.baboo.eu/assistenza/</loc></url>
+  <url><loc>https://www.baboo.eu/manutenzione/</loc></url>
+  <url><loc>https://www.baboo.eu/showroom/</loc></url>
+  <url><loc>https://www.baboo.eu/canone/</loc></url>
+  <url><loc>https://www.baboo.eu/chi-siamo/</loc></url>
+  <url><loc>https://www.baboo.eu/storie/</loc></url>
+  <url><loc>https://www.baboo.eu/comunita/</loc></url>
+  <url><loc>https://www.baboo.eu/che-cose-una-esco/</loc></url>
+  <url><loc>https://www.baboo.eu/faq/</loc></url>
+  <url><loc>https://www.baboo.eu/come-lavoriamo/</loc></url>
+  <url><loc>https://www.baboo.eu/valori/</loc></url>
+  <url><loc>https://www.baboo.eu/codice-esco/</loc></url>
+  <url><loc>https://www.baboo.eu/riservatezza/</loc></url>
+  <url><loc>https://www.baboo.eu/glossario/</loc></url>
+  <url><loc>https://www.baboo.eu/condizioni-generali/</loc></url>
+</urlset>

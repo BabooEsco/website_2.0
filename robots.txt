@@ -1,0 +1,8 @@
+# www.baboo.eu
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /manutenzione/gestisci/
+
+Sitemap: https://www.baboo.eu/sitemap.xml
+Sitemap: https://www.baboo.eu/blog/sitemap.xml
